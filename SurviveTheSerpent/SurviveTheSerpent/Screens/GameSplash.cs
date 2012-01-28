@@ -70,6 +70,15 @@ namespace SurviveTheSerpent.Screens
                 System.Console.WriteLine("right button code here");
             }
 
+
+            // TODO: Figure out the direction of the snake head
+            double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
+            SnakeHead.ChangeDirectionByAngle(angle);
+
+            // TODO: Snake head consumes food it collides with
+
+            // TODO: Randomly generate more food
+
 		}
 
 		void CustomDestroy()

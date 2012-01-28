@@ -133,9 +133,6 @@
       <DependentUpon>GameOverScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\GameSplash.cs" />
-    <Compile Include="Screens\GameSplash.Events.cs">
-      <DependentUpon>GameSplash.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\GameSplash.Generated.cs">
       <DependentUpon>GameSplash.cs</DependentUpon>
     </Compile>

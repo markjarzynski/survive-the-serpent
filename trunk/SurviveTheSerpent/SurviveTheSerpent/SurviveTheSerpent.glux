@@ -142,20 +142,11 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <Properties />
-          <CustomProperty>
-            <Type>Single</Type>
-            <Member>X</Member>
-            <Time>0</Time>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>Single</Type>
-            <Member>Y</Member>
-            <Time>0</Time>
-          </CustomProperty>
           <ContainerType>Screen</ContainerType>
-          <SourceType>Entity</SourceType>
-          <SourceClassType>Entities\SnakeBody</SourceClassType>
-          <InstanceName>SnakeBody</InstanceName>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\SnakeBody</SourceClassGenericType>
+          <InstanceName>SnakeBodyList</InstanceName>
           <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>

@@ -207,18 +207,96 @@ namespace SurviveTheSerpent.Screens
 
                 SnakeHead.Move(SnakeBodyList);
 
-                // Move the snake body after the snake head
                 SnakeBodyList[0].setX(SnakeHead.previousX);
                 SnakeBodyList[0].setY(SnakeHead.previousY);
                 SnakeBodyList[0].RotationZ = (float)Math.Atan2(SnakeHead.Y - SnakeBodyList[0].previousY, SnakeHead.X - SnakeBodyList[0].previousX);
-                
 
+                if (Math.Abs(SnakeBodyList[0].RotationZ - Math.PI / 4) < 0.01)
+                {
+                    SnakeBodyList[0].Elbow();
+                    SnakeBodyList[0].RotationZ = 0.0f;
+                }
+                else if (Math.Abs(SnakeBodyList[0].RotationZ - Math.PI * 3 / 4) < 0.01)
+                {
+                    SnakeBodyList[0].Elbow();
+                    SnakeBodyList[0].RotationZ = (float)Math.PI / 2;
+                }
+                else if (Math.Abs(SnakeBodyList[0].RotationZ - Math.PI * 5 / 4) < 0.01)
+                {
+                    SnakeBodyList[0].Elbow();
+                    SnakeBodyList[0].RotationZ = (float)Math.PI;
+                }
+                else if (Math.Abs(SnakeBodyList[0].RotationZ - Math.PI * 7 / 4) < 0.01)
+                {
+                    SnakeBodyList[0].Elbow();
+                    SnakeBodyList[0].RotationZ = (float)Math.PI * 3 / 2;
+                }
+                else
+                {
+                    SnakeBodyList[0].Straight();
+                }
+
+                float px = SnakeBodyList[0].X - SnakeBodyList[0].previousX;
+                float py = SnakeBodyList[0].Y - SnakeBodyList[0].previousY;
+                float hx = SnakeBodyList[0].X - SnakeHead.X;
+                float hy = SnakeBodyList[0].Y - SnakeHead.Y;
+
+                if( py * hx > 0  ) 
+                {
+                    SnakeBodyList[0].RotationZ += (float)Math.PI;
+                }
+                if (px * hy < 0)
+                {
+                    SnakeBodyList[0].RotationZ += (float)Math.PI;
+                }
+
+                // Move the snake body after the snake head
                 for( int i = 1; i < SnakeBodyList.Count; i++ )
                 {
                     SnakeBodyList[i].setX(SnakeBodyList[i - 1].previousX);
                     SnakeBodyList[i].setY(SnakeBodyList[i - 1].previousY);
                     SnakeBodyList[i].RotationZ = (float)Math.Atan2(SnakeBodyList[i - 1].Y - SnakeBodyList[i].previousY, SnakeBodyList[i - 1].X - SnakeBodyList[i].previousX);
-                   
+
+                    if (Math.Abs(SnakeBodyList[i].RotationZ - Math.PI / 4) < 0.01)
+                    {
+                        SnakeBodyList[i].Elbow();
+                        SnakeBodyList[i].RotationZ = 0.0f;
+                    }
+                    else if (Math.Abs(SnakeBodyList[i].RotationZ - Math.PI * 3 / 4) < 0.01)
+                    {
+                        SnakeBodyList[i].Elbow();
+                        SnakeBodyList[i].RotationZ = (float)Math.PI / 2;
+                    }
+                    else if (Math.Abs(SnakeBodyList[i].RotationZ - Math.PI * 5 / 4) < 0.01)
+                    {
+                        SnakeBodyList[i].Elbow();
+                        SnakeBodyList[i].RotationZ = (float)Math.PI;
+                    }
+                    else if (Math.Abs(SnakeBodyList[i].RotationZ - Math.PI * 7 / 4) < 0.01)
+                    {
+                        SnakeBodyList[i].Elbow();
+                        SnakeBodyList[i].RotationZ = (float)Math.PI * 3 / 2;
+                    }
+                    else
+                    {
+                        SnakeBodyList[i].Straight();
+                    }
+
+                    px = SnakeBodyList[i].X - SnakeBodyList[i].previousX;
+                    py = SnakeBodyList[i].Y - SnakeBodyList[i].previousY;
+                    hx = SnakeBodyList[i].X - SnakeBodyList[i-1].X;
+                    hy = SnakeBodyList[i].Y - SnakeBodyList[i-1].Y;
+
+                    if (py * hx > 0)
+                    {
+                        SnakeBodyList[i].RotationZ += (float)Math.PI;
+                    }
+                    if (px * hy < 0)
+                    {
+                        SnakeBodyList[i].RotationZ += (float)Math.PI;
+                    }
+
+
                 }
 
                 SnakeTail.RotationZ = (float)Math.Atan2(SnakeBodyList.Last.Y - SnakeBodyList.Last.previousY, SnakeBodyList.Last.X - SnakeBodyList.Last.previousX);

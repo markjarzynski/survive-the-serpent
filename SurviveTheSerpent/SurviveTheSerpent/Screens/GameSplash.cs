@@ -48,6 +48,26 @@ namespace SurviveTheSerpent.Screens
 
 		void CustomActivity(bool firstTimeCalled)
 		{
+            UpdatePlayer();
+
+            if (!SnakeHead.canMove && (Player.direction != Entities.Player.Direction.Still))
+            {
+                SnakeHead.canMove = true;
+            }
+
+
+            // TODO: Figure out the direction of the snake head
+            double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
+            SnakeHead.ChangeDirectionByAngle(angle);
+
+            // TODO: Snake head consumes food it collides with
+
+            // TODO: Randomly generate more food
+
+		}
+
+        void UpdatePlayer()
+        {
             if (cursor.PrimaryClick && upButton.HasCursorOver(cursor))
             {
                 Player.SetDirection(Entities.Player.Direction.Up);
@@ -72,22 +92,10 @@ namespace SurviveTheSerpent.Screens
                 //Player.Y -= 1;
                 System.Console.WriteLine("right button code here");
             }
+            Player.Body.CollideAgainstMove(CollisionFile, 0, 1);
 
-            if (!SnakeHead.canMove && (Player.direction != Entities.Player.Direction.Still))
-            {
-                SnakeHead.canMove = true;
-            }
+        }
 
-
-            // TODO: Figure out the direction of the snake head
-            double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
-            SnakeHead.ChangeDirectionByAngle(angle);
-
-            // TODO: Snake head consumes food it collides with
-
-            // TODO: Randomly generate more food
-
-		}
 
 		void CustomDestroy()
 		{

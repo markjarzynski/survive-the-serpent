@@ -20,6 +20,7 @@ using SurviveTheSerpent.Entities;
 using FlatRedBall;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
+using FlatRedBall.Math.Geometry;
 
 #if XNA4
 using Color = Microsoft.Xna.Framework.Color;
@@ -58,6 +59,11 @@ namespace SurviveTheSerpent.Entities
 		private static Scene SceneFile;
 
 		private Scene EntireScene;
+		private AxisAlignedRectangle mBody;
+		public AxisAlignedRectangle Body
+		{
+			get{ return mBody;}
+		}
 		protected Layer LayerProvidedByContainer = null;
 
         public Obstacle(string contentManagerName) :
@@ -84,6 +90,7 @@ namespace SurviveTheSerpent.Entities
 			{
 				EntireScene.Texts[i].AdjustPositionForPixelPerfectDrawing = true;
 			}
+			mBody = new AxisAlignedRectangle();
 
 
 			PostInitialize();
@@ -125,6 +132,10 @@ namespace SurviveTheSerpent.Entities
 			{
 				EntireScene.RemoveFromManagers(ContentManagerName != "Global");
 			}
+			if(Body != null)
+			{
+				ShapeManager.Remove(Body);
+			}
 
 
 
@@ -158,6 +169,11 @@ namespace SurviveTheSerpent.Entities
 
 			EntireScene.AddToManagers(layerToAddTo);
 			EntireScene.AttachAllDetachedTo(this, true);
+			ShapeManager.AddToLayer(mBody, layerToAddTo);
+			if(mBody.Parent == null)
+			{
+				mBody.AttachTo(this, true);
+			}
 
             X = oldX;
             Y = oldY;

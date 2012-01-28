@@ -2,7 +2,7 @@
 <ShapeCollectionSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <AxisAlignedRectangleSaves>
     <AxisAlignedRectangleSave>
-      <X>-9</X>
+      <X>-8.5</X>
       <Y>0</Y>
       <Z>0</Z>
       <ScaleX>1.5</ScaleX>
@@ -14,7 +14,7 @@
       <Blue>0</Blue>
     </AxisAlignedRectangleSave>
     <AxisAlignedRectangleSave>
-      <X>9</X>
+      <X>8.49</X>
       <Y>0</Y>
       <Z>0</Z>
       <ScaleX>1.5</ScaleX>
@@ -27,7 +27,7 @@
     </AxisAlignedRectangleSave>
     <AxisAlignedRectangleSave>
       <X>0</X>
-      <Y>16</Y>
+      <Y>14.5</Y>
       <Z>0</Z>
       <ScaleX>10</ScaleX>
       <ScaleY>1.5</ScaleY>
@@ -39,7 +39,7 @@
     </AxisAlignedRectangleSave>
     <AxisAlignedRectangleSave>
       <X>0</X>
-      <Y>-16</Y>
+      <Y>-14.5</Y>
       <Z>0</Z>
       <ScaleX>10</ScaleX>
       <ScaleY>1.5</ScaleY>

@@ -88,9 +88,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
-    <None Include="Entities\SnakeBody\AnimationChainListFile.achx">
+    <None Include="Entities\SnakeBody\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>AnimationChainListFile</Name>
+      <Name>animationchainlistfile</Name>
     </None>
     <None Include="Entities\SnakeBody\body.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

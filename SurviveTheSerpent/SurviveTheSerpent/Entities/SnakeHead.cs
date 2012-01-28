@@ -25,8 +25,6 @@ namespace SurviveTheSerpent.Entities
 {
 	public partial class SnakeHead
 	{
-        private double updateDelay = 1.0; // in seconds
-        private double timeSinceLastUpdate;
         public bool canMove;
         public Direction direction;
 
@@ -44,36 +42,12 @@ namespace SurviveTheSerpent.Entities
 		private void CustomInitialize()
 		{
             canMove = false;
-            timeSinceLastUpdate = TimeManager.CurrentTime;
             direction = Direction.Right;
 		}
 
 		private void CustomActivity()
 		{
-            if (canMove && TimeManager.SecondsSince(timeSinceLastUpdate) > updateDelay)
-            {
-                if (direction == Direction.Up)
-                {
-                    this.Y += gridSizeY;
-                    this.RotationZ = (float)Math.PI / 2;
-                }
-                else if (direction == Direction.Down)
-                {
-                    this.Y -= gridSizeY;
-                    this.RotationZ = (float)Math.PI * 3 / 2;
-                }
-                else if (direction == Direction.Left)
-                {
-                    this.X -= gridSizeX;
-                    this.RotationZ = (float)Math.PI;
-                }
-                else if (direction == Direction.Right)
-                {
-                    this.X += gridSizeX;
-                    this.RotationZ = 0.0f;
-                }
-                timeSinceLastUpdate = TimeManager.CurrentTime;
-            }
+
 		}
 
 		private void CustomDestroy()
@@ -109,6 +83,30 @@ namespace SurviveTheSerpent.Entities
             {
                 direction = Direction.Down;
                 //this.RotationZ = (float)Math.PI * 3 / 2;
+            }
+        }
+
+        public void Move()
+        {
+            if (direction == Direction.Up)
+            {
+                this.Y += gridSizeY;
+                this.RotationZ = (float)Math.PI / 2;
+            }
+            else if (direction == Direction.Down)
+            {
+                this.Y -= gridSizeY;
+                this.RotationZ = (float)Math.PI * 3 / 2;
+            }
+            else if (direction == Direction.Left)
+            {
+                this.X -= gridSizeX;
+                this.RotationZ = (float)Math.PI;
+            }
+            else if (direction == Direction.Right)
+            {
+                this.X += gridSizeX;
+                this.RotationZ = 0.0f;
             }
         }
 	}

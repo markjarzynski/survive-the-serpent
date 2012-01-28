@@ -44,6 +44,10 @@ namespace SurviveTheSerpent.Screens
 		private SurviveTheSerpent.Entities.SnakeHead SnakeHead;
 		private SurviveTheSerpent.Entities.SnakeTail SnakeTail;
 		private SurviveTheSerpent.Entities.SnakeBody SnakeBody;
+		private SurviveTheSerpent.Entities.DirectionButton upButton;
+		private SurviveTheSerpent.Entities.DirectionButton downButton;
+		private SurviveTheSerpent.Entities.DirectionButton leftButton;
+		private SurviveTheSerpent.Entities.DirectionButton rightButton;
 
 		public GameSplash()
 			: base("GameSplash")
@@ -62,6 +66,14 @@ namespace SurviveTheSerpent.Screens
 			SnakeTail.Name = "SnakeTail";
 			SnakeBody = new SurviveTheSerpent.Entities.SnakeBody(ContentManagerName, false);
 			SnakeBody.Name = "SnakeBody";
+			upButton = new SurviveTheSerpent.Entities.DirectionButton(ContentManagerName, false);
+			upButton.Name = "upButton";
+			downButton = new SurviveTheSerpent.Entities.DirectionButton(ContentManagerName, false);
+			downButton.Name = "downButton";
+			leftButton = new SurviveTheSerpent.Entities.DirectionButton(ContentManagerName, false);
+			leftButton.Name = "leftButton";
+			rightButton = new SurviveTheSerpent.Entities.DirectionButton(ContentManagerName, false);
+			rightButton.Name = "rightButton";
 
 
 
@@ -93,6 +105,10 @@ namespace SurviveTheSerpent.Screens
 				SnakeHead.Activity();
 				SnakeTail.Activity();
 				SnakeBody.Activity();
+				upButton.Activity();
+				downButton.Activity();
+				leftButton.Activity();
+				rightButton.Activity();
 			}
 			else
 			{
@@ -129,6 +145,22 @@ namespace SurviveTheSerpent.Screens
 			{
 				SnakeBody.Destroy();
 			}
+			if(upButton != null)
+			{
+				upButton.Destroy();
+			}
+			if(downButton != null)
+			{
+				downButton.Destroy();
+			}
+			if(leftButton != null)
+			{
+				leftButton.Destroy();
+			}
+			if(rightButton != null)
+			{
+				rightButton.Destroy();
+			}
 
 
 			base.Destroy();
@@ -140,6 +172,14 @@ namespace SurviveTheSerpent.Screens
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
+			upButton.X = 8f;
+			upButton.Y = 0f;
+			downButton.X = -8f;
+			downButton.Y = 0f;
+			leftButton.X = 0f;
+			leftButton.Y = 14f;
+			rightButton.X = 0f;
+			rightButton.Y = -14f;
 		}
 		public virtual void AddToManagersBottomUp()
 		{
@@ -147,6 +187,18 @@ namespace SurviveTheSerpent.Screens
 			SnakeHead.AddToManagers(mLayer);
 			SnakeTail.AddToManagers(mLayer);
 			SnakeBody.AddToManagers(mLayer);
+			upButton.AddToManagers(mLayer);
+			upButton.X = 8f;
+			upButton.Y = 0f;
+			downButton.AddToManagers(mLayer);
+			downButton.X = -8f;
+			downButton.Y = 0f;
+			leftButton.AddToManagers(mLayer);
+			leftButton.X = 0f;
+			leftButton.Y = 14f;
+			rightButton.AddToManagers(mLayer);
+			rightButton.X = 0f;
+			rightButton.Y = -14f;
 		}
 		public virtual void ConvertToManuallyUpdated()
 		{
@@ -154,6 +206,10 @@ namespace SurviveTheSerpent.Screens
 			SnakeHead.ConvertToManuallyUpdated();
 			SnakeTail.ConvertToManuallyUpdated();
 			SnakeBody.ConvertToManuallyUpdated();
+			upButton.ConvertToManuallyUpdated();
+			downButton.ConvertToManuallyUpdated();
+			leftButton.ConvertToManuallyUpdated();
+			rightButton.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
@@ -171,6 +227,7 @@ namespace SurviveTheSerpent.Screens
 			SurviveTheSerpent.Entities.SnakeHead.LoadStaticContent(contentManagerName);
 			SurviveTheSerpent.Entities.SnakeTail.LoadStaticContent(contentManagerName);
 			SurviveTheSerpent.Entities.SnakeBody.LoadStaticContent(contentManagerName);
+			SurviveTheSerpent.Entities.DirectionButton.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}
 		object GetMember(string memberName)

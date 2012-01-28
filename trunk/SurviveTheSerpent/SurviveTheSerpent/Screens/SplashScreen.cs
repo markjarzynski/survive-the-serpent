@@ -11,11 +11,13 @@ using FlatRedBall.Graphics.Model;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Math.Splines;
 
+using FlatRedBall.Gui;
 using Cursor = FlatRedBall.Gui.Cursor;
 using GuiManager = FlatRedBall.Gui.GuiManager;
 using FlatRedBall.Localization;
 
 #if FRB_XNA || SILVERLIGHT
+//using Mouse = Microsoft.Xna.Framework.Input.MouseState;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Vector3 = Microsoft.Xna.Framework.Vector3;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
@@ -25,16 +27,23 @@ namespace SurviveTheSerpent.Screens
 {
 	public partial class SplashScreen
 	{
+        private Cursor cursor;
 
 		void CustomInitialize()
 		{
+            GuiManager.IsUIEnabled = true;
 
-
+            cursor = GuiManager.Cursor;
 		}
 
 		void CustomActivity(bool firstTimeCalled)
 		{
-            if (InputManager.Mouse.ButtonPushed(Mouse.MouseButtons.LeftButton))
+            if (firstTimeCalled)
+            {
+             
+            }
+
+            if (cursor.PrimaryClick && startButton.HasCursorOver(cursor))
             {
                 this.MoveToScreen(typeof(GameSplash).FullName);
             }
@@ -44,12 +53,10 @@ namespace SurviveTheSerpent.Screens
 		void CustomDestroy()
 		{
 
-
 		}
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
-
 
         }
 

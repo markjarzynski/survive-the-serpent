@@ -84,7 +84,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Obstacle.cs" />
+    <Compile Include="Entities\Obstacle.Generated.cs">
+      <DependentUpon>Obstacle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Player.cs" />
+    <Compile Include="Entities\Player.Generated.cs">
+      <DependentUpon>Player.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SnakeBody.cs" />
+    <Compile Include="Entities\SnakeBody.Generated.cs">
+      <DependentUpon>SnakeBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SnakeHead.cs" />
+    <Compile Include="Entities\SnakeHead.Generated.cs">
+      <DependentUpon>SnakeHead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SnakeTail.cs" />
+    <Compile Include="Entities\SnakeTail.Generated.cs">
+      <DependentUpon>SnakeTail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\GameOverScreen.cs" />
+    <Compile Include="Screens\GameOverScreen.Generated.cs">
+      <DependentUpon>GameOverScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameSplash.cs" />
+    <Compile Include="Screens\GameSplash.Generated.cs">
+      <DependentUpon>GameSplash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\ScreenManager.cs" />
     <None Include="Properties\AppManifest.xml">
@@ -96,6 +124,10 @@
     </None>
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Screens\SplashScreen.cs" />
+    <Compile Include="Screens\SplashScreen.Generated.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

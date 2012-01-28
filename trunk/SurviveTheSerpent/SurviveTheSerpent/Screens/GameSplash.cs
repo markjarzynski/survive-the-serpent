@@ -125,24 +125,11 @@ namespace SurviveTheSerpent.Screens
                 
 
                 for( int i = 1; i < SnakeBodyList.Count; i++ )
-                //foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
                 {
                     SnakeBodyList[i].setX(SnakeBodyList[i - 1].previousX);
                     SnakeBodyList[i].setY(SnakeBodyList[i - 1].previousY);
                     SnakeBodyList[i].RotationZ = (float)Math.Atan2(SnakeBodyList[i - 1].Y - SnakeBodyList[i].previousY, SnakeBodyList[i - 1].X - SnakeBodyList[i].previousX);
                    
-                    /*
-                    float tempX = snakeBody.X;
-                    float tempY = snakeBody.Y;
-
-                    snakeBody.RotationZ = (float)Math.Atan2(snakeBody.Y - snakeBody.previousY, snakeBody.X - snakeBody.previousX);
-
-                    snakeBody.setX( previousX );
-                    snakeBody.setY( previousY ) ;
-
-                    previousX = tempX;
-                    previousY = tempY;
-                    */
                 }
 
                 SnakeTail.RotationZ = (float)Math.Atan2(SnakeBodyList.Last.Y - SnakeBodyList.Last.previousY, SnakeBodyList.Last.X - SnakeBodyList.Last.previousX);

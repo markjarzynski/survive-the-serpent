@@ -84,6 +84,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\DirectionButton.cs" />
+    <Compile Include="Entities\DirectionButton.Generated.cs">
+      <DependentUpon>DirectionButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Obstacle.cs" />
     <Compile Include="Entities\Obstacle.Generated.cs">
       <DependentUpon>Obstacle.cs</DependentUpon>
@@ -103,6 +107,10 @@
     <Compile Include="Entities\SnakeTail.cs" />
     <Compile Include="Entities\SnakeTail.Generated.cs">
       <DependentUpon>SnakeTail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\StartButton.cs" />
+    <Compile Include="Entities\StartButton.Generated.cs">
+      <DependentUpon>StartButton.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="Performance\IPoolable.Generated.cs" />

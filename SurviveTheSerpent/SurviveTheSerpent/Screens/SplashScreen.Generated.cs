@@ -41,6 +41,7 @@ namespace SurviveTheSerpent.Screens
 		#endif
 		private Scene SceneFile;
 
+		private SurviveTheSerpent.Entities.StartButton startButton;
 
 		public SplashScreen()
 			: base("SplashScreen")
@@ -52,6 +53,8 @@ namespace SurviveTheSerpent.Screens
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
 			SceneFile = FlatRedBallServices.Load<Scene>("content/screens/splashscreen/scenefile.scnx", ContentManagerName);
+			startButton = new SurviveTheSerpent.Entities.StartButton(ContentManagerName, false);
+			startButton.Name = "startButton";
 
 
 
@@ -79,6 +82,7 @@ namespace SurviveTheSerpent.Screens
 			if(!IsPaused)
 			{
 
+				startButton.Activity();
 			}
 			else
 			{
@@ -100,6 +104,10 @@ namespace SurviveTheSerpent.Screens
 		public override void Destroy()
 		{
 			// Generated Destroy
+			if(startButton != null)
+			{
+				startButton.Destroy();
+			}
 			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 
 
@@ -118,10 +126,12 @@ namespace SurviveTheSerpent.Screens
 		{
 			SceneFile.AddToManagers(mLayer);
 
+			startButton.AddToManagers(mLayer);
 		}
 		public virtual void ConvertToManuallyUpdated()
 		{
 			SceneFile.ConvertToManuallyUpdated();
+			startButton.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
@@ -135,6 +145,7 @@ namespace SurviveTheSerpent.Screens
 				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
 			}
 			#endif
+			SurviveTheSerpent.Entities.StartButton.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}
 		object GetMember(string memberName)

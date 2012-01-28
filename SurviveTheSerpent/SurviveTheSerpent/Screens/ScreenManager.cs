@@ -645,7 +645,9 @@ namespace SurviveTheSerpent.Screens
                     foreach (string s in messages)
                         errorString += "\n" + s;
 
-                    throw new System.Exception(errorString);
+                    //TODO: figure out what destroy needs then uncomment
+
+                    //throw new System.Exception(errorString);
                 }
             }
         }

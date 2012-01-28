@@ -20,6 +20,7 @@ using SurviveTheSerpent.Entities;
 using FlatRedBall;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
+using FlatRedBall.Graphics.Animation;
 
 #if XNA4
 using Color = Microsoft.Xna.Framework.Color;
@@ -56,8 +57,20 @@ namespace SurviveTheSerpent.Entities
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
 		private static Scene SceneFile;
+		private static AnimationChainList AnimationChainListFile;
 
-		private Scene EntireScene;
+		private Sprite EntireScene;
+		public string EntireSceneCurrentChainName
+		{
+			get
+			{
+				return EntireScene.CurrentChainName;
+			}
+			set
+			{
+				EntireScene.CurrentChainName = value;
+			}
+		}
 		protected Layer LayerProvidedByContainer = null;
 
         public SnakeBody(string contentManagerName) :
@@ -79,11 +92,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			EntireScene = SceneFile.Clone();
-			for (int i = 0; i < EntireScene.Texts.Count; i++)
-			{
-				EntireScene.Texts[i].AdjustPositionForPixelPerfectDrawing = true;
-			}
+			EntireScene = SceneFile.Sprites.FindByName("body1").Clone();
 
 
 			PostInitialize();
@@ -114,6 +123,7 @@ namespace SurviveTheSerpent.Entities
 			
 			// After Custom Activity
 
+
 		
 }
 
@@ -123,8 +133,9 @@ namespace SurviveTheSerpent.Entities
 			SpriteManager.RemovePositionedObject(this);
 			if(EntireScene != null)
 			{
-				EntireScene.RemoveFromManagers(ContentManagerName != "Global");
+				SpriteManager.RemoveSprite(EntireScene);
 			}
+
 
 
 
@@ -137,6 +148,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			X = 0f;
 			Y = 2f;
+			EntireSceneCurrentChainName = "Elbow";
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -158,8 +170,12 @@ namespace SurviveTheSerpent.Entities
             RotationY = 0;
             RotationZ = 0;
 
-			EntireScene.AddToManagers(layerToAddTo);
-			EntireScene.AttachAllDetachedTo(this, true);
+
+			SpriteManager.AddToLayer(EntireScene, layerToAddTo);
+			if(EntireScene.Parent == null)
+			{
+				EntireScene.AttachTo(this, true);
+			}
 
             X = oldX;
             Y = oldY;
@@ -172,7 +188,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			this.ForceUpdateDependenciesDeep();
 			SpriteManager.ConvertToManuallyUpdated(this);
-			EntireScene.ConvertToManuallyUpdated();
+			SpriteManager.ConvertToManuallyUpdated(EntireScene);
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
@@ -204,6 +220,11 @@ namespace SurviveTheSerpent.Entities
 					registerUnload = true;
 				}
 				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/snakebody/scenefile.scnx", ContentManagerName);
+				if(!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/snakebody/animationchainlistfile.achx", ContentManagerName))
+				{
+					registerUnload = true;
+				}
+				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/snakebody/animationchainlistfile.achx", ContentManagerName);
 			if(registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 			{
 				lock(mLockObject)
@@ -227,6 +248,10 @@ namespace SurviveTheSerpent.Entities
 				SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 				SceneFile = null;
 			}
+			if(AnimationChainListFile != null)
+			{
+				AnimationChainListFile = null;
+			}
 		}
 		public static object GetStaticMember(string memberName)
 		{
@@ -234,6 +259,8 @@ namespace SurviveTheSerpent.Entities
 			{
 				case "SceneFile":
 					return SceneFile;
+				case "AnimationChainListFile":
+					return AnimationChainListFile;
 			}
 			return null;
 		}
@@ -243,6 +270,8 @@ namespace SurviveTheSerpent.Entities
 			{
 				case "SceneFile":
 					return SceneFile;
+				case "AnimationChainListFile":
+					return AnimationChainListFile;
 			}
 			return null;
 		}

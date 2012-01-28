@@ -88,9 +88,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
+    <None Include="Entities\SnakeBody\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="Entities\SnakeBody\body.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>body</Name>
+    </None>
+    <None Include="Entities\SnakeBody\bodybend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>bodybend</Name>
     </None>
     <None Include="Entities\SnakeBody\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

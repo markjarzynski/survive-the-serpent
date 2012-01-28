@@ -117,9 +117,13 @@ namespace SurviveTheSerpent.Screens
                     float tempX = snakeBody.X;
                     float tempY = snakeBody.Y;
                     float tempRotationZ = snakeBody.RotationZ;
+
                     snakeBody.X = previousX;
                     snakeBody.Y = previousY;
                     snakeBody.RotationZ = previousRotationZ;
+
+                    
+
                     previousX = tempX;
                     previousY = tempY;
                     previousRotationZ = tempRotationZ;

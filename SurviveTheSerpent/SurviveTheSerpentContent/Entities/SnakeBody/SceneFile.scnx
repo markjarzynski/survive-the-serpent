@@ -37,7 +37,8 @@
     <Name>body1</Name>
     <Texture>body.png</Texture>
     <Animate>false</Animate>
-    <CurrentChain>-1</CurrentChain>
+    <CurrentChain>0</CurrentChain>
+    <AnimationChainsFile>animationchainlistfile.achx</AnimationChainsFile>
     <Ordered>true</Ordered>
     <Active>true</Active>
     <ConstantPixelSize>0</ConstantPixelSize>

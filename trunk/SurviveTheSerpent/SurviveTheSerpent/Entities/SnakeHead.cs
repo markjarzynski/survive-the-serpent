@@ -32,6 +32,9 @@ namespace SurviveTheSerpent.Entities
         public float gridSizeX = 2.0f;
         public float gridSizeY = 2.0f;
 
+        public float previousX;
+        public float previousY;
+
         public enum Direction
         {
             Up,
@@ -44,6 +47,9 @@ namespace SurviveTheSerpent.Entities
 		{
             canMove = false;
             direction = Direction.Right;
+
+            previousX = X;
+            previousY = Y;
 		}
 
 		private void CustomActivity()
@@ -89,6 +95,9 @@ namespace SurviveTheSerpent.Entities
 
         public void Move()
         {
+            previousX = X;
+            previousY = Y;
+
             if (direction == Direction.Up)
             {
                 this.Y += gridSizeY;

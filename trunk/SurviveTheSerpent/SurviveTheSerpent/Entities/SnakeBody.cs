@@ -25,9 +25,14 @@ namespace SurviveTheSerpent.Entities
 {
 	public partial class SnakeBody
 	{
+        public float previousX;
+        public float previousY;
+
 		private void CustomInitialize()
 		{
             this.EntireSceneCurrentChainName = "Straight";
+            previousX = X;
+            previousY = Y;
 		}
 
 		private void CustomActivity()
@@ -56,6 +61,18 @@ namespace SurviveTheSerpent.Entities
         public void Elbow()
         {
             this.EntireSceneCurrentChainName = "Elbow";
+        }
+
+        public void setX( float newX )
+        {
+            previousX = X;
+            X = newX;
+        }
+
+        public void setY( float newY )
+        {
+            previousY = Y;
+            Y = newY;
         }
 
 	}

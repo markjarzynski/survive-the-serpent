@@ -12,7 +12,7 @@
   </BoundsCamera>
   <Camera>
     <X>0</X>
-    <Y>0</Y>
+    <Y>-2.39995766</Y>
     <Z>-40</Z>
     <Orthogonal>false</Orthogonal>
     <OrthogonalHeight>600</OrthogonalHeight>

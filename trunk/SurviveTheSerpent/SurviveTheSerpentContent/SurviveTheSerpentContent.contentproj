@@ -80,9 +80,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>directionalarrowright</Name>
     </None>
-    <None Include="Entities\LeftRightButton\eastwestglow.png">
+    <None Include="Entities\LeftRightButton\directionalarrowrightglow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>eastwestglow</Name>
+      <Name>directionalarrowrightglow</Name>
     </None>
     <None Include="Entities\LeftRightButton\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -152,9 +152,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>directionalarrowtop</Name>
     </None>
-    <None Include="Entities\UpDownButton\northsouthglow.png">
+    <None Include="Entities\UpDownButton\directionalarrowtopglow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>northsouthglow</Name>
+      <Name>directionalarrowtopglow</Name>
     </None>
     <None Include="Entities\UpDownButton\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

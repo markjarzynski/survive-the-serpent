@@ -89,6 +89,14 @@ namespace SurviveTheSerpent.Screens
                 Player.SetDirection(Entities.Player.Direction.Still);
             }
 
+            foreach (Entities.Obstacle obstacle in ObstacleList)
+            {
+                if (Player.Body.CollideAgainstMove(obstacle.Body, 0, 1))
+                {
+                    Player.SetDirection(Entities.Player.Direction.Still);
+                }
+            }
+
         }
 
         void UpdateSnake()

@@ -96,6 +96,10 @@
     <Compile Include="Entities\Food.Generated.cs">
       <DependentUpon>Food.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\InstructionButton.cs" />
+    <Compile Include="Entities\InstructionButton.Generated.cs">
+      <DependentUpon>InstructionButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Obstacle.cs" />
     <Compile Include="Entities\Obstacle.Generated.cs">
       <DependentUpon>Obstacle.cs</DependentUpon>

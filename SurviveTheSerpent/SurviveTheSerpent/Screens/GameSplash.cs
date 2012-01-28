@@ -33,14 +33,14 @@ namespace SurviveTheSerpent.Screens
 
             cursor = GuiManager.Cursor;
 
-
-
             Entities.Food newFood = new Entities.Food(ContentManagerName);
             FoodList.Add(newFood);
 
-
             Entities.Obstacle newObstacle = new Entities.Obstacle(ContentManagerName);
             ObstacleList.Add(newObstacle);
+
+            Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
+            SnakeBodyList.Add(newSnakeBody);
 		}
 
 		void CustomActivity(bool firstTimeCalled)

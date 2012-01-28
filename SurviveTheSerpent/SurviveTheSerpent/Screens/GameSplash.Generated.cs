@@ -45,7 +45,7 @@ namespace SurviveTheSerpent.Screens
 		private SurviveTheSerpent.Entities.Player Player;
 		private SurviveTheSerpent.Entities.SnakeHead SnakeHead;
 		private SurviveTheSerpent.Entities.SnakeTail SnakeTail;
-		private SurviveTheSerpent.Entities.SnakeBody SnakeBody;
+		private PositionedObjectList<SnakeBody> SnakeBodyList;
 		private SurviveTheSerpent.Entities.DirectionButton upButton;
 		private SurviveTheSerpent.Entities.DirectionButton downButton;
 		private SurviveTheSerpent.Entities.DirectionButton leftButton;
@@ -73,8 +73,7 @@ namespace SurviveTheSerpent.Screens
 			SnakeHead.Name = "SnakeHead";
 			SnakeTail = new SurviveTheSerpent.Entities.SnakeTail(ContentManagerName, false);
 			SnakeTail.Name = "SnakeTail";
-			SnakeBody = new SurviveTheSerpent.Entities.SnakeBody(ContentManagerName, false);
-			SnakeBody.Name = "SnakeBody";
+			SnakeBodyList = new PositionedObjectList<SnakeBody>();
 			upButton = new SurviveTheSerpent.Entities.DirectionButton(ContentManagerName, false);
 			upButton.Name = "upButton";
 			downButton = new SurviveTheSerpent.Entities.DirectionButton(ContentManagerName, false);
@@ -115,7 +114,10 @@ namespace SurviveTheSerpent.Screens
 				Player.Activity();
 				SnakeHead.Activity();
 				SnakeTail.Activity();
-				SnakeBody.Activity();
+				for(int i = SnakeBodyList.Count - 1; i > -1; i--)
+				{
+					SnakeBodyList[i].Activity();
+				}
 				upButton.Activity();
 				downButton.Activity();
 				leftButton.Activity();
@@ -161,9 +163,9 @@ namespace SurviveTheSerpent.Screens
 			{
 				SnakeTail.Destroy();
 			}
-			if(SnakeBody != null)
+			for(int i = SnakeBodyList.Count - 1; i > -1; i--)
 			{
-				SnakeBody.Destroy();
+				SnakeBodyList[i].Destroy();
 			}
 			if(upButton != null)
 			{
@@ -218,7 +220,6 @@ namespace SurviveTheSerpent.Screens
 			Player.AddToManagers(mLayer);
 			SnakeHead.AddToManagers(mLayer);
 			SnakeTail.AddToManagers(mLayer);
-			SnakeBody.AddToManagers(mLayer);
 			upButton.AddToManagers(mLayer);
 			upButton.X = 8f;
 			upButton.Y = 0f;
@@ -238,7 +239,10 @@ namespace SurviveTheSerpent.Screens
 			Player.ConvertToManuallyUpdated();
 			SnakeHead.ConvertToManuallyUpdated();
 			SnakeTail.ConvertToManuallyUpdated();
-			SnakeBody.ConvertToManuallyUpdated();
+			for(int i = 0; i < SnakeBodyList.Count; i++)
+			{
+				SnakeBodyList[i].ConvertToManuallyUpdated();
+			}
 			upButton.ConvertToManuallyUpdated();
 			downButton.ConvertToManuallyUpdated();
 			leftButton.ConvertToManuallyUpdated();
@@ -267,7 +271,6 @@ namespace SurviveTheSerpent.Screens
 			SurviveTheSerpent.Entities.Player.LoadStaticContent(contentManagerName);
 			SurviveTheSerpent.Entities.SnakeHead.LoadStaticContent(contentManagerName);
 			SurviveTheSerpent.Entities.SnakeTail.LoadStaticContent(contentManagerName);
-			SurviveTheSerpent.Entities.SnakeBody.LoadStaticContent(contentManagerName);
 			SurviveTheSerpent.Entities.DirectionButton.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}

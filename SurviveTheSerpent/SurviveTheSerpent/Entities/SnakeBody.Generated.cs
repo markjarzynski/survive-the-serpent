@@ -158,7 +158,7 @@ namespace SurviveTheSerpent.Entities
 		public virtual void PostInitialize()
 		{
 			X = 0f;
-			Y = 2f;
+			Y = 8f;
 			EntireSceneCurrentChainName = "Elbow";
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)

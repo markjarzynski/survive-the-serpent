@@ -119,25 +119,38 @@ namespace SurviveTheSerpent.Screens
                 SnakeHead.Move();
 
                 // Move the snake body after the snake head
-                foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+                SnakeBodyList[0].setX(SnakeHead.previousX);
+                SnakeBodyList[0].setY(SnakeHead.previousY);
+                SnakeBodyList[0].RotationZ = (float)Math.Atan2(SnakeHead.Y - SnakeBodyList[0].previousY, SnakeHead.X - SnakeBodyList[0].previousX);
+                
+
+                for( int i = 1; i < SnakeBodyList.Count; i++ )
+                //foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
                 {
+                    SnakeBodyList[i].setX(SnakeBodyList[i - 1].previousX);
+                    SnakeBodyList[i].setY(SnakeBodyList[i - 1].previousY);
+                    SnakeBodyList[i].RotationZ = (float)Math.Atan2(SnakeBodyList[i - 1].Y - SnakeBodyList[i].previousY, SnakeBodyList[i - 1].X - SnakeBodyList[i].previousX);
+                   
+                    /*
                     float tempX = snakeBody.X;
                     float tempY = snakeBody.Y;
 
-                    snakeBody.RotationZ = (float)Math.Atan2(previousY - snakeBody.Y, previousX - snakeBody.X);
-                    snakeBody.X = previousX;
-                    snakeBody.Y = previousY;
+                    snakeBody.RotationZ = (float)Math.Atan2(snakeBody.Y - snakeBody.previousY, snakeBody.X - snakeBody.previousX);
+
+                    snakeBody.setX( previousX );
+                    snakeBody.setY( previousY ) ;
 
                     previousX = tempX;
                     previousY = tempY;
+                    */
                 }
 
-                SnakeTail.RotationZ = (float)Math.Atan2(SnakeBodyList.Last.Y - previousY, SnakeBodyList.Last.X - previousX);
+                SnakeTail.RotationZ = (float)Math.Atan2(SnakeBodyList.Last.Y - SnakeBodyList.Last.previousY, SnakeBodyList.Last.X - SnakeBodyList.Last.previousX);
 
                 if (SnakeHead.didEatFood == false)
                 {
-                    SnakeTail.X = previousX;
-                    SnakeTail.Y = previousY;
+                    SnakeTail.X = SnakeBodyList.Last.previousX;
+                    SnakeTail.Y = SnakeBodyList.Last.previousY;
                 }
                 else
                 {

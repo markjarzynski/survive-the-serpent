@@ -39,7 +39,7 @@ namespace SurviveTheSerpent.Screens
 		#if DEBUG
 		static bool HasBeenLoadedWithGlobalContentManager = false;
 		#endif
-		
+
 
 		public GameSplash()
 			: base("GameSplash")
@@ -50,11 +50,11 @@ namespace SurviveTheSerpent.Screens
         {
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			
-			
+
+
+
 			PostInitialize();
-			base.Initialize(addToManagers);
-			if (addToManagers)
+			if(addToManagers)
 			{
 				AddToManagers();
 			}
@@ -62,19 +62,21 @@ namespace SurviveTheSerpent.Screens
         }
         
 // Generated AddToManagers
-		public override void AddToManagers ()
-		{
+
+        public override void AddToManagers()
+        {
 			AddToManagersBottomUp();
 			CustomInitialize();
-		}
+
+        }
 
 
 		public override void Activity(bool firstTimeCalled)
 		{
 			// Generated Activity
-			if (!IsPaused)
+			if(!IsPaused)
 			{
-				
+
 			}
 			else
 			{
@@ -87,14 +89,15 @@ namespace SurviveTheSerpent.Screens
 
 
 				// After Custom Activity
-				
+		
+		
             
 		}
 
 		public override void Destroy()
 		{
 			// Generated Destroy
-			
+
 
 			base.Destroy();
 
@@ -103,33 +106,33 @@ namespace SurviveTheSerpent.Screens
 		}
 
 		// Generated Methods
-public virtual void PostInitialize ()
-{
-}
-public virtual void AddToManagersBottomUp ()
-{
-}
-public virtual void ConvertToManuallyUpdated ()
-{
-}
-public static void LoadStaticContent (string contentManagerName)
-{
-	#if DEBUG
-	if (contentManagerName == FlatRedBallServices.GlobalContentManager)
-	{
-		HasBeenLoadedWithGlobalContentManager = true;
-	}
-	else if (HasBeenLoadedWithGlobalContentManager)
-	{
-		throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
-	}
-	#endif
-	CustomLoadStaticContent(contentManagerName);
-}
-object GetMember (string memberName)
-{
-	return null;
-}
+		public virtual void PostInitialize()
+		{
+		}
+		public virtual void AddToManagersBottomUp()
+		{
+		}
+		public virtual void ConvertToManuallyUpdated()
+		{
+		}
+		public static void LoadStaticContent(string contentManagerName)
+		{
+			#if DEBUG
+			if(contentManagerName == FlatRedBallServices.GlobalContentManager)
+			{
+				HasBeenLoadedWithGlobalContentManager = true;
+			}
+			else if(HasBeenLoadedWithGlobalContentManager)
+			{
+				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
+			}
+			#endif
+			CustomLoadStaticContent(contentManagerName);
+		}
+		object GetMember(string memberName)
+		{
+			return null;
+		}
 
 
 	}

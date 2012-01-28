@@ -40,7 +40,7 @@ namespace SurviveTheSerpent.Screens
 		static bool HasBeenLoadedWithGlobalContentManager = false;
 		#endif
 		private Scene SceneFile;
-		
+
 
 		public SplashScreen()
 			: base("SplashScreen")
@@ -52,11 +52,11 @@ namespace SurviveTheSerpent.Screens
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
 			SceneFile = FlatRedBallServices.Load<Scene>("content/screens/splashscreen/scenefile.scnx", ContentManagerName);
-			
-			
+
+
+
 			PostInitialize();
-			base.Initialize(addToManagers);
-			if (addToManagers)
+			if(addToManagers)
 			{
 				AddToManagers();
 			}
@@ -64,19 +64,21 @@ namespace SurviveTheSerpent.Screens
         }
         
 // Generated AddToManagers
-		public override void AddToManagers ()
-		{
+
+        public override void AddToManagers()
+        {
 			AddToManagersBottomUp();
 			CustomInitialize();
-		}
+
+        }
 
 
 		public override void Activity(bool firstTimeCalled)
 		{
 			// Generated Activity
-			if (!IsPaused)
+			if(!IsPaused)
 			{
-				
+
 			}
 			else
 			{
@@ -86,11 +88,12 @@ namespace SurviveTheSerpent.Screens
 			{
 				CustomActivity(firstTimeCalled);
 			}
-			SceneFile.ManageAll();
 
 
 				// After Custom Activity
-				
+			SceneFile.ManageAll();
+		
+		
             
 		}
 
@@ -98,7 +101,8 @@ namespace SurviveTheSerpent.Screens
 		{
 			// Generated Destroy
 			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
-			
+
+
 
 			base.Destroy();
 
@@ -107,38 +111,41 @@ namespace SurviveTheSerpent.Screens
 		}
 
 		// Generated Methods
-public virtual void PostInitialize ()
-{
-}
-public virtual void AddToManagersBottomUp ()
-{
-	SceneFile.AddToManagers(mLayer);
-}
-public virtual void ConvertToManuallyUpdated ()
-{
-	SceneFile.ConvertToManuallyUpdated();
-}
-public static void LoadStaticContent (string contentManagerName)
-{
-	#if DEBUG
-	if (contentManagerName == FlatRedBallServices.GlobalContentManager)
-	{
-		HasBeenLoadedWithGlobalContentManager = true;
-	}
-	else if (HasBeenLoadedWithGlobalContentManager)
-	{
-		throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
-	}
-	#endif
-	CustomLoadStaticContent(contentManagerName);
-}
-object GetMember (string memberName)
-{
-	switch(memberName)
-	{
-	}
-	return null;
-}
+		public virtual void PostInitialize()
+		{
+		}
+		public virtual void AddToManagersBottomUp()
+		{
+			SceneFile.AddToManagers(mLayer);
+
+		}
+		public virtual void ConvertToManuallyUpdated()
+		{
+			SceneFile.ConvertToManuallyUpdated();
+		}
+		public static void LoadStaticContent(string contentManagerName)
+		{
+			#if DEBUG
+			if(contentManagerName == FlatRedBallServices.GlobalContentManager)
+			{
+				HasBeenLoadedWithGlobalContentManager = true;
+			}
+			else if(HasBeenLoadedWithGlobalContentManager)
+			{
+				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
+			}
+			#endif
+			CustomLoadStaticContent(contentManagerName);
+		}
+		object GetMember(string memberName)
+		{
+			switch(memberName)
+			{
+				case "SceneFile":
+					return SceneFile;
+			}
+			return null;
+		}
 
 
 	}

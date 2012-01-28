@@ -42,6 +42,8 @@ namespace SurviveTheSerpent.Screens
 
 		private SurviveTheSerpent.Entities.Player Player;
 		private SurviveTheSerpent.Entities.SnakeHead SnakeHead;
+		private SurviveTheSerpent.Entities.SnakeTail SnakeTail;
+		private SurviveTheSerpent.Entities.SnakeBody SnakeBody;
 
 		public GameSplash()
 			: base("GameSplash")
@@ -56,6 +58,10 @@ namespace SurviveTheSerpent.Screens
 			Player.Name = "Player";
 			SnakeHead = new SurviveTheSerpent.Entities.SnakeHead(ContentManagerName, false);
 			SnakeHead.Name = "SnakeHead";
+			SnakeTail = new SurviveTheSerpent.Entities.SnakeTail(ContentManagerName, false);
+			SnakeTail.Name = "SnakeTail";
+			SnakeBody = new SurviveTheSerpent.Entities.SnakeBody(ContentManagerName, false);
+			SnakeBody.Name = "SnakeBody";
 
 
 
@@ -85,6 +91,8 @@ namespace SurviveTheSerpent.Screens
 
 				Player.Activity();
 				SnakeHead.Activity();
+				SnakeTail.Activity();
+				SnakeBody.Activity();
 			}
 			else
 			{
@@ -113,6 +121,14 @@ namespace SurviveTheSerpent.Screens
 			{
 				SnakeHead.Destroy();
 			}
+			if(SnakeTail != null)
+			{
+				SnakeTail.Destroy();
+			}
+			if(SnakeBody != null)
+			{
+				SnakeBody.Destroy();
+			}
 
 
 			base.Destroy();
@@ -129,11 +145,15 @@ namespace SurviveTheSerpent.Screens
 		{
 			Player.AddToManagers(mLayer);
 			SnakeHead.AddToManagers(mLayer);
+			SnakeTail.AddToManagers(mLayer);
+			SnakeBody.AddToManagers(mLayer);
 		}
 		public virtual void ConvertToManuallyUpdated()
 		{
 			Player.ConvertToManuallyUpdated();
 			SnakeHead.ConvertToManuallyUpdated();
+			SnakeTail.ConvertToManuallyUpdated();
+			SnakeBody.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
@@ -149,6 +169,8 @@ namespace SurviveTheSerpent.Screens
 			#endif
 			SurviveTheSerpent.Entities.Player.LoadStaticContent(contentManagerName);
 			SurviveTheSerpent.Entities.SnakeHead.LoadStaticContent(contentManagerName);
+			SurviveTheSerpent.Entities.SnakeTail.LoadStaticContent(contentManagerName);
+			SurviveTheSerpent.Entities.SnakeBody.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}
 		object GetMember(string memberName)

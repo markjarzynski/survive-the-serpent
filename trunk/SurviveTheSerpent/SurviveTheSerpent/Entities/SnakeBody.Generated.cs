@@ -55,7 +55,9 @@ namespace SurviveTheSerpent.Entities
 		static object mLockObject = new object();
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
+		private static Scene SceneFile;
 
+		private Scene EntireScene;
 		protected Layer LayerProvidedByContainer = null;
 
         public SnakeBody(string contentManagerName) :
@@ -77,6 +79,11 @@ namespace SurviveTheSerpent.Entities
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
+			EntireScene = SceneFile.Clone();
+			for (int i = 0; i < EntireScene.Texts.Count; i++)
+			{
+				EntireScene.Texts[i].AdjustPositionForPixelPerfectDrawing = true;
+			}
 
 
 			PostInitialize();
@@ -106,6 +113,7 @@ namespace SurviveTheSerpent.Entities
 			CustomActivity();
 			
 			// After Custom Activity
+
 		
 }
 
@@ -113,6 +121,11 @@ namespace SurviveTheSerpent.Entities
 		{
 			// Generated Destroy
 			SpriteManager.RemovePositionedObject(this);
+			if(EntireScene != null)
+			{
+				EntireScene.RemoveFromManagers(ContentManagerName != "Global");
+			}
+
 
 
 
@@ -122,6 +135,8 @@ namespace SurviveTheSerpent.Entities
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
+			X = 0f;
+			Y = 2f;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -143,6 +158,9 @@ namespace SurviveTheSerpent.Entities
             RotationY = 0;
             RotationZ = 0;
 
+			EntireScene.AddToManagers(layerToAddTo);
+			EntireScene.AttachAllDetachedTo(this, true);
+
             X = oldX;
             Y = oldY;
             Z = oldZ;
@@ -154,6 +172,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			this.ForceUpdateDependenciesDeep();
 			SpriteManager.ConvertToManuallyUpdated(this);
+			EntireScene.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
@@ -180,6 +199,11 @@ namespace SurviveTheSerpent.Entities
 					}
 				}
 				bool registerUnload = false;
+				if(!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/snakebody/scenefile.scnx", ContentManagerName))
+				{
+					registerUnload = true;
+				}
+				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/snakebody/scenefile.scnx", ContentManagerName);
 			if(registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 			{
 				lock(mLockObject)
@@ -198,9 +222,28 @@ namespace SurviveTheSerpent.Entities
 		{
 			IsStaticContentLoaded = false;
 			mHasRegisteredUnload = false;
+			if(SceneFile != null)
+			{
+				SceneFile.RemoveFromManagers(ContentManagerName != "Global");
+				SceneFile = null;
+			}
+		}
+		public static object GetStaticMember(string memberName)
+		{
+			switch(memberName)
+			{
+				case "SceneFile":
+					return SceneFile;
+			}
+			return null;
 		}
 		object GetMember(string memberName)
 		{
+			switch(memberName)
+			{
+				case "SceneFile":
+					return SceneFile;
+			}
 			return null;
 		}
 

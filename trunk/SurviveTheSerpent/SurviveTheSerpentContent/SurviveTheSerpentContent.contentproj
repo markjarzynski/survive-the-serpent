@@ -56,6 +56,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
+    <None Include="Entities\SnakeBody\body.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>body</Name>
+    </None>
+    <None Include="Entities\SnakeBody\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
     <None Include="Entities\SnakeHead\head.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>head</Name>
@@ -63,6 +71,14 @@
     <None Include="Entities\SnakeHead\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\SnakeTail\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\SnakeTail\tail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>tail</Name>
     </None>
     <None Include="Screens\SplashScreen\background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -896,6 +896,24 @@
           <DefinedByBase>false</DefinedByBase>
           <CreatesEvent>false</CreatesEvent>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EntireSceneCurrentChainName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Elbow</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>EntireScene</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
       </CustomVariables>
       <IsUnique>false</IsUnique>
       <ImplementsIClickable>false</ImplementsIClickable>
@@ -908,7 +926,7 @@
           <ContainerType>Entity</ContainerType>
           <SourceType>File</SourceType>
           <SourceFile>Entities/SnakeBody/SceneFile.scnx</SourceFile>
-          <SourceName>Entire File (Scene)</SourceName>
+          <SourceName>body1 (Sprite)</SourceName>
           <InstanceName>EntireScene</InstanceName>
           <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
@@ -936,6 +954,22 @@
           <Properties />
           <ContainerType>Entity</ContainerType>
           <Name>Entities/SnakeBody/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/SnakeBody/AnimationChainListFile.achx</Name>
           <IsManuallyUpdated>false</IsManuallyUpdated>
           <IsSharedStatic>true</IsSharedStatic>
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>

@@ -124,12 +124,17 @@ namespace SurviveTheSerpent.Screens
                     float tempX = snakeBody.X;
                     float tempY = snakeBody.Y;
 
+                    snakeBody.RotationZ = (float)Math.Atan2(previousY - snakeBody.Y, previousX - snakeBody.X);
                     snakeBody.X = previousX;
                     snakeBody.Y = previousY;
 
                     previousX = tempX;
                     previousY = tempY;
                 }
+
+                SnakeTail.RotationZ = (float)Math.Atan2(SnakeBodyList.Last.Y - previousY, SnakeBodyList.Last.X - previousX);
+                //SnakeTail.X = previousX;
+                //SnakeTail.Y = previousY;
 
                 if (SnakeHead.didEatFood == false)
                 {

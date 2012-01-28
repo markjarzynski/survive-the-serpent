@@ -88,6 +88,10 @@
     <Compile Include="Entities\DirectionButton.Generated.cs">
       <DependentUpon>DirectionButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Food.cs" />
+    <Compile Include="Entities\Food.Generated.cs">
+      <DependentUpon>Food.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Obstacle.cs" />
     <Compile Include="Entities\Obstacle.Generated.cs">
       <DependentUpon>Obstacle.cs</DependentUpon>
@@ -122,7 +126,7 @@
     </Compile>
     <Compile Include="Screens\GameSplash.cs" />
     <Compile Include="Screens\GameSplash.Generated.cs">
-      <DependentUpon>GameSplash.cs</DependentUpon>
+      <DependentUpon>gamesplash.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\ScreenManager.cs" />

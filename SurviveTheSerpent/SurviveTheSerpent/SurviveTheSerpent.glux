@@ -96,11 +96,6 @@
             <Member>Y</Member>
             <Time>0</Time>
           </CustomProperty>
-          <CustomProperty>
-            <Type>Boolean</Type>
-            <Member>didEatFood</Member>
-            <Time>0</Time>
-          </CustomProperty>
           <ContainerType>Screen</ContainerType>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\SnakeHead</SourceClassType>
@@ -674,7 +669,40 @@
       <Properties />
       <States />
       <StateCategoryList />
-      <CustomVariables />
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
       <IsUnique>false</IsUnique>
       <ImplementsIClickable>false</ImplementsIClickable>
       <ImplementsIVisible>false</ImplementsIVisible>
@@ -1302,22 +1330,6 @@
           <DefinedByBase>false</DefinedByBase>
           <CreatesEvent>false</CreatesEvent>
         </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>bool</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>didEatFood</Name>
-          <Type>bool</Type>
-          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
-          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
-          <SetByDerived>false</SetByDerived>
-          <IsShared>false</IsShared>
-          <DefinedByBase>false</DefinedByBase>
-          <CreatesEvent>false</CreatesEvent>
-        </CustomVariable>
       </CustomVariables>
       <IsUnique>false</IsUnique>
       <ImplementsIClickable>false</ImplementsIClickable>
@@ -1465,6 +1477,32 @@
           <SourceName>Entire File (Scene)</SourceName>
           <InstanceName>EntireScene</InstanceName>
           <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>Body</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>

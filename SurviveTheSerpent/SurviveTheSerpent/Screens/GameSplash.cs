@@ -32,6 +32,8 @@ namespace SurviveTheSerpent.Screens
 
         private double snakeUpdateDelay = 1.0; // in seconds
         private double snakeTimeSinceLastUpdate;
+
+        private const double FOOD_SPAWN_CHANCE = .2;
         
 		void CustomInitialize()
 		{
@@ -39,8 +41,10 @@ namespace SurviveTheSerpent.Screens
 
             cursor = GuiManager.Cursor;
 
-            Entities.Food newFood = new Entities.Food(ContentManagerName);
-            FoodList.Add(newFood);
+            //Entities.Food newFood = new Entities.Food(ContentManagerName);
+            //FoodList.Add(newFood);
+            SpawnFood();
+
 
             Entities.Obstacle newObstacle = new Entities.Obstacle(ContentManagerName);
             ObstacleList.Add(newObstacle);
@@ -49,13 +53,77 @@ namespace SurviveTheSerpent.Screens
             snakeTimeSinceLastUpdate = TimeManager.CurrentTime;
             Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
             SnakeBodyList.Add(newSnakeBody);
+            SpawnFood();
 		}
 
 		void CustomActivity(bool firstTimeCalled)
 		{
             UpdatePlayer();
             UpdateSnake();
+            UpdateFood();
 		}
+
+        void UpdateFood()
+        {
+            Random rand = new Random();
+            if (rand.Next(1) < FOOD_SPAWN_CHANCE && FoodList.Count < 1)
+            {
+                SpawnFood();
+            }
+        }
+
+        void SpawnFood()
+        {
+            Entities.Food newFood = new Entities.Food(ContentManagerName);
+            Boolean invalidLocation = true;
+
+            Random rand = new Random();
+
+            while (invalidLocation)
+            {
+                newFood.X = rand.Next(7);
+                newFood.Y = rand.Next(12);
+                if (rand.Next(1) < .5)
+                {
+                    newFood.X *= -1;
+                }
+                if (rand.Next(1) < .5)
+                {
+                    newFood.Y *= -1;
+                }
+                if ((!newFood.Body.CollideAgainstMove(Player.Body, 0, 1)) &&
+                    (!newFood.Body.CollideAgainstMove(SnakeHead.Body, 0, 1)) &&
+                    (!newFood.Body.CollideAgainstMove(SnakeTail.Body, 0, 1)) &&
+                    (!newFood.Body.CollideAgainstMove(CollisionFile, 0, 1)))
+                {
+                    invalidLocation = false;
+                    foreach (Entities.Obstacle obstacle in ObstacleList)
+                    {
+                        if (newFood.Body.CollideAgainstMove(obstacle.Body, 0, 1))
+                        {
+                            invalidLocation = true;
+                        }
+                    }
+
+                    foreach (Entities.Food food in FoodList)
+                    {
+                        if (newFood.Body.CollideAgainstMove(food.Body, 0, 1))
+                        {
+                            invalidLocation = true;
+                        }
+                    }
+
+                    foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+                    {
+                        if (newFood.Body.CollideAgainstMove(snakeBody.Body, 0, 1))
+                        {
+                            invalidLocation = true;
+                        }
+                    }
+                }
+            }
+            FoodList.Add(newFood);
+        }
 
         void UpdatePlayer()
         {
@@ -95,6 +163,27 @@ namespace SurviveTheSerpent.Screens
                 {
                     Player.SetDirection(Entities.Player.Direction.Still);
                 }
+            }
+
+            foreach (Entities.Food food in FoodList)
+            {
+                if (Player.Body.CollideAgainstMove(food.Body, 0, 1))
+                {
+                    Player.SetDirection(Entities.Player.Direction.Still);
+                }
+            }
+
+            foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+            {
+                if (Player.Body.CollideAgainstMove(snakeBody.Body, 0, 1))
+                {
+                    Player.SetDirection(Entities.Player.Direction.Still);
+                }
+            }
+
+            if (Player.Body.CollideAgainstMove(SnakeTail.Body, 0, 1))
+            {
+                Player.SetDirection(Entities.Player.Direction.Still);
             }
 
         }

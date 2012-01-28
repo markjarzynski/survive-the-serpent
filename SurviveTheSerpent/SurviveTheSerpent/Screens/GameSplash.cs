@@ -105,15 +105,28 @@ namespace SurviveTheSerpent.Screens
                 double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
                 SnakeHead.ChangeDirectionByAngle(angle);
 
+                float previousX = SnakeHead.X;
+                float previousY = SnakeHead.Y;
+                float previousRotationZ = SnakeHead.RotationZ;
+
                 SnakeHead.Move();
 
                 // Move the snake body after the snake head
-                float previousX = SnakeHead.X;
-                float previousY = SnakeHead.Y;
                 foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
                 {
-
+                    float tempX = snakeBody.X;
+                    float tempY = snakeBody.Y;
+                    float tempRotationZ = snakeBody.RotationZ;
+                    snakeBody.X = previousX;
+                    snakeBody.Y = previousY;
+                    snakeBody.RotationZ = previousRotationZ;
+                    previousX = tempX;
+                    previousY = tempY;
+                    previousRotationZ = tempRotationZ;
                 }
+                SnakeTail.X = previousX;
+                SnakeTail.Y = previousY;
+                SnakeTail.RotationZ = previousRotationZ;
 
                 // TODO: Snake head consumes food it collides with
 

@@ -126,7 +126,7 @@
     </Compile>
     <Compile Include="Screens\GameSplash.cs" />
     <Compile Include="Screens\GameSplash.Generated.cs">
-      <DependentUpon>gamesplash.cs</DependentUpon>
+      <DependentUpon>GameSplash.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\ScreenManager.cs" />

@@ -31,6 +31,7 @@ using FlatRedBall.Broadcasting;
 using SurviveTheSerpent.Entities;
 using FlatRedBall;
 using FlatRedBall.Math;
+using FlatRedBall.Math.Geometry;
 
 namespace SurviveTheSerpent.Screens
 {
@@ -41,12 +42,9 @@ namespace SurviveTheSerpent.Screens
 		static bool HasBeenLoadedWithGlobalContentManager = false;
 		#endif
 		private Scene SceneFile;
+		private ShapeCollection CollisionFile;
 
-		private SurviveTheSerpent.Entities.Player mPlayer;
-		public SurviveTheSerpent.Entities.Player Player
-		{
-			get{ return mPlayer;}
-		}
+		private SurviveTheSerpent.Entities.Player Player;
 		private SurviveTheSerpent.Entities.SnakeHead SnakeHead;
 		private SurviveTheSerpent.Entities.SnakeTail SnakeTail;
 		private PositionedObjectList<SnakeBody> SnakeBodyList;
@@ -71,8 +69,9 @@ namespace SurviveTheSerpent.Screens
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
 			SceneFile = FlatRedBallServices.Load<Scene>("content/screens/gamesplash/scenefile.scnx", ContentManagerName);
-			mPlayer = new SurviveTheSerpent.Entities.Player(ContentManagerName, false);
-			mPlayer.Name = "mPlayer";
+			CollisionFile = FlatRedBallServices.Load<ShapeCollection>("content/screens/gamesplash/collisionfile.shcx", ContentManagerName);
+			Player = new SurviveTheSerpent.Entities.Player(ContentManagerName, false);
+			Player.Name = "Player";
 			SnakeHead = new SurviveTheSerpent.Entities.SnakeHead(ContentManagerName, false);
 			SnakeHead.Name = "SnakeHead";
 			SnakeTail = new SurviveTheSerpent.Entities.SnakeTail(ContentManagerName, false);
@@ -147,6 +146,7 @@ namespace SurviveTheSerpent.Screens
 
 				// After Custom Activity
 			SceneFile.ManageAll();
+
 		
 		
             
@@ -197,6 +197,8 @@ namespace SurviveTheSerpent.Screens
 			}
 			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 
+			CollisionFile.RemoveFromManagers(ContentManagerName != "Global");
+
 
 
 			base.Destroy();
@@ -221,7 +223,9 @@ namespace SurviveTheSerpent.Screens
 		{
 			SceneFile.AddToManagers(mLayer);
 
-			mPlayer.AddToManagers(mLayer);
+			CollisionFile.AddToManagers(mLayer);
+
+			Player.AddToManagers(mLayer);
 			SnakeHead.AddToManagers(mLayer);
 			SnakeTail.AddToManagers(mLayer);
 			upButton.AddToManagers(mLayer);
@@ -284,6 +288,8 @@ namespace SurviveTheSerpent.Screens
 			{
 				case "SceneFile":
 					return SceneFile;
+				case "CollisionFile":
+					return CollisionFile;
 			}
 			return null;
 		}

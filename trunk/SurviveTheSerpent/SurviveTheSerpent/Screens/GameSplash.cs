@@ -30,6 +30,9 @@ namespace SurviveTheSerpent.Screens
         private int GridSizeX = 2;
         private int GridSizeY = 2;
 
+        private double snakeUpdateDelay = 1.0; // in seconds
+        private double snakeTimeSinceLastUpdate;
+        
 		void CustomInitialize()
 		{
             GuiManager.IsUIEnabled = true;
@@ -42,6 +45,8 @@ namespace SurviveTheSerpent.Screens
             Entities.Obstacle newObstacle = new Entities.Obstacle(ContentManagerName);
             ObstacleList.Add(newObstacle);
 
+            // init snake stuff
+            snakeTimeSinceLastUpdate = TimeManager.CurrentTime;
             Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
             SnakeBodyList.Add(newSnakeBody);
 		}
@@ -49,23 +54,7 @@ namespace SurviveTheSerpent.Screens
 		void CustomActivity(bool firstTimeCalled)
 		{
             UpdatePlayer();
-
-            if (!SnakeHead.canMove && (Player.direction != Entities.Player.Direction.Still))
-            {
-                SnakeHead.canMove = true;
-            }
-
-
-            // Figure out the direction of the snake head
-            double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
-            SnakeHead.ChangeDirectionByAngle(angle);
-
-            // Move the snake body after the snake head
- 
-            // TODO: Snake head consumes food it collides with
-
-            // TODO: Randomly generate more food
-
+            UpdateSnake();
 		}
 
         void UpdatePlayer()
@@ -100,6 +89,38 @@ namespace SurviveTheSerpent.Screens
                 Player.SetDirection(Entities.Player.Direction.Still);
             }
 
+        }
+
+        void UpdateSnake()
+        {
+            // Don't start moving the snake until Player first starts moving
+            if (!SnakeHead.canMove && (Player.direction != Entities.Player.Direction.Still))
+            {
+                SnakeHead.canMove = true;
+            }
+
+            if (SnakeHead.canMove && TimeManager.SecondsSince(snakeTimeSinceLastUpdate) > snakeUpdateDelay)
+            {
+                // Figure out the direction of the snake head
+                double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
+                SnakeHead.ChangeDirectionByAngle(angle);
+
+                SnakeHead.Move();
+
+                // Move the snake body after the snake head
+                float previousX = SnakeHead.X;
+                float previousY = SnakeHead.Y;
+                foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+                {
+
+                }
+
+                // TODO: Snake head consumes food it collides with
+
+                // TODO: Randomly generate more food
+
+                snakeTimeSinceLastUpdate = TimeManager.CurrentTime;
+            }
         }
 
 		void CustomDestroy()

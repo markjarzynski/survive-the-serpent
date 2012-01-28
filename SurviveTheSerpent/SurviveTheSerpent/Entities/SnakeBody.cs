@@ -27,8 +27,7 @@ namespace SurviveTheSerpent.Entities
 	{
 		private void CustomInitialize()
 		{
-            this.EntireSceneCurrentChainName = "Elbow";
-
+            this.EntireSceneCurrentChainName = "Straight";
 		}
 
 		private void CustomActivity()
@@ -48,5 +47,16 @@ namespace SurviveTheSerpent.Entities
 
 
         }
+
+        public void Straight()
+        {
+            this.EntireSceneCurrentChainName = "Straight";
+        }
+
+        public void Elbow()
+        {
+            this.EntireSceneCurrentChainName = "Elbow";
+        }
+
 	}
 }

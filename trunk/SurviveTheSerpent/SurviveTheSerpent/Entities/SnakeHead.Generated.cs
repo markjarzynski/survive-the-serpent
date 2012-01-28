@@ -64,6 +64,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			get{ return mBody;}
 		}
+		public bool didEatFood = false;
 		protected Layer LayerProvidedByContainer = null;
 
         public SnakeHead(string contentManagerName) :
@@ -150,6 +151,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			X = 2f;
 			Y = 2f;
+			didEatFood = false;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{

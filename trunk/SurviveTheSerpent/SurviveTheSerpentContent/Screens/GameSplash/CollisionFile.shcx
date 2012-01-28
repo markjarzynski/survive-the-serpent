@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ShapeCollectionSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AxisAlignedRectangleSaves>
+    <AxisAlignedRectangleSave>
+      <X>-9</X>
+      <Y>0</Y>
+      <Z>0</Z>
+      <ScaleX>1.5</ScaleX>
+      <ScaleY>16.5</ScaleY>
+      <Name>AxisAlignedRectangle1</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>9</X>
+      <Y>0</Y>
+      <Z>0</Z>
+      <ScaleX>1.5</ScaleX>
+      <ScaleY>16.5</ScaleY>
+      <Name>AxisAlignedRectangle2</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>0</X>
+      <Y>16</Y>
+      <Z>0</Z>
+      <ScaleX>10</ScaleX>
+      <ScaleY>1.5</ScaleY>
+      <Name>AxisAlignedRectangle3</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+    <AxisAlignedRectangleSave>
+      <X>0</X>
+      <Y>-16</Y>
+      <Z>0</Z>
+      <ScaleX>10</ScaleX>
+      <ScaleY>1.5</ScaleY>
+      <Name>AxisAlignedRectangle4</Name>
+      <Alpha>1</Alpha>
+      <Red>1</Red>
+      <Green>1</Green>
+      <Blue>0</Blue>
+    </AxisAlignedRectangleSave>
+  </AxisAlignedRectangleSaves>
+  <AxisAlignedCubeSaves />
+  <PolygonSaves />
+  <CircleSaves />
+  <SphereSaves />
+</ShapeCollectionSave>

@@ -48,9 +48,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Entities\DirectionButton\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="Entities\DirectionButton\button.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>button</Name>
+    </None>
+    <None Include="Entities\DirectionButton\directionalarrowtop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>directionalarrowtop</Name>
     </None>
     <None Include="Entities\DirectionButton\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -119,6 +127,10 @@
     <None Include="Screens\GameSplash\border.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>border</Name>
+    </None>
+    <None Include="Screens\GameSplash\CollisionFile.shcx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CollisionFile</Name>
     </None>
     <None Include="Screens\GameSplash\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

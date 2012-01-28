@@ -40,6 +40,22 @@
           <CsvDelimiter>Comma</CsvDelimiter>
           <TreatAsCsv>false</TreatAsCsv>
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Screen</ContainerType>
+          <Name>Screens/GameSplash/CollisionFile.shcx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>false</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
       </ReferencedFiles>
       <NamedObjects>
         <NamedObjectSave>
@@ -48,7 +64,7 @@
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\Player</SourceClassType>
           <InstanceName>Player</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
+          <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -78,11 +94,6 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
-            <Time>0</Time>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>String</Type>
-            <Member>Direction</Member>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Screen</ContainerType>
@@ -475,7 +486,38 @@
   <Entities>
     <EntitySave>
       <Properties />
-      <States />
+      <States>
+        <StateSave>
+          <InstructionSaves />
+          <NamedObjectPropertyOverrides />
+          <Name>Normal</Name>
+        </StateSave>
+        <StateSave>
+          <InstructionSaves />
+          <NamedObjectPropertyOverrides />
+          <Name>Pressed</Name>
+        </StateSave>
+        <StateSave>
+          <InstructionSaves />
+          <NamedObjectPropertyOverrides />
+          <Name>Inactive</Name>
+        </StateSave>
+        <StateSave>
+          <InstructionSaves />
+          <NamedObjectPropertyOverrides />
+          <Name>SideNormal</Name>
+        </StateSave>
+        <StateSave>
+          <InstructionSaves />
+          <NamedObjectPropertyOverrides />
+          <Name>SidePressed</Name>
+        </StateSave>
+        <StateSave>
+          <InstructionSaves />
+          <NamedObjectPropertyOverrides />
+          <Name>SideInactive</Name>
+        </StateSave>
+      </States>
       <StateCategoryList />
       <CustomVariables>
         <CustomVariable>
@@ -566,6 +608,22 @@
           <Properties />
           <ContainerType>Entity</ContainerType>
           <Name>Entities/DirectionButton/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/DirectionButton/AnimationChainListFile.achx</Name>
           <IsManuallyUpdated>false</IsManuallyUpdated>
           <IsSharedStatic>true</IsSharedStatic>
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
@@ -746,6 +804,32 @@
           <Events />
           <Is2D>false</Is2D>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>Body</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
@@ -896,22 +980,6 @@
           <Name>Y</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">2</DefaultValue>
-          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
-          <SetByDerived>false</SetByDerived>
-          <IsShared>false</IsShared>
-          <DefinedByBase>false</DefinedByBase>
-          <CreatesEvent>false</CreatesEvent>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>string</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>Direction</Name>
-          <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">North</DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>

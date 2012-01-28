@@ -94,8 +94,21 @@ namespace SurviveTheSerpent.Screens
             }
             Player.Body.CollideAgainstMove(CollisionFile, 0, 1);
 
-        }
+        
 
+
+            // Figure out the direction of the snake head
+            double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
+            SnakeHead.ChangeDirectionByAngle(angle);
+
+            // Move the snake body after the snake head
+            {
+
+            }
+
+            // TODO: Snake head consumes food it collides with
+
+            // TODO: Randomly generate more food
 
 		void CustomDestroy()
 		{

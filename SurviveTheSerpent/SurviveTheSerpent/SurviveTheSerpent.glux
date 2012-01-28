@@ -37,7 +37,24 @@
       <IsOnOwnLayer>false</IsOnOwnLayer>
       <CustomVariables />
       <Name>Screens\SplashScreen</Name>
-      <ReferencedFiles />
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Screen</ContainerType>
+          <Name>Screens/SplashScreen/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>false</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+      </ReferencedFiles>
       <NamedObjects />
       <Behaviors />
       <UseGlobalContent>false</UseGlobalContent>
@@ -142,7 +159,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\GameOverScreen</StartUpScreen>
+  <StartUpScreen>Screens\SplashScreen</StartUpScreen>
   <In2D>false</In2D>
   <SetResolution>false</SetResolution>
   <ResolutionWidth>800</ResolutionWidth>

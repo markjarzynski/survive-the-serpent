@@ -2,7 +2,7 @@
 <SpriteEditorScene xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Sprite>
     <X>0</X>
-    <Y>0</Y>
+    <Y>-1</Y>
     <Z>0</Z>
     <XVelocity>0</XVelocity>
     <YVelocity>0</YVelocity>
@@ -15,7 +15,7 @@
     <RotationZ>0</RotationZ>
     <RotationZVelocity>0</RotationZVelocity>
     <ScaleX>15.5522852</ScaleX>
-    <ScaleY>1</ScaleY>
+    <ScaleY>1.31004417</ScaleY>
     <ScaleXVelocity>0</ScaleXVelocity>
     <ScaleYVelocity>0</ScaleYVelocity>
     <RelativeX>0</RelativeX>

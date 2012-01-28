@@ -131,24 +131,40 @@ namespace SurviveTheSerpent.Screens
             {
                 Player.SetDirection(Entities.Player.Direction.Up);
                 //Player.X += 1;
+                upButton.EntireSceneCurrentChainName = "Glow";
+                downButton.EntireSceneCurrentChainName = "NoGlow";
+                rightButton.EntireSceneCurrentChainName = "NoGlow";
+                leftButton.EntireSceneCurrentChainName = "NoGlow";
                 System.Console.WriteLine("up button code here");
             }
             else if (cursor.PrimaryClick && downButton.HasCursorOver(cursor))
             {
                 Player.SetDirection(Entities.Player.Direction.Down);
                 //Player.X -= 1;
+                upButton.EntireSceneCurrentChainName = "NoGlow";
+                downButton.EntireSceneCurrentChainName = "Glow";
+                rightButton.EntireSceneCurrentChainName = "NoGlow";
+                leftButton.EntireSceneCurrentChainName = "NoGlow";
                 System.Console.WriteLine("down button code here");
             }
             else if (cursor.PrimaryClick && leftButton.HasCursorOver(cursor))
             {
                 Player.SetDirection(Entities.Player.Direction.Left);
                 //Player.Y += 1;
+                upButton.EntireSceneCurrentChainName = "NoGlow";
+                downButton.EntireSceneCurrentChainName = "NoGlow";
+                rightButton.EntireSceneCurrentChainName = "NoGlow";
+                leftButton.EntireSceneCurrentChainName = "Glow";
                 System.Console.WriteLine("left button code here");
             }
             else if (cursor.PrimaryClick && rightButton.HasCursorOver(cursor))
             {
                 Player.SetDirection(Entities.Player.Direction.Right);
                 //Player.Y -= 1;
+                upButton.EntireSceneCurrentChainName = "NoGlow";
+                downButton.EntireSceneCurrentChainName = "NoGlow";
+                rightButton.EntireSceneCurrentChainName = "Glow";
+                leftButton.EntireSceneCurrentChainName = "NoGlow";
                 System.Console.WriteLine("right button code here");
             }
 

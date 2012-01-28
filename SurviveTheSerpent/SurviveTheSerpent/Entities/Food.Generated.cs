@@ -39,7 +39,7 @@ using Model = Microsoft.Xna.Framework.Graphics.Model;
 
 namespace SurviveTheSerpent.Entities
 {
-	public partial class Obstacle : PositionedObject, IDestroyable
+	public partial class Food : PositionedObject, IDestroyable
 	{
         // This is made global so that static lazy-loaded content can access it.
         public static string ContentManagerName
@@ -60,13 +60,13 @@ namespace SurviveTheSerpent.Entities
 		private Scene EntireScene;
 		protected Layer LayerProvidedByContainer = null;
 
-        public Obstacle(string contentManagerName) :
+        public Food(string contentManagerName) :
             this(contentManagerName, true)
         {
         }
 
 
-        public Obstacle(string contentManagerName, bool addToManagers) :
+        public Food(string contentManagerName, bool addToManagers) :
 			base()
 		{
 			// Don't delete this:
@@ -192,23 +192,23 @@ namespace SurviveTheSerpent.Entities
 				{
 					if(!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("ObstacleStaticUnload", UnloadStaticContent);
+						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("FoodStaticUnload", UnloadStaticContent);
 						mHasRegisteredUnload = true;
 					}
 				}
 				bool registerUnload = false;
-				if(!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/obstacle/scenefile.scnx", ContentManagerName))
+				if(!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/food/scenefile.scnx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
-				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/obstacle/scenefile.scnx", ContentManagerName);
+				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/food/scenefile.scnx", ContentManagerName);
 			if(registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 			{
 				lock(mLockObject)
 				{
 					if(!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("ObstacleStaticUnload", UnloadStaticContent);
+						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("FoodStaticUnload", UnloadStaticContent);
 						mHasRegisteredUnload = true;
 					}
 				}
@@ -249,7 +249,7 @@ namespace SurviveTheSerpent.Entities
 	
 	
 	// Extra classes
-	public static class ObstacleExtensionMethods
+	public static class FoodExtensionMethods
 	{
 	}
 	

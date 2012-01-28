@@ -23,12 +23,12 @@ using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
 namespace SurviveTheSerpent.Entities
 {
-	public partial class Obstacle
+	public partial class Food
 	{
 		private void CustomInitialize()
 		{
-            this.X = -4;
-            this.Y = -4;
+            this.X = 4;
+            this.Y = 4;
 
 		}
 

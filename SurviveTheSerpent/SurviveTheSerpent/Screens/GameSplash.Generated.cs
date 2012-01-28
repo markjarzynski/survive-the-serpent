@@ -30,6 +30,7 @@ using Microsoft.Xna.Framework.Media;
 using FlatRedBall.Broadcasting;
 using SurviveTheSerpent.Entities;
 using FlatRedBall;
+using FlatRedBall.Math;
 
 namespace SurviveTheSerpent.Screens
 {
@@ -49,6 +50,11 @@ namespace SurviveTheSerpent.Screens
 		private SurviveTheSerpent.Entities.DirectionButton downButton;
 		private SurviveTheSerpent.Entities.DirectionButton leftButton;
 		private SurviveTheSerpent.Entities.DirectionButton rightButton;
+		private PositionedObjectList<Food> mFoodList;
+		public PositionedObjectList<Food> FoodList
+		{
+			get{ return mFoodList;}
+		}
 
 		public GameSplash()
 			: base("GameSplash")
@@ -76,6 +82,7 @@ namespace SurviveTheSerpent.Screens
 			leftButton.Name = "leftButton";
 			rightButton = new SurviveTheSerpent.Entities.DirectionButton(ContentManagerName, false);
 			rightButton.Name = "rightButton";
+			mFoodList = new PositionedObjectList<Food>();
 
 
 
@@ -111,6 +118,10 @@ namespace SurviveTheSerpent.Screens
 				downButton.Activity();
 				leftButton.Activity();
 				rightButton.Activity();
+				for(int i = FoodList.Count - 1; i > -1; i--)
+				{
+					FoodList[i].Activity();
+				}
 			}
 			else
 			{
@@ -163,6 +174,10 @@ namespace SurviveTheSerpent.Screens
 			if(rightButton != null)
 			{
 				rightButton.Destroy();
+			}
+			for(int i = FoodList.Count - 1; i > -1; i--)
+			{
+				FoodList[i].Destroy();
 			}
 			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 
@@ -218,6 +233,10 @@ namespace SurviveTheSerpent.Screens
 			downButton.ConvertToManuallyUpdated();
 			leftButton.ConvertToManuallyUpdated();
 			rightButton.ConvertToManuallyUpdated();
+			for(int i = 0; i < FoodList.Count; i++)
+			{
+				FoodList[i].ConvertToManuallyUpdated();
+			}
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{

@@ -33,6 +33,9 @@ namespace SurviveTheSerpent.Screens
 
             cursor = GuiManager.Cursor;
 
+            Entities.Food newFood = new Entities.Food(ContentManagerName);
+            FoodList.Add(newFood);
+
 		}
 
 		void CustomActivity(bool firstTimeCalled)

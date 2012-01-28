@@ -147,7 +147,7 @@ namespace SurviveTheSerpent.Entities
 		public virtual void PostInitialize()
 		{
 			X = -2f;
-			Y = 2f;
+			Y = 8f;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{

@@ -48,8 +48,6 @@ namespace SurviveTheSerpent.Screens
 
             //Entities.Food newFood = new Entities.Food(ContentManagerName);
             //FoodList.Add(newFood);
-            SpawnFood();
-
 
             Entities.Obstacle newObstacle = new Entities.Obstacle(ContentManagerName);
             ObstacleList.Add(newObstacle);
@@ -338,7 +336,7 @@ namespace SurviveTheSerpent.Screens
                 // TODO: Snake head consumes food it collides with
                 foreach (Entities.Food food in FoodList)
                 {
-                    if (SnakeHead.Body.CollideAgainst(food.Body))
+                    if (SnakeHead.Body.CollideAgainstMove(food.Body, 0 , 1))
                     {
                         Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
                         newSnakeBody.X = SnakeBodyList.Last.X;

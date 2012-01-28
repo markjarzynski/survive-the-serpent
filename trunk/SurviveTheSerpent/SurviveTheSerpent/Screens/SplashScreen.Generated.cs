@@ -42,6 +42,7 @@ namespace SurviveTheSerpent.Screens
 		private Scene SceneFile;
 
 		private SurviveTheSerpent.Entities.StartButton startButton;
+		private SurviveTheSerpent.Entities.CreditButton creditButton;
 
 		public SplashScreen()
 			: base("SplashScreen")
@@ -55,6 +56,8 @@ namespace SurviveTheSerpent.Screens
 			SceneFile = FlatRedBallServices.Load<Scene>("content/screens/splashscreen/scenefile.scnx", ContentManagerName);
 			startButton = new SurviveTheSerpent.Entities.StartButton(ContentManagerName, false);
 			startButton.Name = "startButton";
+			creditButton = new SurviveTheSerpent.Entities.CreditButton(ContentManagerName, false);
+			creditButton.Name = "creditButton";
 
 
 
@@ -83,6 +86,7 @@ namespace SurviveTheSerpent.Screens
 			{
 
 				startButton.Activity();
+				creditButton.Activity();
 			}
 			else
 			{
@@ -108,6 +112,10 @@ namespace SurviveTheSerpent.Screens
 			{
 				startButton.Destroy();
 			}
+			if(creditButton != null)
+			{
+				creditButton.Destroy();
+			}
 			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 
 
@@ -121,17 +129,23 @@ namespace SurviveTheSerpent.Screens
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
+			creditButton.X = 0f;
+			creditButton.Y = 5f;
 		}
 		public virtual void AddToManagersBottomUp()
 		{
 			SceneFile.AddToManagers(mLayer);
 
 			startButton.AddToManagers(mLayer);
+			creditButton.AddToManagers(mLayer);
+			creditButton.X = 0f;
+			creditButton.Y = 5f;
 		}
 		public virtual void ConvertToManuallyUpdated()
 		{
 			SceneFile.ConvertToManuallyUpdated();
 			startButton.ConvertToManuallyUpdated();
+			creditButton.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
@@ -146,6 +160,7 @@ namespace SurviveTheSerpent.Screens
 			}
 			#endif
 			SurviveTheSerpent.Entities.StartButton.LoadStaticContent(contentManagerName);
+			SurviveTheSerpent.Entities.CreditButton.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}
 		object GetMember(string memberName)

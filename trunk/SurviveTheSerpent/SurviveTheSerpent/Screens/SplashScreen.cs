@@ -48,6 +48,11 @@ namespace SurviveTheSerpent.Screens
                 this.MoveToScreen(typeof(GameSplash).FullName);
             }
 
+            if (cursor.PrimaryClick && creditButton.HasCursorOver(cursor))
+            {
+                this.MoveToScreen(typeof(CreditScreen).FullName);
+            }
+
 		}
 
 		void CustomDestroy()

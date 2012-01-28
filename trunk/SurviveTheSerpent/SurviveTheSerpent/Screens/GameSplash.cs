@@ -168,6 +168,11 @@ namespace SurviveTheSerpent.Screens
                 System.Console.WriteLine("right button code here");
             }
 
+            if (Player.Body.CollideAgainstMove(SnakeHead.Body, 0, 1))
+            {
+                this.MoveToScreen(typeof(GameOverScreen).FullName);
+            }
+
             if (Player.Body.CollideAgainstMove(CollisionFile, 0, 1))
             {
                 Player.SetDirection(Entities.Player.Direction.Still);

@@ -222,7 +222,13 @@ namespace SurviveTheSerpent.Screens
             {
                 // Figure out the direction of the snake head
                 double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
-                SnakeHead.ChangeDirectionByAngle(angle);
+                SnakeHead.ChangeDirectionByAngle(angle, SnakeBodyList);
+
+                if (SnakeHead.isDead)
+                {
+                    //Kill the snake
+                    SnakeHead.Destroy();
+                }
 
                 float previousX = SnakeHead.X;
                 float previousY = SnakeHead.Y;

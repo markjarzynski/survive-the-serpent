@@ -43,6 +43,7 @@ namespace SurviveTheSerpent
         {
             FlatRedBall.Graphics.Renderer.UseRenderTargets = false;
             FlatRedBallServices.InitializeFlatRedBall(this, graphics);
+			GlobalContent.Initialize();
 
 			Screens.ScreenManager.Start(typeof(SurviveTheSerpent.Screens.SplashScreen).FullName);
 

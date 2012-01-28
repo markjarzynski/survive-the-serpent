@@ -49,14 +49,14 @@ namespace SurviveTheSerpent.Entities
         }
 
 		// Generated Fields
-#if DEBUG
-static bool HasBeenLoadedWithGlobalContentManager = false;
-#endif
-static object mLockObject = new object();
-static bool mHasRegisteredUnload = false;
-static bool IsStaticContentLoaded = false;
+		#if DEBUG
+		static bool HasBeenLoadedWithGlobalContentManager = false;
+		#endif
+		static object mLockObject = new object();
+		static bool mHasRegisteredUnload = false;
+		static bool IsStaticContentLoaded = false;
 
-protected Layer LayerProvidedByContainer = null;
+		protected Layer LayerProvidedByContainer = null;
 
         public SnakeHead(string contentManagerName) :
             this(contentManagerName, true)
@@ -77,9 +77,10 @@ protected Layer LayerProvidedByContainer = null;
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			
+
+
 			PostInitialize();
-			if (addToManagers)
+			if(addToManagers)
 			{
 				AddToManagers(null);
 			}
@@ -88,114 +89,120 @@ protected Layer LayerProvidedByContainer = null;
 		}
 
 // Generated AddToManagers
-		public virtual void AddToManagers (Layer layerToAddTo)
-		{
+
+        public virtual void AddToManagers(Layer layerToAddTo)
+        {
 			LayerProvidedByContainer = layerToAddTo;
 			SpriteManager.AddPositionedObject(this);
 			AddToManagersBottomUp(layerToAddTo);
 			CustomInitialize();
-		}
+
+        }
 
 		public virtual void Activity()
 		{
 			// Generated Activity
-			
+
 			CustomActivity();
 			
 			// After Custom Activity
-		}
+		
+}
 
 		public virtual void Destroy()
 		{
 			// Generated Destroy
 			SpriteManager.RemovePositionedObject(this);
-			
+
 
 
 			CustomDestroy();
 		}
 
 		// Generated Methods
-public virtual void PostInitialize ()
-{
-}
-public virtual void AddToManagersBottomUp (Layer layerToAddTo)
-{
-	// We move this back to the origin and unrotate it so that anything attached to it can just use its absolute position
-	float oldRotationX = RotationX;
-	float oldRotationY = RotationY;
-	float oldRotationZ = RotationZ;
-	
-	float oldX = X;
-	float oldY = Y;
-	float oldZ = Z;
-	
-	X = 0;
-	Y = 0;
-	Z = 0;
-	RotationX = 0;
-	RotationY = 0;
-	RotationZ = 0;
-	X = oldX;
-	Y = oldY;
-	Z = oldZ;
-	RotationX = oldRotationX;
-	RotationY = oldRotationY;
-	RotationZ = oldRotationZ;
-}
-public virtual void ConvertToManuallyUpdated ()
-{
-	this.ForceUpdateDependenciesDeep();
-	SpriteManager.ConvertToManuallyUpdated(this);
-}
-public static void LoadStaticContent (string contentManagerName)
-{
-	ContentManagerName = contentManagerName;
-	#if DEBUG
-	if (contentManagerName == FlatRedBallServices.GlobalContentManager)
-	{
-		HasBeenLoadedWithGlobalContentManager = true;
-	}
-	else if (HasBeenLoadedWithGlobalContentManager)
-	{
-		throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
-	}
-	#endif
-	if (IsStaticContentLoaded == false)
-	{
-		IsStaticContentLoaded = true;
-		lock (mLockObject)
+		public virtual void PostInitialize()
 		{
-			if (!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
-			{
-				FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("SnakeHeadStaticUnload", UnloadStaticContent);
-				mHasRegisteredUnload = true;
-			}
 		}
-		bool registerUnload = false;
-		if (registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
+		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
-			lock (mLockObject)
+
+
+            // We move this back to the origin and unrotate it so that anything attached to it can just use its absolute position
+            float oldRotationX = RotationX;
+            float oldRotationY = RotationY;
+            float oldRotationZ = RotationZ;
+
+            float oldX = X;
+            float oldY = Y;
+            float oldZ = Z;
+
+            X = 0;
+            Y = 0;
+            Z = 0;
+            RotationX = 0;
+            RotationY = 0;
+            RotationZ = 0;
+
+            X = oldX;
+            Y = oldY;
+            Z = oldZ;
+            RotationX = oldRotationX;
+            RotationY = oldRotationY;
+            RotationZ = oldRotationZ;
+                		}
+		public virtual void ConvertToManuallyUpdated()
+		{
+			this.ForceUpdateDependenciesDeep();
+			SpriteManager.ConvertToManuallyUpdated(this);
+		}
+		public static void LoadStaticContent(string contentManagerName)
+		{
+			ContentManagerName = contentManagerName;
+			#if DEBUG
+			if(contentManagerName == FlatRedBallServices.GlobalContentManager)
 			{
-				if (!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
+				HasBeenLoadedWithGlobalContentManager = true;
+			}
+			else if(HasBeenLoadedWithGlobalContentManager)
+			{
+				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
+			}
+			#endif
+			if(IsStaticContentLoaded == false)
+			{
+				IsStaticContentLoaded = true;
+				lock(mLockObject)
 				{
-					FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("SnakeHeadStaticUnload", UnloadStaticContent);
-					mHasRegisteredUnload = true;
+					if(!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
+					{
+						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("SnakeHeadStaticUnload", UnloadStaticContent);
+						mHasRegisteredUnload = true;
+					}
+				}
+				bool registerUnload = false;
+			if(registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
+			{
+				lock(mLockObject)
+				{
+					if(!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
+					{
+						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("SnakeHeadStaticUnload", UnloadStaticContent);
+						mHasRegisteredUnload = true;
+					}
 				}
 			}
+				CustomLoadStaticContent(contentManagerName);
+			}
 		}
-		CustomLoadStaticContent(contentManagerName);
-	}
-}
-public static void UnloadStaticContent ()
-{
-	IsStaticContentLoaded = false;
-	mHasRegisteredUnload = false;
-}
-object GetMember (string memberName)
-{
-	return null;
-}
+		public static void UnloadStaticContent()
+		{
+			IsStaticContentLoaded = false;
+			mHasRegisteredUnload = false;
+		}
+		object GetMember(string memberName)
+		{
+			return null;
+		}
 
     }
 	

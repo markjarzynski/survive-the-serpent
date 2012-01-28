@@ -78,7 +78,6 @@
       <CreatedByOtherEntities>false</CreatedByOtherEntities>
       <PooledByFactory>false</PooledByFactory>
       <UseGlobalContent>false</UseGlobalContent>
-      <Events />
     </EntitySave>
     <EntitySave>
       <Properties />
@@ -96,7 +95,6 @@
       <CreatedByOtherEntities>false</CreatedByOtherEntities>
       <PooledByFactory>false</PooledByFactory>
       <UseGlobalContent>false</UseGlobalContent>
-      <Events />
     </EntitySave>
     <EntitySave>
       <Properties />
@@ -114,7 +112,6 @@
       <CreatedByOtherEntities>false</CreatedByOtherEntities>
       <PooledByFactory>false</PooledByFactory>
       <UseGlobalContent>false</UseGlobalContent>
-      <Events />
     </EntitySave>
     <EntitySave>
       <Properties />
@@ -132,7 +129,6 @@
       <CreatedByOtherEntities>false</CreatedByOtherEntities>
       <PooledByFactory>false</PooledByFactory>
       <UseGlobalContent>false</UseGlobalContent>
-      <Events />
     </EntitySave>
     <EntitySave>
       <Properties />
@@ -150,7 +146,6 @@
       <CreatedByOtherEntities>false</CreatedByOtherEntities>
       <PooledByFactory>false</PooledByFactory>
       <UseGlobalContent>false</UseGlobalContent>
-      <Events />
     </EntitySave>
   </Entities>
   <GlobalFiles />

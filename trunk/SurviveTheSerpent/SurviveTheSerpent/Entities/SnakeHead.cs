@@ -25,6 +25,7 @@ namespace SurviveTheSerpent.Entities
 {
 	public partial class SnakeHead
 	{
+
         public bool canMove;
         public Direction direction;
 

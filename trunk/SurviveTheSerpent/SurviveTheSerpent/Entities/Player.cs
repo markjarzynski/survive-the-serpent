@@ -27,7 +27,8 @@ namespace SurviveTheSerpent.Entities
 	{
 		private void CustomInitialize()
 		{
-
+            this.X = 0;
+            this.Y = 0;
 
 		}
 

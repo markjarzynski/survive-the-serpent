@@ -55,6 +55,7 @@ namespace SurviveTheSerpent.Screens
 		{
 			get{ return mFoodList;}
 		}
+		private PositionedObjectList<Obstacle> ObstacleList;
 
 		public GameSplash()
 			: base("GameSplash")
@@ -83,6 +84,7 @@ namespace SurviveTheSerpent.Screens
 			rightButton = new SurviveTheSerpent.Entities.DirectionButton(ContentManagerName, false);
 			rightButton.Name = "rightButton";
 			mFoodList = new PositionedObjectList<Food>();
+			ObstacleList = new PositionedObjectList<Obstacle>();
 
 
 
@@ -121,6 +123,10 @@ namespace SurviveTheSerpent.Screens
 				for(int i = FoodList.Count - 1; i > -1; i--)
 				{
 					FoodList[i].Activity();
+				}
+				for(int i = ObstacleList.Count - 1; i > -1; i--)
+				{
+					ObstacleList[i].Activity();
 				}
 			}
 			else
@@ -179,6 +185,10 @@ namespace SurviveTheSerpent.Screens
 			{
 				FoodList[i].Destroy();
 			}
+			for(int i = ObstacleList.Count - 1; i > -1; i--)
+			{
+				ObstacleList[i].Destroy();
+			}
 			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 
 
@@ -236,6 +246,10 @@ namespace SurviveTheSerpent.Screens
 			for(int i = 0; i < FoodList.Count; i++)
 			{
 				FoodList[i].ConvertToManuallyUpdated();
+			}
+			for(int i = 0; i < ObstacleList.Count; i++)
+			{
+				ObstacleList[i].ConvertToManuallyUpdated();
 			}
 		}
 		public static void LoadStaticContent(string contentManagerName)

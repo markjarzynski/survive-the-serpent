@@ -96,6 +96,11 @@
             <Member>Y</Member>
             <Time>0</Time>
           </CustomProperty>
+          <CustomProperty>
+            <Type>Boolean</Type>
+            <Member>didEatFood</Member>
+            <Time>0</Time>
+          </CustomProperty>
           <ContainerType>Screen</ContainerType>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\SnakeHead</SourceClassType>
@@ -1265,6 +1270,22 @@
           <Name>Y</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">2</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>didEatFood</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>

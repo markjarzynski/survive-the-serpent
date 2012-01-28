@@ -131,8 +131,15 @@ namespace SurviveTheSerpent.Screens
                     previousY = tempY;
                 }
 
-                SnakeTail.X = previousX;
-                SnakeTail.Y = previousY;
+                if (SnakeHead.didEatFood == false)
+                {
+                    SnakeTail.X = previousX;
+                    SnakeTail.Y = previousY;
+                }
+                else
+                {
+                    SnakeHead.didEatFood = false;
+                }
 
                 // TODO: Snake head consumes food it collides with
                 foreach (Entities.Food food in FoodList)
@@ -140,12 +147,14 @@ namespace SurviveTheSerpent.Screens
                     if (SnakeHead.Body.CollideAgainst(food.Body))
                     {
                         Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
-                        newSnakeBody.X = SnakeTail.X;
-                        newSnakeBody.Y = SnakeTail.Y;
+                        newSnakeBody.X = SnakeBodyList.Last.X;
+                        newSnakeBody.Y = SnakeBodyList.Last.Y;
 
                         SnakeBodyList.Add(newSnakeBody);
                         FoodList.Remove(food);
                         food.Destroy();
+
+                        SnakeHead.didEatFood = true;
                     }
                 }
 

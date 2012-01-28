@@ -34,9 +34,14 @@ namespace SurviveTheSerpent.Screens
         private double snakeTimeSinceLastUpdate;
 
         private const double FOOD_SPAWN_CHANCE = .2;
+
+        private int gameOverDelay;
+        private bool isGameOver;
         
 		void CustomInitialize()
 		{
+            gameOverDelay = 0;
+            isGameOver = false;
             GuiManager.IsUIEnabled = true;
 
             cursor = GuiManager.Cursor;
@@ -168,9 +173,11 @@ namespace SurviveTheSerpent.Screens
                 System.Console.WriteLine("right button code here");
             }
 
-            if (Player.Body.CollideAgainstMove(SnakeHead.Body, 0, 1))
+            if (Player.Body.CollideAgainst(SnakeHead.Body))
             {
-                this.MoveToScreen(typeof(GameOverScreen).FullName);
+                isGameOver = true;
+                Player.SetDirection(Entities.Player.Direction.Still);
+                //this.MoveToScreen(typeof(GameOverScreen).FullName);
             }
 
             if (Player.Body.CollideAgainstMove(CollisionFile, 0, 1))
@@ -195,6 +202,10 @@ namespace SurviveTheSerpent.Screens
             }
 
             if (Player.Body.CollideAgainstMove(SnakeTail.Body, 0, 1))
+            {
+                Player.SetDirection(Entities.Player.Direction.Still);
+            }
+            if (isGameOver == true)
             {
                 Player.SetDirection(Entities.Player.Direction.Still);
             }
@@ -345,6 +356,15 @@ namespace SurviveTheSerpent.Screens
                 // TODO: Randomly generate more food
 
                 snakeTimeSinceLastUpdate = TimeManager.CurrentTime;
+
+                if (isGameOver == true && gameOverDelay == 2)
+                {
+                    this.MoveToScreen(typeof(GameOverScreen).FullName);
+                }
+                else if (gameOverDelay < 2)
+                {
+                    gameOverDelay += 1;
+                }
             }
         }
 

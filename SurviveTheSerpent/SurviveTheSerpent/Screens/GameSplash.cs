@@ -115,54 +115,24 @@ namespace SurviveTheSerpent.Screens
 
                 float previousX = SnakeHead.X;
                 float previousY = SnakeHead.Y;
-                float previousRotationZ = SnakeHead.RotationZ;
 
                 SnakeHead.Move();
-
-                bool nextElbow = false;
-                if (SnakeHead.RotationZ != previousRotationZ)
-                {
-                    nextElbow = true;
-                }
 
                 // Move the snake body after the snake head
                 foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
                 {
-                    if (nextElbow)
-                    {
-                        snakeBody.Elbow();
-                    }
-                    else
-                    {
-                        snakeBody.Straight();
-                    }
-
                     float tempX = snakeBody.X;
                     float tempY = snakeBody.Y;
-                    float tempRotationZ = snakeBody.RotationZ;
-
-                    if (snakeBody.RotationZ != previousRotationZ)
-                    {
-                        nextElbow = true;
-                        //snakeBody.Elbow();
-                    }
-                    else
-                    {
-                        nextElbow = false;
-                        //snakeBody.Straight();
-                    }
 
                     snakeBody.X = previousX;
                     snakeBody.Y = previousY;
-                    snakeBody.RotationZ = previousRotationZ;
 
                     previousX = tempX;
                     previousY = tempY;
-                    previousRotationZ = tempRotationZ;
                 }
+
                 SnakeTail.X = previousX;
                 SnakeTail.Y = previousY;
-                SnakeTail.RotationZ = previousRotationZ;
 
                 // TODO: Snake head consumes food it collides with
                 foreach (Entities.Food food in FoodList)

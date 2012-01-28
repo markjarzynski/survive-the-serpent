@@ -181,14 +181,6 @@ namespace SurviveTheSerpent.Screens
                 }
             }
 
-            foreach (Entities.Food food in FoodList)
-            {
-                if (Player.Body.CollideAgainstMove(food.Body, 0, 1))
-                {
-                    Player.SetDirection(Entities.Player.Direction.Still);
-                }
-            }
-
             foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
             {
                 if (Player.Body.CollideAgainstMove(snakeBody.Body, 0, 1))

@@ -133,8 +133,6 @@ namespace SurviveTheSerpent.Screens
                 }
 
                 SnakeTail.RotationZ = (float)Math.Atan2(SnakeBodyList.Last.Y - previousY, SnakeBodyList.Last.X - previousX);
-                //SnakeTail.X = previousX;
-                //SnakeTail.Y = previousY;
 
                 if (SnakeHead.didEatFood == false)
                 {
@@ -154,6 +152,7 @@ namespace SurviveTheSerpent.Screens
                         Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
                         newSnakeBody.X = SnakeBodyList.Last.X;
                         newSnakeBody.Y = SnakeBodyList.Last.Y;
+                        newSnakeBody.RotationZ = SnakeBodyList.Last.RotationZ;
 
                         SnakeBodyList.Add(newSnakeBody);
                         FoodList.Remove(food);

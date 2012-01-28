@@ -39,6 +39,7 @@ namespace SurviveTheSerpent.Screens
 		#if DEBUG
 		static bool HasBeenLoadedWithGlobalContentManager = false;
 		#endif
+		private Scene SceneFile;
 
 		private SurviveTheSerpent.Entities.Player Player;
 		private SurviveTheSerpent.Entities.SnakeHead SnakeHead;
@@ -58,6 +59,7 @@ namespace SurviveTheSerpent.Screens
         {
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
+			SceneFile = FlatRedBallServices.Load<Scene>("content/screens/gamesplash/scenefile.scnx", ContentManagerName);
 			Player = new SurviveTheSerpent.Entities.Player(ContentManagerName, false);
 			Player.Name = "Player";
 			SnakeHead = new SurviveTheSerpent.Entities.SnakeHead(ContentManagerName, false);
@@ -121,6 +123,7 @@ namespace SurviveTheSerpent.Screens
 
 
 				// After Custom Activity
+			SceneFile.ManageAll();
 		
 		
             
@@ -161,6 +164,8 @@ namespace SurviveTheSerpent.Screens
 			{
 				rightButton.Destroy();
 			}
+			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
+
 
 
 			base.Destroy();
@@ -183,6 +188,8 @@ namespace SurviveTheSerpent.Screens
 		}
 		public virtual void AddToManagersBottomUp()
 		{
+			SceneFile.AddToManagers(mLayer);
+
 			Player.AddToManagers(mLayer);
 			SnakeHead.AddToManagers(mLayer);
 			SnakeTail.AddToManagers(mLayer);
@@ -202,6 +209,7 @@ namespace SurviveTheSerpent.Screens
 		}
 		public virtual void ConvertToManuallyUpdated()
 		{
+			SceneFile.ConvertToManuallyUpdated();
 			Player.ConvertToManuallyUpdated();
 			SnakeHead.ConvertToManuallyUpdated();
 			SnakeTail.ConvertToManuallyUpdated();
@@ -232,6 +240,11 @@ namespace SurviveTheSerpent.Screens
 		}
 		object GetMember(string memberName)
 		{
+			switch(memberName)
+			{
+				case "SceneFile":
+					return SceneFile;
+			}
 			return null;
 		}
 

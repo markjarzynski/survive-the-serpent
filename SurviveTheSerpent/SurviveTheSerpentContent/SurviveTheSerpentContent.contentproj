@@ -96,6 +96,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
+    <None Include="Screens\GameSplash\background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>background</Name>
+    </None>
+    <None Include="Screens\GameSplash\border.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>border</Name>
+    </None>
+    <None Include="Screens\GameSplash\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
     <None Include="Screens\SplashScreen\background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>background</Name>

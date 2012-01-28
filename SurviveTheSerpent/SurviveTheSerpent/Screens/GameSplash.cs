@@ -94,7 +94,11 @@ namespace SurviveTheSerpent.Screens
                 //Player.Y -= 1;
                 System.Console.WriteLine("right button code here");
             }
-            Player.Body.CollideAgainstMove(CollisionFile, 0, 1);
+
+            if (Player.Body.CollideAgainstMove(CollisionFile, 0, 1))
+            {
+                Player.SetDirection(Entities.Player.Direction.Still);
+            }
 
         }
 

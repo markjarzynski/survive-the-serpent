@@ -48,6 +48,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Entities\CreditButton\credits.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>credits</Name>
+    </None>
+    <None Include="Entities\CreditButton\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
     <None Include="Entities\DirectionButton\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
@@ -157,6 +165,22 @@
       <Name>directionalarrowtopglow</Name>
     </None>
     <None Include="Entities\UpDownButton\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\CreditScreen\creditsscreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>creditsscreen</Name>
+    </None>
+    <None Include="Screens\CreditScreen\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\GameOverScreen\gameover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>gameover</Name>
+    </None>
+    <None Include="Screens\GameOverScreen\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>

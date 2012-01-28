@@ -35,6 +35,7 @@ namespace SurviveTheSerpent.Entities
 
         public float previousX;
         public float previousY;
+        public bool didEatFood;
 
         public enum Direction
         {
@@ -47,6 +48,7 @@ namespace SurviveTheSerpent.Entities
 		private void CustomInitialize()
 		{
             canMove = false;
+            didEatFood = false;
             direction = Direction.Right;
 
             previousX = X;

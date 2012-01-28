@@ -39,6 +39,7 @@ namespace SurviveTheSerpent.Screens
 		#if DEBUG
 		static bool HasBeenLoadedWithGlobalContentManager = false;
 		#endif
+		private Scene SceneFile;
 
 
 		public GameOverScreen()
@@ -50,6 +51,7 @@ namespace SurviveTheSerpent.Screens
         {
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
+			SceneFile = FlatRedBallServices.Load<Scene>("content/screens/gameoverscreen/scenefile.scnx", ContentManagerName);
 
 
 
@@ -89,6 +91,7 @@ namespace SurviveTheSerpent.Screens
 
 
 				// After Custom Activity
+			SceneFile.ManageAll();
 		
 		
             
@@ -97,6 +100,8 @@ namespace SurviveTheSerpent.Screens
 		public override void Destroy()
 		{
 			// Generated Destroy
+			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
+
 
 
 			base.Destroy();
@@ -111,9 +116,12 @@ namespace SurviveTheSerpent.Screens
 		}
 		public virtual void AddToManagersBottomUp()
 		{
+			SceneFile.AddToManagers(mLayer);
+
 		}
 		public virtual void ConvertToManuallyUpdated()
 		{
+			SceneFile.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
@@ -131,6 +139,11 @@ namespace SurviveTheSerpent.Screens
 		}
 		object GetMember(string memberName)
 		{
+			switch(memberName)
+			{
+				case "SceneFile":
+					return SceneFile;
+			}
 			return null;
 		}
 

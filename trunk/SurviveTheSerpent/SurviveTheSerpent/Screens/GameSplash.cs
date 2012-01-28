@@ -47,22 +47,26 @@ namespace SurviveTheSerpent.Screens
 		{
             if (cursor.PrimaryClick && upButton.HasCursorOver(cursor))
             {
-                Player.X += 1;
+                Player.SetDirection(Entities.Player.Direction.Up);
+                //Player.X += 1;
                 System.Console.WriteLine("up button code here");
             }
             else if (cursor.PrimaryClick && downButton.HasCursorOver(cursor))
             {
-                Player.X -= 1;
+                Player.SetDirection(Entities.Player.Direction.Down);
+                //Player.X -= 1;
                 System.Console.WriteLine("down button code here");
             }
             else if (cursor.PrimaryClick && leftButton.HasCursorOver(cursor))
             {
-                Player.Y += 1;
+                Player.SetDirection(Entities.Player.Direction.Left);
+                //Player.Y += 1;
                 System.Console.WriteLine("left button code here");
             }
             else if (cursor.PrimaryClick && rightButton.HasCursorOver(cursor))
             {
-                Player.Y -= 1;
+                Player.SetDirection(Entities.Player.Direction.Right);
+                //Player.Y -= 1;
                 System.Console.WriteLine("right button code here");
             }
 

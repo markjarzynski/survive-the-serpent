@@ -41,7 +41,7 @@ using Model = Microsoft.Xna.Framework.Graphics.Model;
 
 namespace SurviveTheSerpent.Entities
 {
-	public partial class DirectionButton : PositionedObject, IDestroyable, IClickable
+	public partial class LeftRightButton : PositionedObject, IDestroyable, IClickable
 	{
         // This is made global so that static lazy-loaded content can access it.
         public static string ContentManagerName
@@ -57,20 +57,28 @@ namespace SurviveTheSerpent.Entities
 		public enum VariableState
 		{
 			Uninitialized, // This exists so that the first set call actually does something
+			Inactive,
 			Normal,
-			Pressed,
-			SideNormal,
-			SidePressed,
-			SideInactive,
-			Inactive
+			Pressed
 		}
 		static object mLockObject = new object();
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
-		private static Scene SceneFile;
 		private static AnimationChainList AnimationChainListFile;
+		private static Scene SceneFile;
 
-		private Scene EntireScene;
+		private Sprite EntireScene;
+		public string EntireSceneCurrentChainName
+		{
+			get
+			{
+				return EntireScene.CurrentChainName;
+			}
+			set
+			{
+				EntireScene.CurrentChainName = value;
+			}
+		}
 		protected bool mIsPaused;
 		public override void Pause(InstructionList instructions)
 		{
@@ -99,13 +107,13 @@ namespace SurviveTheSerpent.Entities
 		}
 		protected Layer LayerProvidedByContainer = null;
 
-        public DirectionButton(string contentManagerName) :
+        public LeftRightButton(string contentManagerName) :
             this(contentManagerName, true)
         {
         }
 
 
-        public DirectionButton(string contentManagerName, bool addToManagers) :
+        public LeftRightButton(string contentManagerName, bool addToManagers) :
 			base()
 		{
 			// Don't delete this:
@@ -118,11 +126,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			EntireScene = SceneFile.Clone();
-			for (int i = 0; i < EntireScene.Texts.Count; i++)
-			{
-				EntireScene.Texts[i].AdjustPositionForPixelPerfectDrawing = true;
-			}
+			EntireScene = SceneFile.Sprites.FindByName("directionalarrowright1").Clone();
 
 
 			PostInitialize();
@@ -164,7 +168,7 @@ namespace SurviveTheSerpent.Entities
 			SpriteManager.RemovePositionedObject(this);
 			if(EntireScene != null)
 			{
-				EntireScene.RemoveFromManagers(ContentManagerName != "Global");
+				SpriteManager.RemoveSprite(EntireScene);
 			}
 
 
@@ -180,6 +184,7 @@ namespace SurviveTheSerpent.Entities
 			X = 0f;
 			Y = 0f;
 			RotationZ = 0f;
+			EntireSceneCurrentChainName = "NoGlow";
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -202,8 +207,11 @@ namespace SurviveTheSerpent.Entities
             RotationZ = 0;
 
 
-			EntireScene.AddToManagers(layerToAddTo);
-			EntireScene.AttachAllDetachedTo(this, true);
+			SpriteManager.AddToLayer(EntireScene, layerToAddTo);
+			if(EntireScene.Parent == null)
+			{
+				EntireScene.AttachTo(this, true);
+			}
 
             X = oldX;
             Y = oldY;
@@ -216,7 +224,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			this.ForceUpdateDependenciesDeep();
 			SpriteManager.ConvertToManuallyUpdated(this);
-			EntireScene.ConvertToManuallyUpdated();
+			SpriteManager.ConvertToManuallyUpdated(EntireScene);
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
@@ -238,28 +246,28 @@ namespace SurviveTheSerpent.Entities
 				{
 					if(!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("DirectionButtonStaticUnload", UnloadStaticContent);
+						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("LeftRightButtonStaticUnload", UnloadStaticContent);
 						mHasRegisteredUnload = true;
 					}
 				}
 				bool registerUnload = false;
-				if(!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/directionbutton/scenefile.scnx", ContentManagerName))
+				if(!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/leftrightbutton/animationchainlistfile.achx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
-				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/directionbutton/scenefile.scnx", ContentManagerName);
-				if(!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/directionbutton/animationchainlistfile.achx", ContentManagerName))
+				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/leftrightbutton/animationchainlistfile.achx", ContentManagerName);
+				if(!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/leftrightbutton/scenefile.scnx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
-				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/directionbutton/animationchainlistfile.achx", ContentManagerName);
+				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/leftrightbutton/scenefile.scnx", ContentManagerName);
 			if(registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 			{
 				lock(mLockObject)
 				{
 					if(!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("DirectionButtonStaticUnload", UnloadStaticContent);
+						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("LeftRightButtonStaticUnload", UnloadStaticContent);
 						mHasRegisteredUnload = true;
 					}
 				}
@@ -271,24 +279,24 @@ namespace SurviveTheSerpent.Entities
 		{
 			IsStaticContentLoaded = false;
 			mHasRegisteredUnload = false;
+			if(AnimationChainListFile != null)
+			{
+				AnimationChainListFile = null;
+			}
 			if(SceneFile != null)
 			{
 				SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 				SceneFile = null;
-			}
-			if(AnimationChainListFile != null)
-			{
-				AnimationChainListFile = null;
 			}
 		}
 		public static object GetStaticMember(string memberName)
 		{
 			switch(memberName)
 			{
-				case "SceneFile":
-					return SceneFile;
 				case "AnimationChainListFile":
 					return AnimationChainListFile;
+				case "SceneFile":
+					return SceneFile;
 			}
 			return null;
 		}
@@ -316,17 +324,11 @@ namespace SurviveTheSerpent.Entities
 				mCurrentState = value;
 				switch(mCurrentState)
 				{
+					case VariableState.Inactive:
+						break;
 					case VariableState.Normal:
 						break;
 					case VariableState.Pressed:
-						break;
-					case VariableState.SideNormal:
-						break;
-					case VariableState.SidePressed:
-						break;
-					case VariableState.SideInactive:
-						break;
-					case VariableState.Inactive:
 						break;
 				}
 			}
@@ -335,20 +337,14 @@ namespace SurviveTheSerpent.Entities
 		{
 			switch(stateToInterpolateTo)
 			{
+				case VariableState.Inactive:
+						break;
 				case VariableState.Normal:
 						break;
 				case VariableState.Pressed:
 						break;
-				case VariableState.SideNormal:
-						break;
-				case VariableState.SidePressed:
-						break;
-				case VariableState.SideInactive:
-						break;
-				case VariableState.Inactive:
-						break;
 			}
-			this.Instructions.Add(new MethodInstruction<DirectionButton>(
+			this.Instructions.Add(new MethodInstruction<LeftRightButton>(
 				this, "StopStateInterpolation", new object[]{stateToInterpolateTo}, TimeManager.CurrentTime + secondsToTake));
 		}
 
@@ -356,17 +352,11 @@ namespace SurviveTheSerpent.Entities
 		{
 			switch(stateToStop)
 			{
+				case VariableState.Inactive:
+						break;
 				case VariableState.Normal:
 						break;
 				case VariableState.Pressed:
-						break;
-				case VariableState.SideNormal:
-						break;
-				case VariableState.SidePressed:
-						break;
-				case VariableState.SideInactive:
-						break;
-				case VariableState.Inactive:
 						break;
 			}
 			CurrentState = stateToStop;
@@ -376,10 +366,10 @@ namespace SurviveTheSerpent.Entities
 		{
 			switch(memberName)
 			{
-				case "SceneFile":
-					return SceneFile;
 				case "AnimationChainListFile":
 					return AnimationChainListFile;
+				case "SceneFile":
+					return SceneFile;
 			}
 			return null;
 		}
@@ -388,7 +378,7 @@ namespace SurviveTheSerpent.Entities
 	
 	
 	// Extra classes
-	public static class DirectionButtonExtensionMethods
+	public static class LeftRightButtonExtensionMethods
 	{
 	}
 	

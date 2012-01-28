@@ -116,6 +116,14 @@
     <Compile Include="Entities\StartButton.Generated.cs">
       <DependentUpon>StartButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\LeftRightButton.cs" />
+    <Compile Include="Entities\LeftRightButton.Generated.cs">
+      <DependentUpon>LeftRightButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UpDownButton.cs" />
+    <Compile Include="Entities\UpDownButton.Generated.cs">
+      <DependentUpon>UpDownButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="Performance\IPoolable.Generated.cs" />
     <Compile Include="Performance\PoolList.Generated.cs" />

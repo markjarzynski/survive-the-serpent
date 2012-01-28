@@ -25,15 +25,55 @@ namespace SurviveTheSerpent.Entities
 {
 	public partial class SnakeHead
 	{
+        private double updateDelay = 1.0; // in seconds
+        private double timeSinceLastUpdate;
+        public bool canMove;
+        public Direction direction;
+
+        public float gridSizeX = 2.0f;
+        public float gridSizeY = 2.0f;
+
+        public enum Direction
+        {
+            Up,
+            Down,
+            Left,
+            Right
+        };
+
 		private void CustomInitialize()
 		{
-
-
+            canMove = false;
+            timeSinceLastUpdate = TimeManager.CurrentTime;
+            direction = Direction.Right;
 		}
 
 		private void CustomActivity()
 		{
-
+            if (canMove && TimeManager.SecondsSince(timeSinceLastUpdate) > updateDelay)
+            {
+                if (direction == Direction.Up)
+                {
+                    this.Y += gridSizeY;
+                    this.RotationZ = (float)Math.PI / 2;
+                }
+                else if (direction == Direction.Down)
+                {
+                    this.Y -= gridSizeY;
+                    this.RotationZ = (float)Math.PI * 3 / 2;
+                }
+                else if (direction == Direction.Left)
+                {
+                    this.X -= gridSizeX;
+                    this.RotationZ = (float)Math.PI;
+                }
+                else if (direction == Direction.Right)
+                {
+                    this.X += gridSizeX;
+                    this.RotationZ = 0.0f;
+                }
+                timeSinceLastUpdate = TimeManager.CurrentTime;
+            }
 		}
 
 		private void CustomDestroy()
@@ -50,29 +90,25 @@ namespace SurviveTheSerpent.Entities
 
         public void ChangeDirectionByAngle(double radians)
         {
-            this.RotationZ = (float)radians;
-
-
-            if (radians < 0)
+            if ( radians > -Math.PI / 4 && radians < Math.PI / 4)
             {
-                //radians += Math.PI * 2;
+                direction = Direction.Right;
+                //this.RotationZ = 0.0f;
             }
-
-            if ( radians > -Math.PI / 4 & radians < Math.PI / 4)
+            else if (radians > Math.PI / 4 && radians < Math.PI * 3 / 4)
             {
-                this.RotationZ = 0.0f;
+                direction = Direction.Up;
+                //this.RotationZ = (float)Math.PI / 2;
             }
-            else if (radians > Math.PI / 4 & radians < Math.PI * 3 / 4)
+            else if (radians > Math.PI * 3 / 4 || radians < -Math.PI * 3 / 4)
             {
-                this.RotationZ = (float)Math.PI / 2;
+                direction = Direction.Left;
+                //this.RotationZ = (float)Math.PI;
             }
-            else if (radians > Math.PI * 3 / 4 | radians < -Math.PI * 3 / 4)
+            else if (radians < -Math.PI / 4 && radians > -Math.PI * 3 / 4)
             {
-                this.RotationZ = (float)Math.PI;
-            }
-            else if (radians < -Math.PI / 4 & radians > -Math.PI * 3 / 4)
-            {
-                this.RotationZ = (float)Math.PI * 3 / 2;
+                direction = Direction.Down;
+                //this.RotationZ = (float)Math.PI * 3 / 2;
             }
         }
 	}

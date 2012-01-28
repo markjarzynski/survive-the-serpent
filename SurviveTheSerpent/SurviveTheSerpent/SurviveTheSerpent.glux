@@ -806,6 +806,11 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <Properties />
+          <CustomProperty>
+            <Type>Boolean</Type>
+            <Member>Visible</Member>
+            <Time>0</Time>
+          </CustomProperty>
           <ContainerType>Entity</ContainerType>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>

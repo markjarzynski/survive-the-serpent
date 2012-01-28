@@ -58,7 +58,6 @@ namespace SurviveTheSerpent.Entities
 		private static Scene SceneFile;
 
 		private Scene EntireScene;
-		public string Direction = "North";
 		protected Layer LayerProvidedByContainer = null;
 
         public SnakeHead(string contentManagerName) :
@@ -138,7 +137,6 @@ namespace SurviveTheSerpent.Entities
 		{
 			X = 2f;
 			Y = 2f;
-			Direction = "North";
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{

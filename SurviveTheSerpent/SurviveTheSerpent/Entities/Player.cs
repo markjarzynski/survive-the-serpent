@@ -29,7 +29,7 @@ namespace SurviveTheSerpent.Entities
         // Direction Code:
         // U,D,L,R = directions
         // S = standing still
-        private Direction direction;
+        public Direction direction;
         private const double PLAYER_SPEED = .2;
         private double velocity;
 

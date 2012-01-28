@@ -48,6 +48,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Entities\Player\player.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>player</Name>
+    </None>
+    <None Include="Entities\Player\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\SnakeHead\head.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>head</Name>
+    </None>
+    <None Include="Entities\SnakeHead\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
     <None Include="Screens\SplashScreen\background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>background</Name>

@@ -40,6 +40,8 @@ namespace SurviveTheSerpent.Screens
 		static bool HasBeenLoadedWithGlobalContentManager = false;
 		#endif
 
+		private SurviveTheSerpent.Entities.Player Player;
+		private SurviveTheSerpent.Entities.SnakeHead SnakeHead;
 
 		public GameSplash()
 			: base("GameSplash")
@@ -50,6 +52,10 @@ namespace SurviveTheSerpent.Screens
         {
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
+			Player = new SurviveTheSerpent.Entities.Player(ContentManagerName, false);
+			Player.Name = "Player";
+			SnakeHead = new SurviveTheSerpent.Entities.SnakeHead(ContentManagerName, false);
+			SnakeHead.Name = "SnakeHead";
 
 
 
@@ -77,6 +83,8 @@ namespace SurviveTheSerpent.Screens
 			if(!IsPaused)
 			{
 
+				Player.Activity();
+				SnakeHead.Activity();
 			}
 			else
 			{
@@ -97,6 +105,14 @@ namespace SurviveTheSerpent.Screens
 		public override void Destroy()
 		{
 			// Generated Destroy
+			if(Player != null)
+			{
+				Player.Destroy();
+			}
+			if(SnakeHead != null)
+			{
+				SnakeHead.Destroy();
+			}
 
 
 			base.Destroy();
@@ -111,9 +127,13 @@ namespace SurviveTheSerpent.Screens
 		}
 		public virtual void AddToManagersBottomUp()
 		{
+			Player.AddToManagers(mLayer);
+			SnakeHead.AddToManagers(mLayer);
 		}
 		public virtual void ConvertToManuallyUpdated()
 		{
+			Player.ConvertToManuallyUpdated();
+			SnakeHead.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
@@ -127,6 +147,8 @@ namespace SurviveTheSerpent.Screens
 				throw new Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
 			}
 			#endif
+			SurviveTheSerpent.Entities.Player.LoadStaticContent(contentManagerName);
+			SurviveTheSerpent.Entities.SnakeHead.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}
 		object GetMember(string memberName)

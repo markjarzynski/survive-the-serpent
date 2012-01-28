@@ -48,7 +48,7 @@
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\Player</SourceClassType>
           <InstanceName>Player</InstanceName>
-          <HasPublicProperty>false</HasPublicProperty>
+          <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -78,6 +78,11 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>String</Type>
+            <Member>Direction</Member>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Screen</ContainerType>
@@ -891,6 +896,22 @@
           <Name>Y</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">2</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Direction</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">North</DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>

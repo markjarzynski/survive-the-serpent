@@ -42,7 +42,11 @@ namespace SurviveTheSerpent.Screens
 		#endif
 		private Scene SceneFile;
 
-		private SurviveTheSerpent.Entities.Player Player;
+		private SurviveTheSerpent.Entities.Player mPlayer;
+		public SurviveTheSerpent.Entities.Player Player
+		{
+			get{ return mPlayer;}
+		}
 		private SurviveTheSerpent.Entities.SnakeHead SnakeHead;
 		private SurviveTheSerpent.Entities.SnakeTail SnakeTail;
 		private PositionedObjectList<SnakeBody> SnakeBodyList;
@@ -67,8 +71,8 @@ namespace SurviveTheSerpent.Screens
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
 			SceneFile = FlatRedBallServices.Load<Scene>("content/screens/gamesplash/scenefile.scnx", ContentManagerName);
-			Player = new SurviveTheSerpent.Entities.Player(ContentManagerName, false);
-			Player.Name = "Player";
+			mPlayer = new SurviveTheSerpent.Entities.Player(ContentManagerName, false);
+			mPlayer.Name = "mPlayer";
 			SnakeHead = new SurviveTheSerpent.Entities.SnakeHead(ContentManagerName, false);
 			SnakeHead.Name = "SnakeHead";
 			SnakeTail = new SurviveTheSerpent.Entities.SnakeTail(ContentManagerName, false);
@@ -217,7 +221,7 @@ namespace SurviveTheSerpent.Screens
 		{
 			SceneFile.AddToManagers(mLayer);
 
-			Player.AddToManagers(mLayer);
+			mPlayer.AddToManagers(mLayer);
 			SnakeHead.AddToManagers(mLayer);
 			SnakeTail.AddToManagers(mLayer);
 			upButton.AddToManagers(mLayer);

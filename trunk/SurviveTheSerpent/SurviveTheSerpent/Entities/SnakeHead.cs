@@ -33,7 +33,22 @@ namespace SurviveTheSerpent.Entities
 
 		private void CustomActivity()
 		{
-
+            if (this.Direction == "North")
+            {
+                this.RotationZ = (float)Math.PI;
+            }
+            else if (this.Direction == "East")
+            {
+                this.RotationZ = (float)Math.PI/2;
+            }
+            else if (this.Direction == "South")
+            {
+                this.RotationZ = 0.0f;
+            }
+            else if (this.Direction == "West")
+            {
+                this.RotationZ = (float)Math.PI * 3 / 2;
+            }
 
 		}
 
@@ -47,6 +62,30 @@ namespace SurviveTheSerpent.Entities
         {
 
 
+        }
+
+        public void ChangeDirectionByAngle(double radians)
+        {
+            if (0.0 > radians && radians < Math.PI / 2)
+            {
+                this.Direction = "North";
+            }
+            else if (Math.PI/2 > radians && radians < Math.PI)
+            {
+                this.Direction = "East";
+            }
+            else if (0.0 < radians && radians > -Math.PI/2)
+            {
+                this.Direction = "South";
+            }
+            else if (-Math.PI/2 < radians && radians > -Math.PI)
+            {
+                this.Direction = "West";
+            }
+            else
+            {
+
+            }
         }
 	}
 }

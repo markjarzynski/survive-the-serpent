@@ -34,7 +34,10 @@ namespace SurviveTheSerpent.Screens
 
 		void CustomActivity(bool firstTimeCalled)
 		{
-
+            if (InputManager.Mouse.ButtonPushed(Mouse.MouseButtons.LeftButton))
+            {
+                this.MoveToScreen(typeof(GameSplash).FullName);
+            }
 
 		}
 

@@ -165,6 +165,19 @@ namespace SurviveTheSerpent.Screens
                 SnakeTail.RotationZ = previousRotationZ;
 
                 // TODO: Snake head consumes food it collides with
+                foreach (Entities.Food food in FoodList)
+                {
+                    if (SnakeHead.Body.CollideAgainst(food.Body))
+                    {
+                        Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
+                        newSnakeBody.X = SnakeTail.X;
+                        newSnakeBody.Y = SnakeTail.Y;
+
+                        SnakeBodyList.Add(newSnakeBody);
+                        FoodList.Remove(food);
+                        food.Destroy();
+                    }
+                }
 
                 // TODO: Randomly generate more food
 

@@ -20,6 +20,7 @@ using SurviveTheSerpent.Entities;
 using FlatRedBall;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
+using FlatRedBall.Math.Geometry;
 using FlatRedBall.Graphics.Animation;
 
 #if XNA4
@@ -60,6 +61,11 @@ namespace SurviveTheSerpent.Entities
 		private static AnimationChainList AnimationChainListFile;
 
 		private Sprite EntireScene;
+		private AxisAlignedRectangle mBody;
+		public AxisAlignedRectangle Body
+		{
+			get{ return mBody;}
+		}
 		public string EntireSceneCurrentChainName
 		{
 			get
@@ -93,6 +99,7 @@ namespace SurviveTheSerpent.Entities
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
 			EntireScene = SceneFile.Sprites.FindByName("body1").Clone();
+			mBody = new AxisAlignedRectangle();
 
 
 			PostInitialize();
@@ -135,6 +142,10 @@ namespace SurviveTheSerpent.Entities
 			{
 				SpriteManager.RemoveSprite(EntireScene);
 			}
+			if(Body != null)
+			{
+				ShapeManager.Remove(Body);
+			}
 
 
 
@@ -175,6 +186,11 @@ namespace SurviveTheSerpent.Entities
 			if(EntireScene.Parent == null)
 			{
 				EntireScene.AttachTo(this, true);
+			}
+			ShapeManager.AddToLayer(mBody, layerToAddTo);
+			if(mBody.Parent == null)
+			{
+				mBody.AttachTo(this, true);
 			}
 
             X = oldX;

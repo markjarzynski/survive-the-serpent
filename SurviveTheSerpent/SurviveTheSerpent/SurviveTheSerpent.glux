@@ -1199,6 +1199,32 @@
           <Events />
           <Is2D>false</Is2D>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>Body</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>

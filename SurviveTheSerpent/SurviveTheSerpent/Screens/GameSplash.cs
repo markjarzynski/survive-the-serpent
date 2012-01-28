@@ -116,7 +116,7 @@ namespace SurviveTheSerpent.Screens
                 float previousX = SnakeHead.X;
                 float previousY = SnakeHead.Y;
 
-                SnakeHead.Move();
+                SnakeHead.Move(SnakeBodyList);
 
                 // Move the snake body after the snake head
                 SnakeBodyList[0].setX(SnakeHead.previousX);

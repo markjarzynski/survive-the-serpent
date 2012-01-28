@@ -7,6 +7,7 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 
+using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Math.Splines;
 using BitmapFont = FlatRedBall.Graphics.BitmapFont;
@@ -93,31 +94,139 @@ namespace SurviveTheSerpent.Entities
             }
         }
 
-        public void Move()
+        public void Move(PositionedObjectList<SnakeBody> SnakeBodyList)
         {
             previousX = X;
             previousY = Y;
 
             if (direction == Direction.Up)
             {
-                this.Y += gridSizeY;
-                this.RotationZ = (float)Math.PI / 2;
+                if (canMoveUp(SnakeBodyList))
+                {
+                    this.Y += gridSizeY;
+                    this.RotationZ = (float)Math.PI / 2;
+                }
+                else
+                {
+                    this.Y -= gridSizeY;
+                    this.RotationZ = (float)Math.PI * 3 / 2;
+                }
             }
             else if (direction == Direction.Down)
             {
-                this.Y -= gridSizeY;
-                this.RotationZ = (float)Math.PI * 3 / 2;
+                if (canMoveDown(SnakeBodyList))
+                {
+                    this.Y -= gridSizeY;
+                    this.RotationZ = (float)Math.PI * 3 / 2;
+                }
+                else
+                {
+                    this.Y += gridSizeY;
+                    this.RotationZ = (float)Math.PI / 2;
+                }
             }
             else if (direction == Direction.Left)
             {
-                this.X -= gridSizeX;
-                this.RotationZ = (float)Math.PI;
+                if (canMoveLeft(SnakeBodyList))
+                {
+                    this.X -= gridSizeX;
+                    this.RotationZ = (float)Math.PI;
+                }
+                else
+                {
+                    this.X += gridSizeX;
+                    this.RotationZ = 0.0f;
+                }
             }
             else if (direction == Direction.Right)
             {
-                this.X += gridSizeX;
-                this.RotationZ = 0.0f;
+                if (canMoveRight(SnakeBodyList))
+                {
+                    this.X += gridSizeX;
+                    this.RotationZ = 0.0f;
+                }
+                else
+                {
+                    this.X -= gridSizeX;
+                    this.RotationZ = (float)Math.PI;
+                }
             }
+        }
+
+        private bool canMoveUp(PositionedObjectList<SnakeBody> SnakeBodyList)
+        {
+            bool ableToMove = true;
+
+            float newY = this.Y + gridSizeY;
+            foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+            {
+                if (snakeBody.Y == newY && snakeBody.X == this.X)
+                {
+                    ableToMove = false;
+                }
+                else
+                {
+                    ableToMove = true;
+                }
+            }
+            return ableToMove;
+        }
+
+        private bool canMoveDown(PositionedObjectList<SnakeBody> SnakeBodyList)
+        {
+            bool ableToMove = true;
+
+            float newY = this.Y - gridSizeY;
+            foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+            {
+                if (snakeBody.Y == newY && snakeBody.X == this.X)
+                {
+                    ableToMove = false;
+                }
+                else
+                {
+                    ableToMove = true;
+                }
+            }
+            return ableToMove;
+        }
+
+        private bool canMoveLeft(PositionedObjectList<SnakeBody> SnakeBodyList)
+        {
+            bool ableToMove = true;
+
+            float newX = this.X - gridSizeX;
+            foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+            {
+                if (snakeBody.X == newX && snakeBody.Y == this.Y)
+                {
+                    ableToMove = false;
+                }
+                else
+                {
+                    ableToMove = true;
+                }
+            }
+            return ableToMove;
+        }
+
+        private bool canMoveRight(PositionedObjectList<SnakeBody> SnakeBodyList)
+        {
+            bool ableToMove = true;
+
+            float newX = this.X + gridSizeX;
+            foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+            {
+                if (snakeBody.X == newX && snakeBody.Y == this.Y)
+                {
+                    ableToMove = false;
+                }
+                else
+                {
+                    ableToMove = true;
+                }
+            }
+            return ableToMove;
         }
 	}
 }

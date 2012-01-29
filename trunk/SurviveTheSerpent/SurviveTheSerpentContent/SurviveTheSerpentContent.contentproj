@@ -68,6 +68,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>directionalarrowtop</Name>
     </None>
+    <None Include="Entities\DirectionButton\directionsbutton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>directionsbutton</Name>
+    </None>
+    <None Include="Entities\DirectionButton\directionsbuttonglow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>directionsbuttonglow</Name>
+    </None>
     <None Include="Entities\DirectionButton\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
@@ -76,6 +84,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>food</Name>
     </None>
+    <None Include="Entities\Food\rabbit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>rabbit</Name>
+    </None>
     <None Include="Entities\Food\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
@@ -83,6 +95,10 @@
     <None Include="Entities\InstructionButton\directions.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>directions</Name>
+    </None>
+    <None Include="Entities\InstructionButton\directionsbutton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>directionsbutton</Name>
     </None>
     <None Include="Entities\InstructionButton\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -111,6 +127,14 @@
     <None Include="Entities\Obstacle\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\Obstacle\wallstraight2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wallstraight2</Name>
+    </None>
+    <None Include="Entities\Player\dudeguy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>dudeguy</Name>
     </None>
     <None Include="Entities\Player\player.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -159,6 +183,50 @@
     <None Include="Entities\StartButton\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\StartButton\startbutton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>startbutton</Name>
+    </None>
+    <None Include="Entities\StoneSnakeBody\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\StoneSnakeBody\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\StoneSnakeBody\wallbend.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wallbend</Name>
+    </None>
+    <None Include="Entities\StoneSnakeBody\wallstraight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wallstraight</Name>
+    </None>
+    <None Include="Entities\StoneSnakeHead\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\StoneSnakeHead\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\StoneSnakeHead\wallhead.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wallhead</Name>
+    </None>
+    <None Include="Entities\StoneSnakeTail\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\StoneSnakeTail\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\StoneSnakeTail\walltail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>walltail</Name>
     </None>
     <None Include="Entities\UpDownButton\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

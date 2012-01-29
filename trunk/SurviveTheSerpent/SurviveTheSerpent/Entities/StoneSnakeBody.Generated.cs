@@ -41,7 +41,7 @@ using Model = Microsoft.Xna.Framework.Graphics.Model;
 
 namespace SurviveTheSerpent.Entities
 {
-	public partial class SnakeBody : PositionedObject, IDestroyable, IVisible
+	public partial class StoneSnakeBody : PositionedObject, IDestroyable
 	{
         // This is made global so that static lazy-loaded content can access it.
         public static string ContentManagerName
@@ -57,10 +57,14 @@ namespace SurviveTheSerpent.Entities
 		static object mLockObject = new object();
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
-		private static Scene SceneFile;
 		private static AnimationChainList AnimationChainListFile;
+		private static Scene SceneFile;
 
-		private Sprite EntireScene;
+		protected Sprite mEntireScene;
+		public Sprite EntireScene
+		{
+			get{ return mEntireScene;}
+		}
 		private AxisAlignedRectangle mBody;
 		public AxisAlignedRectangle Body
 		{
@@ -77,26 +81,15 @@ namespace SurviveTheSerpent.Entities
 				EntireScene.CurrentChainName = value;
 			}
 		}
-		protected bool mVisible = true;
-		public virtual bool Visible
-		{
-			get{ return mVisible;}
-			set
-			{
-				mVisible = value;
-				EntireScene.Visible = mVisible;
-				Body.Visible = mVisible;
-			}
-		}
 		protected Layer LayerProvidedByContainer = null;
 
-        public SnakeBody(string contentManagerName) :
+        public StoneSnakeBody(string contentManagerName) :
             this(contentManagerName, true)
         {
         }
 
 
-        public SnakeBody(string contentManagerName, bool addToManagers) :
+        public StoneSnakeBody(string contentManagerName, bool addToManagers) :
 			base()
 		{
 			// Don't delete this:
@@ -109,7 +102,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			EntireScene = SceneFile.Sprites.FindByName("body1").Clone();
+			mEntireScene = SceneFile.Sprites.FindByName("wallstraight1").Clone();
 			mBody = new AxisAlignedRectangle();
 
 
@@ -169,7 +162,7 @@ namespace SurviveTheSerpent.Entities
 		public virtual void PostInitialize()
 		{
 			X = 0f;
-			Y = 8f;
+			Y = 0f;
 			EntireSceneCurrentChainName = "Elbow";
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
@@ -193,10 +186,10 @@ namespace SurviveTheSerpent.Entities
             RotationZ = 0;
 
 
-			SpriteManager.AddToLayer(EntireScene, layerToAddTo);
-			if(EntireScene.Parent == null)
+			SpriteManager.AddToLayer(mEntireScene, layerToAddTo);
+			if(mEntireScene.Parent == null)
 			{
-				EntireScene.AttachTo(this, true);
+				mEntireScene.AttachTo(this, true);
 			}
 			ShapeManager.AddToLayer(mBody, layerToAddTo);
 			if(mBody.Parent == null)
@@ -237,28 +230,28 @@ namespace SurviveTheSerpent.Entities
 				{
 					if(!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("SnakeBodyStaticUnload", UnloadStaticContent);
+						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("StoneSnakeBodyStaticUnload", UnloadStaticContent);
 						mHasRegisteredUnload = true;
 					}
 				}
 				bool registerUnload = false;
-				if(!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/snakebody/scenefile.scnx", ContentManagerName))
+				if(!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/stonesnakebody/animationchainlistfile.achx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
-				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/snakebody/scenefile.scnx", ContentManagerName);
-				if(!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/snakebody/animationchainlistfile.achx", ContentManagerName))
+				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/stonesnakebody/animationchainlistfile.achx", ContentManagerName);
+				if(!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/stonesnakebody/scenefile.scnx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
-				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/snakebody/animationchainlistfile.achx", ContentManagerName);
+				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/stonesnakebody/scenefile.scnx", ContentManagerName);
 			if(registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 			{
 				lock(mLockObject)
 				{
 					if(!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("SnakeBodyStaticUnload", UnloadStaticContent);
+						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("StoneSnakeBodyStaticUnload", UnloadStaticContent);
 						mHasRegisteredUnload = true;
 					}
 				}
@@ -270,24 +263,24 @@ namespace SurviveTheSerpent.Entities
 		{
 			IsStaticContentLoaded = false;
 			mHasRegisteredUnload = false;
+			if(AnimationChainListFile != null)
+			{
+				AnimationChainListFile = null;
+			}
 			if(SceneFile != null)
 			{
 				SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 				SceneFile = null;
-			}
-			if(AnimationChainListFile != null)
-			{
-				AnimationChainListFile = null;
 			}
 		}
 		public static object GetStaticMember(string memberName)
 		{
 			switch(memberName)
 			{
-				case "SceneFile":
-					return SceneFile;
 				case "AnimationChainListFile":
 					return AnimationChainListFile;
+				case "SceneFile":
+					return SceneFile;
 			}
 			return null;
 		}
@@ -295,10 +288,10 @@ namespace SurviveTheSerpent.Entities
 		{
 			switch(memberName)
 			{
-				case "SceneFile":
-					return SceneFile;
 				case "AnimationChainListFile":
 					return AnimationChainListFile;
+				case "SceneFile":
+					return SceneFile;
 			}
 			return null;
 		}
@@ -307,16 +300,8 @@ namespace SurviveTheSerpent.Entities
 	
 	
 	// Extra classes
-	public static class SnakeBodyExtensionMethods
+	public static class StoneSnakeBodyExtensionMethods
 	{
-		public static void SetVisible(this PositionedObjectList<SnakeBody> list, bool value)
-		{
-			int count = list.Count;
-			for (int i = 0; i < count; i++)
-			{
-				list[i].Visible = value;
-			}
-		}
 	}
 	
 }

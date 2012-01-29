@@ -128,6 +128,18 @@
     <Compile Include="Entities\LeftRightButton.Generated.cs">
       <DependentUpon>LeftRightButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\StoneSnakeBody.cs" />
+    <Compile Include="Entities\StoneSnakeBody.Generated.cs">
+      <DependentUpon>StoneSnakeBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\StoneSnakeHead.cs" />
+    <Compile Include="Entities\StoneSnakeHead.Generated.cs">
+      <DependentUpon>StoneSnakeHead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\StoneSnakeTail.cs" />
+    <Compile Include="Entities\StoneSnakeTail.Generated.cs">
+      <DependentUpon>StoneSnakeTail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\UpDownButton.cs" />
     <Compile Include="Entities\UpDownButton.Generated.cs">
       <DependentUpon>UpDownButton.cs</DependentUpon>

@@ -481,6 +481,87 @@
           <Events />
           <Is2D>false</Is2D>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Screen</ContainerType>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\StoneSnakeHead</SourceClassGenericType>
+          <InstanceName>StoneSnakeHeadList</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>false</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Screen</ContainerType>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\StoneSnakeBody</SourceClassGenericType>
+          <InstanceName>StoneSnakeBodyList</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>false</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Screen</ContainerType>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\StoneSnakeTail</SourceClassGenericType>
+          <InstanceName>StoneSnakeTailList</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>false</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
       </NamedObjects>
       <Behaviors />
       <UseGlobalContent>false</UseGlobalContent>
@@ -1592,7 +1673,7 @@
           <SetByContainer>false</SetByContainer>
           <AttachToContainer>true</AttachToContainer>
           <AttachToCamera>false</AttachToCamera>
-          <AddToManagers>false</AddToManagers>
+          <AddToManagers>true</AddToManagers>
           <IncludeInIVisible>true</IncludeInIVisible>
           <IncludeInIClickable>true</IncludeInIClickable>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
@@ -1808,7 +1889,7 @@
           </Properties>
           <Name>Y</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>
@@ -1981,6 +2062,441 @@
           <Properties />
           <ContainerType>Entity</ContainerType>
           <Name>Entities/StartButton/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <Behaviors />
+      <CreatedByOtherEntities>false</CreatedByOtherEntities>
+      <PooledByFactory>false</PooledByFactory>
+      <UseGlobalContent>false</UseGlobalContent>
+    </EntitySave>
+    <EntitySave>
+      <Properties />
+      <States />
+      <StateCategoryList />
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EntireSceneCurrentChainName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Elbow</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>EntireScene</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
+      <IsUnique>false</IsUnique>
+      <ImplementsIClickable>false</ImplementsIClickable>
+      <ImplementsIVisible>false</ImplementsIVisible>
+      <ImplementsIWindow>false</ImplementsIWindow>
+      <Name>Entities\StoneSnakeBody</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/StoneSnakeBody/SceneFile.scnx</SourceFile>
+          <SourceName>wallstraight1 (Sprite)</SourceName>
+          <InstanceName>EntireScene</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>true</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>Body</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/StoneSnakeBody/AnimationChainListFile.achx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/StoneSnakeBody/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <Behaviors />
+      <CreatedByOtherEntities>false</CreatedByOtherEntities>
+      <PooledByFactory>false</PooledByFactory>
+      <UseGlobalContent>false</UseGlobalContent>
+    </EntitySave>
+    <EntitySave>
+      <Properties />
+      <States />
+      <StateCategoryList />
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
+      <IsUnique>false</IsUnique>
+      <ImplementsIClickable>false</ImplementsIClickable>
+      <ImplementsIVisible>false</ImplementsIVisible>
+      <ImplementsIWindow>false</ImplementsIWindow>
+      <Name>Entities\StoneSnakeHead</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/StoneSnakeHead/SceneFile.scnx</SourceFile>
+          <SourceName>Entire File (Scene)</SourceName>
+          <InstanceName>EntireScene</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>Body</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/StoneSnakeHead/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/StoneSnakeHead/AnimationChainListFile.achx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <Behaviors>
+        <BehaviorSave>
+          <CallType>AutomaticActivity</CallType>
+          <Name>Collide</Name>
+          <FileLocation>ProjectPrimarySharedSecondary</FileLocation>
+        </BehaviorSave>
+      </Behaviors>
+      <CreatedByOtherEntities>false</CreatedByOtherEntities>
+      <PooledByFactory>false</PooledByFactory>
+      <UseGlobalContent>false</UseGlobalContent>
+    </EntitySave>
+    <EntitySave>
+      <Properties />
+      <States />
+      <StateCategoryList />
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
+      <IsUnique>false</IsUnique>
+      <ImplementsIClickable>false</ImplementsIClickable>
+      <ImplementsIVisible>false</ImplementsIVisible>
+      <ImplementsIWindow>false</ImplementsIWindow>
+      <Name>Entities\StoneSnakeTail</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/StoneSnakeTail/SceneFile.scnx</SourceFile>
+          <SourceName>Entire File (Scene)</SourceName>
+          <InstanceName>EntireScene</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>Body</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/StoneSnakeTail/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/StoneSnakeTail/AnimationChainListFile.achx</Name>
           <IsManuallyUpdated>false</IsManuallyUpdated>
           <IsSharedStatic>true</IsSharedStatic>
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>

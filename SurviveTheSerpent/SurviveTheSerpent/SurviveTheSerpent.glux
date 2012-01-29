@@ -562,7 +562,7 @@
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\StartButton</SourceClassType>
           <InstanceName>startButton</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
+          <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -600,7 +600,7 @@
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\CreditButton</SourceClassType>
           <InstanceName>creditButton</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
+          <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -638,7 +638,7 @@
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\InstructionButton</SourceClassType>
           <InstanceName>instructionButton</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
+          <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -1676,7 +1676,7 @@
           </Properties>
           <Name>Y</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>
@@ -1808,7 +1808,7 @@
           </Properties>
           <Name>Y</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>

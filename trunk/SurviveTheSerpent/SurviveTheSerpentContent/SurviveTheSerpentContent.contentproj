@@ -453,7 +453,13 @@
       <Name>winscreen</Name>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Sound\eat.wav">
+      <Name>eat</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Sound\theme_music.mp3">
       <Name>theme_music</Name>
@@ -464,6 +470,13 @@
   <ItemGroup>
     <Compile Include="Sound\hiss_loud.wav">
       <Name>hiss_loud</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sound\loss.wav">
+      <Name>loss</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>

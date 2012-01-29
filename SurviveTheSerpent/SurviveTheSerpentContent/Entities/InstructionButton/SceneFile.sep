@@ -29,5 +29,9 @@
       <TextureName>directions.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>
+    <TextureDisplayRegionsSave>
+      <TextureName>directionsbutton.png</TextureName>
+      <DisplayRegions />
+    </TextureDisplayRegionsSave>
   </TextureDisplayRegionsList>
 </SpriteEditorSceneProperties>

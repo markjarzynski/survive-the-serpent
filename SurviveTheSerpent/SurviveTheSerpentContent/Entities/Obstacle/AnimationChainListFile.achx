@@ -3,12 +3,12 @@
   <FileRelativeTextures>true</FileRelativeTextures>
   <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
   <AnimationChain>
-    <Name>Normal</Name>
+    <Name>straight</Name>
     <ColorKey>0</ColorKey>
     <Frame>
       <FlipHorizontal>false</FlipHorizontal>
       <FlipVertical>false</FlipVertical>
-      <TextureName>directionsbutton.png</TextureName>
+      <TextureName>wallstraight2.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>1</RightCoordinate>
@@ -19,12 +19,12 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Pressed</Name>
+    <Name>head</Name>
     <ColorKey>0</ColorKey>
     <Frame>
       <FlipHorizontal>false</FlipHorizontal>
       <FlipVertical>false</FlipVertical>
-      <TextureName>directionsbuttonglow.png</TextureName>
+      <TextureName>wallhead2.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>1</RightCoordinate>
@@ -35,12 +35,12 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Inactive</Name>
+    <Name>bend</Name>
     <ColorKey>0</ColorKey>
     <Frame>
       <FlipHorizontal>false</FlipHorizontal>
       <FlipVertical>false</FlipVertical>
-      <TextureName>directionsbutton.png</TextureName>
+      <TextureName>wallbend2.png</TextureName>
       <FrameLength>0.1</FrameLength>
       <LeftCoordinate>0</LeftCoordinate>
       <RightCoordinate>1</RightCoordinate>
@@ -50,5 +50,21 @@
       <RelativeY>0</RelativeY>
     </Frame>
   </AnimationChain>
-  <FileName>C:\Users\Drusuke\Desktop\survive-the-serpent\SurviveTheSerpent\SurviveTheSerpentContent\Entities\DirectionButton\AnimationChainListFile.achx</FileName>
+  <AnimationChain>
+    <Name>tail</Name>
+    <ColorKey>0</ColorKey>
+    <Frame>
+      <FlipHorizontal>false</FlipHorizontal>
+      <FlipVertical>false</FlipVertical>
+      <TextureName>walltail2.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>1</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>1</BottomCoordinate>
+      <RelativeX>0</RelativeX>
+      <RelativeY>0</RelativeY>
+    </Frame>
+  </AnimationChain>
+  <FileName>C:\Users\Drusuke\Desktop\survive-the-serpent\SurviveTheSerpent\SurviveTheSerpentContent\Entities\Obstacle\AnimationChainListFile.achx</FileName>
 </AnimationChainArraySave>

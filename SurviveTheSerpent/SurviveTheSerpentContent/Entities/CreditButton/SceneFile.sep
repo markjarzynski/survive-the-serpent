@@ -13,7 +13,7 @@
   <Camera>
     <X>0</X>
     <Y>0</Y>
-    <Z>-23.6195965</Z>
+    <Z>-6.66863</Z>
     <Orthogonal>false</Orthogonal>
     <OrthogonalHeight>600</OrthogonalHeight>
     <OrthogonalWidth>-1</OrthogonalWidth>
@@ -27,6 +27,10 @@
   <TextureDisplayRegionsList>
     <TextureDisplayRegionsSave>
       <TextureName>credits.png</TextureName>
+      <DisplayRegions />
+    </TextureDisplayRegionsSave>
+    <TextureDisplayRegionsSave>
+      <TextureName>creditsbutton.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>
   </TextureDisplayRegionsList>

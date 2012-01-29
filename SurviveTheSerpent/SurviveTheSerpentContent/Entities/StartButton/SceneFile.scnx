@@ -14,8 +14,8 @@
     <RotationY>0</RotationY>
     <RotationZ>0</RotationZ>
     <RotationZVelocity>0</RotationZVelocity>
-    <ScaleX>4</ScaleX>
-    <ScaleY>4</ScaleY>
+    <ScaleX>1.47674954</ScaleX>
+    <ScaleY>1</ScaleY>
     <ScaleXVelocity>0</ScaleXVelocity>
     <ScaleYVelocity>0</ScaleYVelocity>
     <RelativeX>0</RelativeX>
@@ -34,8 +34,8 @@
     <TintGreenRate>0</TintGreenRate>
     <ColorOperation>SelectArg1</ColorOperation>
     <BlendOperation>REGULAR</BlendOperation>
-    <Name>button1</Name>
-    <Texture>button.png</Texture>
+    <Name>startbutton1</Name>
+    <Texture>startbutton.png</Texture>
     <Animate>false</Animate>
     <CurrentChain>-1</CurrentChain>
     <Ordered>true</Ordered>

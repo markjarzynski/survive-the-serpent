@@ -297,7 +297,7 @@ namespace SurviveTheSerpent.Entities
                 return false;
             }
             float newX = this.X - gridSizeX;
-            if (newX < -12)
+            if (newX < -7)
             {
                 return false;
             }
@@ -327,7 +327,7 @@ namespace SurviveTheSerpent.Entities
                 return false;
             }
             float newX = this.X + gridSizeX;
-            if (newX > 12)
+            if (newX > 7)
             {
                 return false;
             }

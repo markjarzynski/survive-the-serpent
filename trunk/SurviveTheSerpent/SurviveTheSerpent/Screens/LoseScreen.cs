@@ -24,19 +24,24 @@ using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 namespace SurviveTheSerpent.Screens
 {
 	public partial class LoseScreen
-	{
+    {
+        private Cursor cursor;
 
-		void CustomInitialize()
-		{
+        void CustomInitialize()
+        {
+            cursor = GuiManager.Cursor;
+
+        }
+
+        void CustomActivity(bool firstTimeCalled)
+        {
+            if (cursor.PrimaryClick)
+            {
+                IsActivityFinished = true;
+            }
 
 
-		}
-
-		void CustomActivity(bool firstTimeCalled)
-		{
-
-
-		}
+        }
 
 		void CustomDestroy()
 		{

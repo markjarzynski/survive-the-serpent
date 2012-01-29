@@ -54,6 +54,11 @@ namespace SurviveTheSerpent.Screens
 
             SpawnFood();
             SpawnObstacle();
+
+            upButton.EntireSceneCurrentChainName = "NoGlow";
+            downButton.EntireSceneCurrentChainName = "NoGlow";
+            rightButton.EntireSceneCurrentChainName = "NoGlow";
+            leftButton.EntireSceneCurrentChainName = "NoGlow";
         }
 
         void CreateSnake()
@@ -438,8 +443,7 @@ namespace SurviveTheSerpent.Screens
 
             SnakeTail.Destroy();
 
-            CustomDestroy();
-            LoadPopup(typeof(GameOverScreen).FullName, true);
+            LoadPopup(typeof(WinScreen).FullName, true);
             //Put game win screen here ^
             PauseThisScreen();
             return;
@@ -612,8 +616,7 @@ namespace SurviveTheSerpent.Screens
 
                 if (isGameOver == true && gameOverDelay == 2)
                 {
-                    CustomDestroy();
-                    LoadPopup(typeof(GameOverScreen).FullName, true);
+                    LoadPopup(typeof(LoseScreen).FullName, true);
                     PauseThisScreen();
                 }
                 else if (gameOverDelay < 2)

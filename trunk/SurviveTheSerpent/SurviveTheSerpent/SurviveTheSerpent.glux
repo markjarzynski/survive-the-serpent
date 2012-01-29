@@ -653,6 +653,37 @@
       <Events />
       <IsOnOwnLayer>false</IsOnOwnLayer>
       <CustomVariables />
+      <Name>Screens\InstructionScreen2</Name>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Screen</ContainerType>
+          <Name>Screens/InstructionScreen2/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>false</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <NamedObjects />
+      <Behaviors />
+      <UseGlobalContent>false</UseGlobalContent>
+      <IsRequiredAtStartup>false</IsRequiredAtStartup>
+    </ScreenSave>
+    <ScreenSave>
+      <Properties />
+      <States />
+      <StateCategoryList />
+      <Events />
+      <IsOnOwnLayer>false</IsOnOwnLayer>
+      <CustomVariables />
       <Name>Screens\LoseScreen</Name>
       <ReferencedFiles>
         <ReferencedFileSave>

@@ -30,6 +30,9 @@ namespace SurviveTheSerpent.Screens
         private int GridSizeX = 2;
         private int GridSizeY = 2;
 
+        private Random rand = new Random();
+        private const int MAX_ATTEMPTS = 10;
+
         private double snakeUpdateDelay = 1.0; // in seconds
         private double snakeTimeSinceLastUpdate;
 
@@ -129,7 +132,6 @@ namespace SurviveTheSerpent.Screens
 
         void UpdateFood()
         {
-            Random rand = new Random();
             if (rand.Next(1) < FOOD_SPAWN_CHANCE && FoodList.Count < 1)
             {
                 SpawnFood();
@@ -138,15 +140,15 @@ namespace SurviveTheSerpent.Screens
 
         void SpawnObstacle()
         {
+            int attempts = 0;
             Entities.Obstacle newObstacle = new Entities.Obstacle(ContentManagerName);
             Boolean invalidLocation = true;
 
-            Random rand = new Random();
-
             while (invalidLocation)
             {
-                newObstacle.X = rand.Next(7);
-                newObstacle.Y = rand.Next(12);
+                attempts++;
+                newObstacle.X = (float)rand.NextDouble() * 7;
+                newObstacle.Y = (float)rand.NextDouble() * 12;
                 if (rand.NextDouble() < .5)
                 {
                     newObstacle.X *= -1;
@@ -163,7 +165,7 @@ namespace SurviveTheSerpent.Screens
                     invalidLocation = false;
                     foreach (Entities.Obstacle obstacle in ObstacleList)
                     {
-                        if (newObstacle.Body.CollideAgainstMove(obstacle.Body, 0, 1))
+                        if (newObstacle.Body.CollideAgainst(obstacle.Body))
                         {
                             invalidLocation = true;
                             break;
@@ -172,7 +174,7 @@ namespace SurviveTheSerpent.Screens
 
                     foreach (Entities.Food food in FoodList)
                     {
-                        if (newObstacle.Body.CollideAgainstMove(food.Body, 0, 1))
+                        if (newObstacle.Body.CollideAgainst(food.Body) && attempts < MAX_ATTEMPTS)
                         {
                             invalidLocation = true;
                             break;
@@ -181,7 +183,25 @@ namespace SurviveTheSerpent.Screens
 
                     foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
                     {
-                        if (newObstacle.Body.CollideAgainstMove(snakeBody.Body, 0, 1))
+                        if (newObstacle.Body.CollideAgainst(snakeBody.Body) && attempts < MAX_ATTEMPTS)
+                        {
+                            invalidLocation = true;
+                            break;
+                        }
+                    }
+
+                    foreach (Entities.StoneSnakeBody stoneSnakeBody in StoneSnakeBodyList)
+                    {
+                        if (newObstacle.Body.CollideAgainst(stoneSnakeBody.Body) && attempts < MAX_ATTEMPTS)
+                        {
+                            invalidLocation = true;
+                            break;
+                        }
+                    }
+
+                    foreach (Entities.StoneSnakeHead stoneSnakeHead in StoneSnakeHeadList)
+                    {
+                        if (newObstacle.Body.CollideAgainst(stoneSnakeHead.Body) && attempts < MAX_ATTEMPTS)
                         {
                             invalidLocation = true;
                             break;
@@ -194,15 +214,15 @@ namespace SurviveTheSerpent.Screens
 
         void SpawnFood()
         {
+            int attempts = 0;
             Entities.Food newFood = new Entities.Food(ContentManagerName);
             Boolean invalidLocation = true;
 
-            Random rand = new Random();
-
             while (invalidLocation)
             {
-                newFood.X = rand.Next(7);
-                newFood.Y = rand.Next(12);
+                attempts++;
+                newFood.X = (float)rand.NextDouble() * 7;
+                newFood.Y = (float)rand.NextDouble() * 12;
                 if (rand.NextDouble() < .5)
                 {
                     newFood.X *= -1;
@@ -219,7 +239,7 @@ namespace SurviveTheSerpent.Screens
                     invalidLocation = false;
                     foreach (Entities.Obstacle obstacle in ObstacleList)
                     {
-                        if (newFood.Body.CollideAgainstMove(obstacle.Body, 0, 1))
+                        if (newFood.Body.CollideAgainst(obstacle.Body) && attempts < MAX_ATTEMPTS)
                         {
                             invalidLocation = true;
                             break;
@@ -228,7 +248,7 @@ namespace SurviveTheSerpent.Screens
 
                     foreach (Entities.Food food in FoodList)
                     {
-                        if (newFood.Body.CollideAgainstMove(food.Body, 0, 1))
+                        if (newFood.Body.CollideAgainst(food.Body))
                         {
                             invalidLocation = true;
                             break;
@@ -237,7 +257,43 @@ namespace SurviveTheSerpent.Screens
 
                     foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
                     {
-                        if (newFood.Body.CollideAgainstMove(snakeBody.Body, 0, 1))
+                        if (newFood.Body.CollideAgainst(snakeBody.Body) && attempts < MAX_ATTEMPTS)
+                        {
+                            invalidLocation = true;
+                            break;
+                        }
+                    }
+
+                    foreach (Entities.StoneSnakeBody stoneSnakeBody in StoneSnakeBodyList)
+                    {
+                        if (newFood.Body.CollideAgainst(stoneSnakeBody.Body) && attempts < MAX_ATTEMPTS)
+                        {
+                            invalidLocation = true;
+                            break;
+                        }
+                    }
+
+                    foreach (Entities.StoneSnakeHead stoneSnakeHead in StoneSnakeHeadList)
+                    {
+                        if (newFood.Body.CollideAgainst(stoneSnakeHead.Body) && attempts < MAX_ATTEMPTS)
+                        {
+                            invalidLocation = true;
+                            break;
+                        }
+                    }
+
+                    foreach (Entities.StoneSnakeTail stoneSnakeTail in StoneSnakeTailList)
+                    {
+                        if (newFood.Body.CollideAgainst(stoneSnakeTail.Body) && attempts < MAX_ATTEMPTS)
+                        {
+                            invalidLocation = true;
+                            break;
+                        }
+                    }
+
+                    foreach (Entities.Player ghostPlayer in GhostPlayerList)
+                    {
+                        if (newFood.Body.CollideAgainst(ghostPlayer.Body))
                         {
                             invalidLocation = true;
                             break;

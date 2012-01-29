@@ -41,7 +41,7 @@ using Model = Microsoft.Xna.Framework.Graphics.Model;
 
 namespace SurviveTheSerpent.Entities
 {
-	public partial class Food : PositionedObject, IDestroyable
+	public partial class Food : PositionedObject, IDestroyable, IVisible
 	{
         // This is made global so that static lazy-loaded content can access it.
         public static string ContentManagerName
@@ -65,6 +65,17 @@ namespace SurviveTheSerpent.Entities
 		public AxisAlignedRectangle Body
 		{
 			get{ return mBody;}
+		}
+		protected bool mVisible = true;
+		public virtual bool Visible
+		{
+			get{ return mVisible;}
+			set
+			{
+				mVisible = value;
+				EntireScene.Visible = mVisible;
+				Body.Visible = mVisible;
+			}
 		}
 		protected Layer LayerProvidedByContainer = null;
 
@@ -287,6 +298,14 @@ namespace SurviveTheSerpent.Entities
 	// Extra classes
 	public static class FoodExtensionMethods
 	{
+		public static void SetVisible(this PositionedObjectList<Food> list, bool value)
+		{
+			int count = list.Count;
+			for (int i = 0; i < count; i++)
+			{
+				list[i].Visible = value;
+			}
+		}
 	}
 	
 }

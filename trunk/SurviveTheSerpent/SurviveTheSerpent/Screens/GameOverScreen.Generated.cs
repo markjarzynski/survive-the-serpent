@@ -67,6 +67,7 @@ namespace SurviveTheSerpent.Screens
 
         public override void AddToManagers()
         {
+			mLayer = SpriteManager.AddLayer();
 			AddToManagersBottomUp();
 			CustomInitialize();
 

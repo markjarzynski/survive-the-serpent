@@ -137,27 +137,63 @@ namespace SurviveTheSerpent.Screens
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
-			startButton.X = 2f;
-			startButton.Y = -1.5f;
-			creditButton.X = -7f;
-			creditButton.Y = -0.5f;
-			instructionButton.X = -2.5f;
-			instructionButton.Y = -0.3f;
+			startButton.X = 0f;
+			startButton.Y = 6f;
+			creditButton.X = 0f;
+			creditButton.Y = -6f;
+			instructionButton.X = 0f;
+			instructionButton.Y = 0f;
 		}
 		public virtual void AddToManagersBottomUp()
 		{
+
+
+            // We move the main Camera back to the origin and unrotate it so that anything attached to it can just use its absolute position
+            float oldCameraRotationX = SpriteManager.Camera.RotationX;
+            float oldCameraRotationY = SpriteManager.Camera.RotationY;
+            float oldCameraRotationZ = SpriteManager.Camera.RotationZ;
+
+            float oldCameraX = SpriteManager.Camera.X;
+            float oldCameraY = SpriteManager.Camera.Y;
+            float oldCameraZ = SpriteManager.Camera.Z;
+
+            SpriteManager.Camera.X = 0;
+            SpriteManager.Camera.Y = 0;
+            SpriteManager.Camera.Z = 40; // Move it to 40 so that things attach in front of the camera.
+            SpriteManager.Camera.RotationX = 0;
+            SpriteManager.Camera.RotationY = 0;
+            SpriteManager.Camera.RotationZ = 0;
 			SceneFile.AddToManagers(mLayer);
 
 			startButton.AddToManagers(mLayer);
-			startButton.X = 2f;
-			startButton.Y = -1.5f;
+			startButton.X = 0f;
+			startButton.Y = 6f;
+			if(startButton.Parent == null)
+			{
+				startButton.AttachTo(SpriteManager.Camera, true);
+			}
 			creditButton.AddToManagers(mLayer);
-			creditButton.X = -7f;
-			creditButton.Y = -0.5f;
+			creditButton.X = 0f;
+			creditButton.Y = -6f;
+			if(creditButton.Parent == null)
+			{
+				creditButton.AttachTo(SpriteManager.Camera, true);
+			}
 			instructionButton.AddToManagers(mLayer);
-			instructionButton.X = -2.5f;
-			instructionButton.Y = -0.3f;
-		}
+			instructionButton.X = 0f;
+			instructionButton.Y = 0f;
+			if(instructionButton.Parent == null)
+			{
+				instructionButton.AttachTo(SpriteManager.Camera, true);
+			}
+
+            SpriteManager.Camera.X = oldCameraX;
+            SpriteManager.Camera.Y = oldCameraY;
+            SpriteManager.Camera.Z = oldCameraZ;
+            SpriteManager.Camera.RotationX = oldCameraRotationX;
+            SpriteManager.Camera.RotationY = oldCameraRotationY;
+            SpriteManager.Camera.RotationZ = oldCameraRotationZ;
+                		}
 		public virtual void ConvertToManuallyUpdated()
 		{
 			SceneFile.ConvertToManuallyUpdated();

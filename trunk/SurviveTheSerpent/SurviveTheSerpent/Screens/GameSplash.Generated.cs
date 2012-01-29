@@ -61,9 +61,10 @@ namespace SurviveTheSerpent.Screens
 		private PositionedObjectList<StoneSnakeHead> StoneSnakeHeadList;
 		private PositionedObjectList<StoneSnakeBody> StoneSnakeBodyList;
 		private PositionedObjectList<StoneSnakeTail> StoneSnakeTailList;
+		private PositionedObjectList<Player> GhostPlayerList;
 
 		public GameSplash()
-			: base("GameSplash")
+			: base("Global")
 		{
 		}
 
@@ -93,6 +94,7 @@ namespace SurviveTheSerpent.Screens
 			StoneSnakeHeadList = new PositionedObjectList<StoneSnakeHead>();
 			StoneSnakeBodyList = new PositionedObjectList<StoneSnakeBody>();
 			StoneSnakeTailList = new PositionedObjectList<StoneSnakeTail>();
+			GhostPlayerList = new PositionedObjectList<Player>();
 
 
 
@@ -150,6 +152,10 @@ namespace SurviveTheSerpent.Screens
 				for(int i = StoneSnakeTailList.Count - 1; i > -1; i--)
 				{
 					StoneSnakeTailList[i].Activity();
+				}
+				for(int i = GhostPlayerList.Count - 1; i > -1; i--)
+				{
+					GhostPlayerList[i].Activity();
 				}
 			}
 			else
@@ -224,6 +230,10 @@ namespace SurviveTheSerpent.Screens
 			for(int i = StoneSnakeTailList.Count - 1; i > -1; i--)
 			{
 				StoneSnakeTailList[i].Destroy();
+			}
+			for(int i = GhostPlayerList.Count - 1; i > -1; i--)
+			{
+				GhostPlayerList[i].Destroy();
 			}
 			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 
@@ -310,6 +320,10 @@ namespace SurviveTheSerpent.Screens
 			for(int i = 0; i < StoneSnakeTailList.Count; i++)
 			{
 				StoneSnakeTailList[i].ConvertToManuallyUpdated();
+			}
+			for(int i = 0; i < GhostPlayerList.Count; i++)
+			{
+				GhostPlayerList[i].ConvertToManuallyUpdated();
 			}
 		}
 		public static void LoadStaticContent(string contentManagerName)

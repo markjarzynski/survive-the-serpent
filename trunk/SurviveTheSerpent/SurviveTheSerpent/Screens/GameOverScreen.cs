@@ -25,15 +25,20 @@ namespace SurviveTheSerpent.Screens
 {
 	public partial class GameOverScreen
 	{
+        private Cursor cursor;
 
 		void CustomInitialize()
 		{
-
+            cursor = GuiManager.Cursor;
 
 		}
 
 		void CustomActivity(bool firstTimeCalled)
 		{
+            if (cursor.PrimaryClick)
+            {
+                IsActivityFinished = true;
+            }
 
 
 		}

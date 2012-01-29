@@ -21,7 +21,6 @@ using FlatRedBall;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
-using FlatRedBall.Graphics.Animation;
 
 #if XNA4
 using Color = Microsoft.Xna.Framework.Color;
@@ -41,7 +40,7 @@ using Model = Microsoft.Xna.Framework.Graphics.Model;
 
 namespace SurviveTheSerpent.Entities
 {
-	public partial class StoneSnakeBody : PositionedObject, IDestroyable
+	public partial class DifficultyButton : PositionedObject, IDestroyable
 	{
         // This is made global so that static lazy-loaded content can access it.
         public static string ContentManagerName
@@ -58,34 +57,18 @@ namespace SurviveTheSerpent.Entities
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
 		private static Scene SceneFile;
-		private static AnimationChainList AnimationChainListFile;
 
-		private AxisAlignedRectangle mBody;
-		public AxisAlignedRectangle Body
-		{
-			get{ return mBody;}
-		}
-		private Sprite EntireScene;
-		public string EntireSceneCurrentChainName
-		{
-			get
-			{
-				return EntireScene.CurrentChainName;
-			}
-			set
-			{
-				EntireScene.CurrentChainName = value;
-			}
-		}
+		private Scene EntireScene;
+		private AxisAlignedRectangle Body;
 		protected Layer LayerProvidedByContainer = null;
 
-        public StoneSnakeBody(string contentManagerName) :
+        public DifficultyButton(string contentManagerName) :
             this(contentManagerName, true)
         {
         }
 
 
-        public StoneSnakeBody(string contentManagerName, bool addToManagers) :
+        public DifficultyButton(string contentManagerName, bool addToManagers) :
 			base()
 		{
 			// Don't delete this:
@@ -98,8 +81,12 @@ namespace SurviveTheSerpent.Entities
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			mBody = new AxisAlignedRectangle();
-			EntireScene = SceneFile.Sprites.FindByName("wallstraight21").Clone();
+			EntireScene = SceneFile.Clone();
+			for (int i = 0; i < EntireScene.Texts.Count; i++)
+			{
+				EntireScene.Texts[i].AdjustPositionForPixelPerfectDrawing = true;
+			}
+			Body = new AxisAlignedRectangle();
 
 
 			PostInitialize();
@@ -130,7 +117,6 @@ namespace SurviveTheSerpent.Entities
 			
 			// After Custom Activity
 
-
 		
 }
 
@@ -138,15 +124,14 @@ namespace SurviveTheSerpent.Entities
 		{
 			// Generated Destroy
 			SpriteManager.RemovePositionedObject(this);
+			if(EntireScene != null)
+			{
+				EntireScene.RemoveFromManagers(ContentManagerName != "Global");
+			}
 			if(Body != null)
 			{
 				ShapeManager.Remove(Body);
 			}
-			if(EntireScene != null)
-			{
-				SpriteManager.RemoveSprite(EntireScene);
-			}
-
 
 
 
@@ -157,10 +142,6 @@ namespace SurviveTheSerpent.Entities
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
-			X = 0f;
-			Y = 0f;
-			EntireSceneCurrentChainName = "";
-			Body.Visible = false;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -182,17 +163,12 @@ namespace SurviveTheSerpent.Entities
             RotationY = 0;
             RotationZ = 0;
 
-
-			ShapeManager.AddToLayer(mBody, layerToAddTo);
-			mBody.Visible = false;
-			if(mBody.Parent == null)
+			EntireScene.AddToManagers(layerToAddTo);
+			EntireScene.AttachAllDetachedTo(this, true);
+			ShapeManager.AddToLayer(Body, layerToAddTo);
+			if(Body.Parent == null)
 			{
-				mBody.AttachTo(this, true);
-			}
-			SpriteManager.AddToLayer(EntireScene, layerToAddTo);
-			if(EntireScene.Parent == null)
-			{
-				EntireScene.AttachTo(this, true);
+				Body.AttachTo(this, true);
 			}
 
             X = oldX;
@@ -206,7 +182,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			this.ForceUpdateDependenciesDeep();
 			SpriteManager.ConvertToManuallyUpdated(this);
-			SpriteManager.ConvertToManuallyUpdated(EntireScene);
+			EntireScene.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
@@ -228,28 +204,23 @@ namespace SurviveTheSerpent.Entities
 				{
 					if(!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("StoneSnakeBodyStaticUnload", UnloadStaticContent);
+						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("DifficultyButtonStaticUnload", UnloadStaticContent);
 						mHasRegisteredUnload = true;
 					}
 				}
 				bool registerUnload = false;
-				if(!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/stonesnakebody/scenefile.scnx", ContentManagerName))
+				if(!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/difficultybutton/scenefile.scnx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
-				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/stonesnakebody/scenefile.scnx", ContentManagerName);
-				if(!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/stonesnakebody/animationchainlistfile.achx", ContentManagerName))
-				{
-					registerUnload = true;
-				}
-				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/stonesnakebody/animationchainlistfile.achx", ContentManagerName);
+				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/difficultybutton/scenefile.scnx", ContentManagerName);
 			if(registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 			{
 				lock(mLockObject)
 				{
 					if(!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("StoneSnakeBodyStaticUnload", UnloadStaticContent);
+						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("DifficultyButtonStaticUnload", UnloadStaticContent);
 						mHasRegisteredUnload = true;
 					}
 				}
@@ -266,10 +237,6 @@ namespace SurviveTheSerpent.Entities
 				SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 				SceneFile = null;
 			}
-			if(AnimationChainListFile != null)
-			{
-				AnimationChainListFile = null;
-			}
 		}
 		public static object GetStaticMember(string memberName)
 		{
@@ -277,8 +244,6 @@ namespace SurviveTheSerpent.Entities
 			{
 				case "SceneFile":
 					return SceneFile;
-				case "AnimationChainListFile":
-					return AnimationChainListFile;
 			}
 			return null;
 		}
@@ -288,8 +253,6 @@ namespace SurviveTheSerpent.Entities
 			{
 				case "SceneFile":
 					return SceneFile;
-				case "AnimationChainListFile":
-					return AnimationChainListFile;
 			}
 			return null;
 		}
@@ -298,7 +261,7 @@ namespace SurviveTheSerpent.Entities
 	
 	
 	// Extra classes
-	public static class StoneSnakeBodyExtensionMethods
+	public static class DifficultyButtonExtensionMethods
 	{
 	}
 	

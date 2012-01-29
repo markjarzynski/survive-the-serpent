@@ -27,12 +27,14 @@ namespace SurviveTheSerpent.Entities
 	{
         public float previousX;
         public float previousY;
+        public float previousRotationZ;
 
 		private void CustomInitialize()
 		{
             this.EntireSceneCurrentChainName = "Straight";
             previousX = X;
             previousY = Y;
+            previousRotationZ = RotationZ;
 		}
 
 		private void CustomActivity()
@@ -73,6 +75,13 @@ namespace SurviveTheSerpent.Entities
         {
             previousY = Y;
             Y = newY;
+        }
+
+        public void setRotationZ(float newRotationZ)
+        {
+            previousRotationZ = Z;
+            Z = newRotationZ;
+
         }
 
 	}

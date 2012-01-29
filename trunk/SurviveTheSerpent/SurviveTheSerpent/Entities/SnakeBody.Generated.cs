@@ -41,7 +41,7 @@ using Model = Microsoft.Xna.Framework.Graphics.Model;
 
 namespace SurviveTheSerpent.Entities
 {
-	public partial class SnakeBody : PositionedObject, IDestroyable
+	public partial class SnakeBody : PositionedObject, IDestroyable, IVisible
 	{
         // This is made global so that static lazy-loaded content can access it.
         public static string ContentManagerName
@@ -75,6 +75,17 @@ namespace SurviveTheSerpent.Entities
 			set
 			{
 				EntireScene.CurrentChainName = value;
+			}
+		}
+		protected bool mVisible = true;
+		public virtual bool Visible
+		{
+			get{ return mVisible;}
+			set
+			{
+				mVisible = value;
+				EntireScene.Visible = mVisible;
+				Body.Visible = mVisible;
 			}
 		}
 		protected Layer LayerProvidedByContainer = null;
@@ -142,10 +153,6 @@ namespace SurviveTheSerpent.Entities
 			{
 				SpriteManager.RemoveSprite(EntireScene);
 			}
-			if(Body != null)
-			{
-				ShapeManager.Remove(Body);
-			}
 
 
 
@@ -158,7 +165,7 @@ namespace SurviveTheSerpent.Entities
 		public virtual void PostInitialize()
 		{
 			X = 0f;
-			Y = 8f;
+			Y = 2f;
 			EntireSceneCurrentChainName = "Elbow";
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
@@ -187,7 +194,6 @@ namespace SurviveTheSerpent.Entities
 			{
 				EntireScene.AttachTo(this, true);
 			}
-			ShapeManager.AddToLayer(mBody, layerToAddTo);
 			if(mBody.Parent == null)
 			{
 				mBody.AttachTo(this, true);
@@ -298,6 +304,14 @@ namespace SurviveTheSerpent.Entities
 	// Extra classes
 	public static class SnakeBodyExtensionMethods
 	{
+		public static void SetVisible(this PositionedObjectList<SnakeBody> list, bool value)
+		{
+			int count = list.Count;
+			for (int i = 0; i < count; i++)
+			{
+				list[i].Visible = value;
+			}
+		}
 	}
 	
 }

@@ -210,8 +210,6 @@ namespace SurviveTheSerpent.Screens
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
-			SnakeHead.X = 2f;
-			SnakeHead.Y = 8f;
 			upButton.X = 9f;
 			upButton.RotationZ = -1.57f;
 			downButton.X = -9f;
@@ -232,8 +230,6 @@ namespace SurviveTheSerpent.Screens
 
 			Player.AddToManagers(mLayer);
 			SnakeHead.AddToManagers(mLayer);
-			SnakeHead.X = 2f;
-			SnakeHead.Y = 8f;
 			SnakeTail.AddToManagers(mLayer);
 			upButton.AddToManagers(mLayer);
 			upButton.X = 9f;

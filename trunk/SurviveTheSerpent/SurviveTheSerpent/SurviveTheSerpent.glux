@@ -1544,7 +1544,7 @@
       </CustomVariables>
       <IsUnique>false</IsUnique>
       <ImplementsIClickable>false</ImplementsIClickable>
-      <ImplementsIVisible>false</ImplementsIVisible>
+      <ImplementsIVisible>true</ImplementsIVisible>
       <ImplementsIWindow>false</ImplementsIWindow>
       <Name>Entities\SnakeBody</Name>
       <NamedObjects>
@@ -1592,7 +1592,7 @@
           <SetByContainer>false</SetByContainer>
           <AttachToContainer>true</AttachToContainer>
           <AttachToCamera>false</AttachToCamera>
-          <AddToManagers>true</AddToManagers>
+          <AddToManagers>false</AddToManagers>
           <IncludeInIVisible>true</IncludeInIVisible>
           <IncludeInIClickable>true</IncludeInIClickable>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>

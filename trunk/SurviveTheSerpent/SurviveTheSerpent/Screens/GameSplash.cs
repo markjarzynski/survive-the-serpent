@@ -105,6 +105,7 @@ namespace SurviveTheSerpent.Screens
                         if (newFood.Body.CollideAgainstMove(obstacle.Body, 0, 1))
                         {
                             invalidLocation = true;
+                            break;
                         }
                     }
 
@@ -113,6 +114,7 @@ namespace SurviveTheSerpent.Screens
                         if (newFood.Body.CollideAgainstMove(food.Body, 0, 1))
                         {
                             invalidLocation = true;
+                            break;
                         }
                     }
 
@@ -121,6 +123,7 @@ namespace SurviveTheSerpent.Screens
                         if (newFood.Body.CollideAgainstMove(snakeBody.Body, 0, 1))
                         {
                             invalidLocation = true;
+                            break;
                         }
                     }
                 }
@@ -332,33 +335,37 @@ namespace SurviveTheSerpent.Screens
 
                 }
 
-                SnakeTail.RotationZ = (float)Math.Atan2(SnakeBodyList.Last.Y - SnakeBodyList.Last.previousY, SnakeBodyList.Last.X - SnakeBodyList.Last.previousX);
-
                 if (SnakeHead.didEatFood == false)
                 {
+                    SnakeTail.RotationZ = (float)Math.Atan2(SnakeBodyList.Last.Y - SnakeBodyList.Last.previousY, SnakeBodyList.Last.X - SnakeBodyList.Last.previousX);
                     SnakeTail.X = SnakeBodyList.Last.previousX;
                     SnakeTail.Y = SnakeBodyList.Last.previousY;
                 }
                 else
                 {
                     SnakeHead.didEatFood = false;
+                    SnakeBodyList.Last.Visible = true;
                 }
 
                 // TODO: Snake head consumes food it collides with
                 foreach (Entities.Food food in FoodList)
                 {
-                    if (SnakeHead.Body.CollideAgainstMove(food.Body, 0 , 1))
+                    if (SnakeHead.Body.CollideAgainstMove(food.Body, 1 , 0))
                     {
                         Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
-                        newSnakeBody.X = SnakeBodyList.Last.X;
-                        newSnakeBody.Y = SnakeBodyList.Last.Y;
+                        newSnakeBody.X = SnakeTail.X;
+                        newSnakeBody.Y = SnakeTail.Y;
+                        newSnakeBody.previousX = SnakeTail.X;
+                        newSnakeBody.previousY = SnakeTail.Y;
                         newSnakeBody.RotationZ = SnakeBodyList.Last.RotationZ;
+                        newSnakeBody.Visible = false;
 
                         SnakeBodyList.Add(newSnakeBody);
                         FoodList.Remove(food);
                         food.Destroy();
 
                         SnakeHead.didEatFood = true;
+                        break;
                     }
                 }
 

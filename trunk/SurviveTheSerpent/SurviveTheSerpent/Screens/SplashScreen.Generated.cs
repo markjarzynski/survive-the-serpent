@@ -44,6 +44,7 @@ namespace SurviveTheSerpent.Screens
 		private SurviveTheSerpent.Entities.StartButton startButton;
 		private SurviveTheSerpent.Entities.CreditButton creditButton;
 		private SurviveTheSerpent.Entities.InstructionButton instructionButton;
+		private SurviveTheSerpent.Entities.OptionsButton optionsButton;
 
 		public SplashScreen()
 			: base("SplashScreen")
@@ -61,6 +62,8 @@ namespace SurviveTheSerpent.Screens
 			creditButton.Name = "creditButton";
 			instructionButton = new SurviveTheSerpent.Entities.InstructionButton(ContentManagerName, false);
 			instructionButton.Name = "instructionButton";
+			optionsButton = new SurviveTheSerpent.Entities.OptionsButton(ContentManagerName, false);
+			optionsButton.Name = "optionsButton";
 
 
 
@@ -91,6 +94,7 @@ namespace SurviveTheSerpent.Screens
 				startButton.Activity();
 				creditButton.Activity();
 				instructionButton.Activity();
+				optionsButton.Activity();
 			}
 			else
 			{
@@ -124,6 +128,10 @@ namespace SurviveTheSerpent.Screens
 			{
 				instructionButton.Destroy();
 			}
+			if(optionsButton != null)
+			{
+				optionsButton.Destroy();
+			}
 			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 
 
@@ -143,6 +151,9 @@ namespace SurviveTheSerpent.Screens
 			creditButton.Y = -0.5f;
 			instructionButton.X = -2.5f;
 			instructionButton.Y = -0.3f;
+			optionsButton.X = 6.5f;
+			optionsButton.Y = 0f;
+			optionsButton.EntireSceneCurrentChainName = "default";
 		}
 		public virtual void AddToManagersBottomUp()
 		{
@@ -186,6 +197,10 @@ namespace SurviveTheSerpent.Screens
 			{
 				instructionButton.AttachTo(SpriteManager.Camera, true);
 			}
+			optionsButton.AddToManagers(mLayer);
+			optionsButton.X = 6.5f;
+			optionsButton.Y = 0f;
+			optionsButton.EntireSceneCurrentChainName = "default";
 
             SpriteManager.Camera.X = oldCameraX;
             SpriteManager.Camera.Y = oldCameraY;
@@ -200,6 +215,7 @@ namespace SurviveTheSerpent.Screens
 			startButton.ConvertToManuallyUpdated();
 			creditButton.ConvertToManuallyUpdated();
 			instructionButton.ConvertToManuallyUpdated();
+			optionsButton.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
@@ -216,6 +232,7 @@ namespace SurviveTheSerpent.Screens
 			SurviveTheSerpent.Entities.StartButton.LoadStaticContent(contentManagerName);
 			SurviveTheSerpent.Entities.CreditButton.LoadStaticContent(contentManagerName);
 			SurviveTheSerpent.Entities.InstructionButton.LoadStaticContent(contentManagerName);
+			SurviveTheSerpent.Entities.OptionsButton.LoadStaticContent(contentManagerName);
 			CustomLoadStaticContent(contentManagerName);
 		}
 		object GetMember(string memberName)

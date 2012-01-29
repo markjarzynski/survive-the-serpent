@@ -108,6 +108,26 @@
       <NamedObjects>
         <NamedObjectSave>
           <Properties />
+          <CustomProperty>
+            <Type>Boolean</Type>
+            <Member>EntireSceneAnimate</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>RotationY</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>String</Type>
+            <Member>EntireSceneCurrentChainName</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>RotationZ</Member>
+            <Time>0</Time>
+          </CustomProperty>
           <ContainerType>Screen</ContainerType>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\Player</SourceClassType>
@@ -1565,7 +1585,76 @@
       <Properties />
       <States />
       <StateCategoryList />
-      <CustomVariables />
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>bool</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EntireSceneAnimate</Name>
+          <Type>bool</Type>
+          <DefaultValue xsi:type="xsd:boolean">false</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>EntireScene</SourceObject>
+          <SourceObjectProperty>Animate</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RotationY</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EntireSceneCurrentChainName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">side</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>EntireScene</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>RotationZ</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">-1.5707</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
       <IsUnique>false</IsUnique>
       <ImplementsIClickable>false</ImplementsIClickable>
       <ImplementsIVisible>false</ImplementsIVisible>
@@ -1577,7 +1666,7 @@
           <ContainerType>Entity</ContainerType>
           <SourceType>File</SourceType>
           <SourceFile>Entities/Player/SceneFile.scnx</SourceFile>
-          <SourceName>Entire File (Scene)</SourceName>
+          <SourceName>dudeguy1 (Sprite)</SourceName>
           <InstanceName>EntireScene</InstanceName>
           <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
@@ -1657,7 +1746,7 @@
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
           <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
           <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
-          <HasPublicProperty>false</HasPublicProperty>
+          <HasPublicProperty>true</HasPublicProperty>
           <OpensWith>&lt;DEFAULT&gt;</OpensWith>
           <LoadedAtRuntime>true</LoadedAtRuntime>
           <CreatesDictionary>false</CreatesDictionary>
@@ -2853,6 +2942,10 @@
     </TranslatedFileSave>
     <TranslatedFileSave>
       <FileName>Screens\GameSplash.Events.cs</FileName>
+      <TranslationStyle>PerformTranslate</TranslationStyle>
+    </TranslatedFileSave>
+    <TranslatedFileSave>
+      <FileName>Entities\Player.cs</FileName>
       <TranslationStyle>PerformTranslate</TranslationStyle>
     </TranslatedFileSave>
   </TranslatedFiles>

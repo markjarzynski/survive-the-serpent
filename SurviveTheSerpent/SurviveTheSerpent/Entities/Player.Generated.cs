@@ -58,13 +58,35 @@ namespace SurviveTheSerpent.Entities
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
 		private static Scene SceneFile;
-		private static AnimationChainList AnimationChainListFile;
+		public static AnimationChainList AnimationChainListFile;
 
-		private Scene EntireScene;
+		private Sprite EntireScene;
 		private AxisAlignedRectangle mBody;
 		public AxisAlignedRectangle Body
 		{
 			get{ return mBody;}
+		}
+		public bool EntireSceneAnimate
+		{
+			get
+			{
+				return EntireScene.Animate;
+			}
+			set
+			{
+				EntireScene.Animate = value;
+			}
+		}
+		public string EntireSceneCurrentChainName
+		{
+			get
+			{
+				return EntireScene.CurrentChainName;
+			}
+			set
+			{
+				EntireScene.CurrentChainName = value;
+			}
 		}
 		protected Layer LayerProvidedByContainer = null;
 
@@ -87,11 +109,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			EntireScene = SceneFile.Clone();
-			for (int i = 0; i < EntireScene.Texts.Count; i++)
-			{
-				EntireScene.Texts[i].AdjustPositionForPixelPerfectDrawing = true;
-			}
+			EntireScene = SceneFile.Sprites.FindByName("dudeguy1").Clone();
 			mBody = new AxisAlignedRectangle();
 
 
@@ -133,7 +151,7 @@ namespace SurviveTheSerpent.Entities
 			SpriteManager.RemovePositionedObject(this);
 			if(EntireScene != null)
 			{
-				EntireScene.RemoveFromManagers(ContentManagerName != "Global");
+				SpriteManager.RemoveSprite(EntireScene);
 			}
 			if(Body != null)
 			{
@@ -150,6 +168,10 @@ namespace SurviveTheSerpent.Entities
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
+			EntireSceneAnimate = false;
+			RotationY = 0f;
+			EntireSceneCurrentChainName = "side";
+			RotationZ = -1.5707f;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -172,8 +194,11 @@ namespace SurviveTheSerpent.Entities
             RotationZ = 0;
 
 
-			EntireScene.AddToManagers(layerToAddTo);
-			EntireScene.AttachAllDetachedTo(this, true);
+			SpriteManager.AddToLayer(EntireScene, layerToAddTo);
+			if(EntireScene.Parent == null)
+			{
+				EntireScene.AttachTo(this, true);
+			}
 			ShapeManager.AddToLayer(mBody, layerToAddTo);
 			if(mBody.Parent == null)
 			{
@@ -191,7 +216,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			this.ForceUpdateDependenciesDeep();
 			SpriteManager.ConvertToManuallyUpdated(this);
-			EntireScene.ConvertToManuallyUpdated();
+			SpriteManager.ConvertToManuallyUpdated(EntireScene);
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{

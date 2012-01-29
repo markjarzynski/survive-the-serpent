@@ -32,6 +32,7 @@ namespace SurviveTheSerpent.Entities
         public Direction direction;
         private const double PLAYER_SPEED = .5;
         private double velocity;
+        private float previousX, previousY;
 
         public enum Direction
         {
@@ -48,12 +49,18 @@ namespace SurviveTheSerpent.Entities
             this.Y = 0;
             this.direction = Direction.Still;
             this.velocity = PLAYER_SPEED;
-
+            previousX = X;
+            previousY = Y;
 
 		}
 
 		private void CustomActivity()
-		{
+        {
+            checkMoving();
+
+            previousX = X;
+            previousY = Y;
+
             switch (direction)
             {
                 case Direction.Up:
@@ -69,16 +76,22 @@ namespace SurviveTheSerpent.Entities
                     Y -= (float)velocity;
                     break;
                 case Direction.Still:
+                    EntireSceneAnimate = false;
                     break;
                 default:
                     break;
-}
+            }
 
 		}
 
         public void SetDirection( Direction newDirection )
         {
             direction = newDirection;
+        }
+
+        public void checkMoving()
+        {
+            EntireSceneAnimate = previousX != X || previousY != Y;
         }
 
 		private void CustomDestroy()

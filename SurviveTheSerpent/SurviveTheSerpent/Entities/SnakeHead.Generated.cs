@@ -149,7 +149,7 @@ namespace SurviveTheSerpent.Entities
 		public virtual void PostInitialize()
 		{
 			X = 2f;
-			Y = 8f;
+			Y = 2f;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -247,8 +247,8 @@ namespace SurviveTheSerpent.Entities
 			}
 		}
 
-// Could not find the behavior Collide		
-        public static object GetStaticMember(string memberName)
+// Could not find the behavior Collide
+    public static object GetStaticMember(string memberName)
 		{
 			switch(memberName)
 			{

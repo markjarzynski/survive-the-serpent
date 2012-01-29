@@ -167,7 +167,7 @@ namespace SurviveTheSerpent.Screens
                     invalidLocation = false;
                     foreach (Entities.Obstacle obstacle in ObstacleList)
                     {
-                        if (newObstacle.Body.CollideAgainst(obstacle.Body))
+                        if (newObstacle.Body.CollideAgainstMove(obstacle.Body,0,1))
                         {
                             invalidLocation = true;
                             break;

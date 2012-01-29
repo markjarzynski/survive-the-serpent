@@ -684,6 +684,22 @@ namespace SurviveTheSerpent.Screens
                 obs.Destroy();
             }
 
+            // Destroy Old Ghosts
+            /*foreach (Entities.Player ghostPlayer in GhostPlayerList)
+            {
+                if (newFood.Body.CollideAgainstMove(ghostPlayer.Body, 0, 1))
+                {
+                    invalidLocation = true;
+                    break;
+                }
+            }*/
+            if ( GhostPlayerList.Count > 3 )
+            {
+                Entities.Player ghost = GhostPlayerList[0];
+                GhostPlayerList.RemoveAt(0);
+                ghost.Destroy();
+            }
+
             // Destroy the player
             Player.Destroy();
 		}

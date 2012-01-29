@@ -320,9 +320,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>wallbend</Name>
     </None>
+    <None Include="Entities\StoneSnakeBody\wallbend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wallbend2</Name>
+    </None>
     <None Include="Entities\StoneSnakeBody\wallstraight.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>wallstraight</Name>
+    </None>
+    <None Include="Entities\StoneSnakeBody\wallstraight2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wallstraight2</Name>
     </None>
     <None Include="Entities\StoneSnakeHead\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -336,6 +344,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>wallhead</Name>
     </None>
+    <None Include="Entities\StoneSnakeHead\wallhead2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wallhead2</Name>
+    </None>
     <None Include="Entities\StoneSnakeTail\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
@@ -347,6 +359,10 @@
     <None Include="Entities\StoneSnakeTail\walltail.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>walltail</Name>
+    </None>
+    <None Include="Entities\StoneSnakeTail\walltail2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>walltail2</Name>
     </None>
     <None Include="Entities\UpDownButton\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

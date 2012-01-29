@@ -379,6 +379,7 @@ namespace SurviveTheSerpent.Screens
 
                 if (isGameOver == true && gameOverDelay == 2)
                 {
+                    CustomDestroy();
                     this.MoveToScreen(typeof(GameOverScreen).FullName);
                 }
                 else if (gameOverDelay < 2)
@@ -390,8 +391,18 @@ namespace SurviveTheSerpent.Screens
 
 		void CustomDestroy()
 		{
+            SnakeHead.Body.Visible = false;
+            SnakeTail.Body.Visible = false;
+            SnakeHead.Body.RemoveSelfFromListsBelongingTo();
+            SnakeTail.Body.RemoveSelfFromListsBelongingTo();
 
-
+            foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+            {
+                snakeBody.Visible = false;
+                snakeBody.RemoveSelfFromListsBelongingTo();
+            }
+            Player.Body.Visible = false;
+            Player.Body.RemoveSelfFromListsBelongingTo();
 		}
 
         static void CustomLoadStaticContent(string contentManagerName)

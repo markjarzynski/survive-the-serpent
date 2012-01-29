@@ -562,7 +562,7 @@
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\StartButton</SourceClassType>
           <InstanceName>startButton</InstanceName>
-          <HasPublicProperty>false</HasPublicProperty>
+          <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -600,7 +600,7 @@
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\CreditButton</SourceClassType>
           <InstanceName>creditButton</InstanceName>
-          <HasPublicProperty>false</HasPublicProperty>
+          <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>
@@ -638,7 +638,7 @@
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\InstructionButton</SourceClassType>
           <InstanceName>instructionButton</InstanceName>
-          <HasPublicProperty>false</HasPublicProperty>
+          <HasPublicProperty>true</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
           <SetByContainer>false</SetByContainer>

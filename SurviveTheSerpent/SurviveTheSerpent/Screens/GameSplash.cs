@@ -46,20 +46,9 @@ namespace SurviveTheSerpent.Screens
             CustomDestroy();
             isGameOver = false;
 
-            
-            //Player.Destroy();
             Player = new Entities.Player(ContentManagerName);
 
             // init snake stuff
-            
-            /*
-            SnakeHead.Destroy();
-            foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
-            {
-                snakeBody.Destroy();
-            }
-            SnakeTail.Destroy();
-            */
             CreateSnake();
 
             SpawnFood();
@@ -86,8 +75,6 @@ namespace SurviveTheSerpent.Screens
             Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
             newSnakeBody.X = 0;
             newSnakeBody.Y = 8;
-            //newSnakeBody.Visible = true;
-            //newSnakeBody.Body.Visible = false;
             SnakeBodyList.Add(newSnakeBody);
             CollisionFile.Visible = false;
 
@@ -660,24 +647,27 @@ namespace SurviveTheSerpent.Screens
 
             // Destroy the Snake
             SnakeHead.Destroy();
-            foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+            for (int i = SnakeBodyList.Count - 1; i >= 0; i--)
             {
-                SnakeBodyList.Remove(snakeBody);
+                Entities.SnakeBody snakeBody = SnakeBodyList[i];
+                SnakeBodyList.RemoveAt(i);
                 snakeBody.Destroy();
             }
             SnakeTail.Destroy();
 
             // Destroy the food
-            foreach (Entities.Food food in FoodList)
+            for (int i = FoodList.Count - 1; i >= 0; i--)
             {
-                FoodList.Remove(food);
+                Entities.Food food = FoodList[i];
+                FoodList.RemoveAt(i);
                 food.Destroy();
             }
 
             // Destroy the obstacles
-            foreach (Entities.Obstacle obs in ObstacleList)
+            for (int i = ObstacleList.Count - 1; i >= 0; i--)
             {
-                ObstacleList.Remove(obs);
+                Entities.Obstacle obs = ObstacleList[i];
+                ObstacleList.RemoveAt(i);
                 obs.Destroy();
             }
 

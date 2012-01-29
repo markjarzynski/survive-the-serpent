@@ -630,13 +630,13 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>2</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
-            <ValueAsFloat>6</ValueAsFloat>
+            <ValueAsFloat>-1.5</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Screen</ContainerType>
@@ -668,13 +668,13 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>-7</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
-            <ValueAsFloat>-6</ValueAsFloat>
+            <ValueAsFloat>-0.5</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
@@ -711,13 +711,13 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>-2.5</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>-0.3</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Screen</ContainerType>

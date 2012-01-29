@@ -56,6 +56,9 @@ namespace SurviveTheSerpent.Screens
             snakeTimeSinceLastUpdate = TimeManager.CurrentTime;
             Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
             SnakeBodyList.Add(newSnakeBody);
+            newSnakeBody.Visible = true;
+
+
             SpawnFood();
 		}
 

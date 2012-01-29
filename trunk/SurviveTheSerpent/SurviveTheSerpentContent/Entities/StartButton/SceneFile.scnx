@@ -14,8 +14,8 @@
     <RotationY>0</RotationY>
     <RotationZ>0</RotationZ>
     <RotationZVelocity>0</RotationZVelocity>
-    <ScaleX>1</ScaleX>
-    <ScaleY>1</ScaleY>
+    <ScaleX>4</ScaleX>
+    <ScaleY>4</ScaleY>
     <ScaleXVelocity>0</ScaleXVelocity>
     <ScaleYVelocity>0</ScaleYVelocity>
     <RelativeX>0</RelativeX>

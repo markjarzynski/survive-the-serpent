@@ -53,6 +53,11 @@ namespace SurviveTheSerpent.Screens
                 this.MoveToScreen(typeof(CreditScreen).FullName);
             }
 
+            if (cursor.PrimaryClick && instructionButton.HasCursorOver(cursor))
+            {
+                this.MoveToScreen(typeof(CreditScreen).FullName);
+            }
+
 		}
 
 		void CustomDestroy()

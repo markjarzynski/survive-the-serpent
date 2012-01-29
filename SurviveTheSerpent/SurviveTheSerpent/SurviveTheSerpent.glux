@@ -587,13 +587,13 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>-6</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
-            <ValueAsFloat>5</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Screen</ContainerType>
@@ -625,7 +625,7 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
-            <ValueAsFloat>5</ValueAsFloat>
+            <ValueAsFloat>-2</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
@@ -1083,7 +1083,7 @@
         </CustomVariable>
       </CustomVariables>
       <IsUnique>false</IsUnique>
-      <ImplementsIClickable>false</ImplementsIClickable>
+      <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>false</ImplementsIVisible>
       <ImplementsIWindow>false</ImplementsIWindow>
       <Name>Entities\InstructionButton</Name>

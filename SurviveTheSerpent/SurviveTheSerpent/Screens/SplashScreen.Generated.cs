@@ -137,9 +137,9 @@ namespace SurviveTheSerpent.Screens
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
-			creditButton.X = 0f;
-			creditButton.Y = 5f;
-			instructionButton.X = 5f;
+			creditButton.X = -6f;
+			creditButton.Y = 0f;
+			instructionButton.X = -2f;
 			instructionButton.Y = 0f;
 		}
 		public virtual void AddToManagersBottomUp()
@@ -148,10 +148,10 @@ namespace SurviveTheSerpent.Screens
 
 			startButton.AddToManagers(mLayer);
 			creditButton.AddToManagers(mLayer);
-			creditButton.X = 0f;
-			creditButton.Y = 5f;
+			creditButton.X = -6f;
+			creditButton.Y = 0f;
 			instructionButton.AddToManagers(mLayer);
-			instructionButton.X = 5f;
+			instructionButton.X = -2f;
 			instructionButton.Y = 0f;
 		}
 		public virtual void ConvertToManuallyUpdated()

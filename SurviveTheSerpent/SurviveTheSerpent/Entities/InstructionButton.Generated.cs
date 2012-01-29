@@ -20,6 +20,7 @@ using SurviveTheSerpent.Entities;
 using FlatRedBall;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
+using FlatRedBall.Gui;
 
 #if XNA4
 using Color = Microsoft.Xna.Framework.Color;
@@ -39,7 +40,7 @@ using Model = Microsoft.Xna.Framework.Graphics.Model;
 
 namespace SurviveTheSerpent.Entities
 {
-	public partial class InstructionButton : PositionedObject, IDestroyable
+	public partial class InstructionButton : PositionedObject, IDestroyable, IClickable
 	{
         // This is made global so that static lazy-loaded content can access it.
         public static string ContentManagerName
@@ -58,6 +59,32 @@ namespace SurviveTheSerpent.Entities
 		private static Scene SceneFile;
 
 		private Scene EntireScene;
+		protected bool mIsPaused;
+		public override void Pause(InstructionList instructions)
+		{
+			base.Pause(instructions);
+			mIsPaused = true;
+		}
+		public virtual bool HasCursorOver(Cursor cursor)
+		{
+			if(mIsPaused)
+			{
+				return false;
+			}
+			if(LayerProvidedByContainer != null && LayerProvidedByContainer.Visible == false)
+			{
+				return false;
+			}
+			if(cursor.IsOn3D(EntireScene, LayerProvidedByContainer))
+			{
+				return true;
+			}
+			return false;
+		}
+		public virtual bool WasClickedThisFrame(Cursor cursor)
+		{
+			return cursor.PrimaryClick && HasCursorOver(cursor);
+		}
 		protected Layer LayerProvidedByContainer = null;
 
         public InstructionButton(string contentManagerName) :
@@ -109,6 +136,7 @@ namespace SurviveTheSerpent.Entities
 		public virtual void Activity()
 		{
 			// Generated Activity
+			mIsPaused = false;
 
 			CustomActivity();
 			

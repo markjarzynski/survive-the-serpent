@@ -137,12 +137,12 @@ namespace SurviveTheSerpent.Screens
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
-			startButton.X = 0f;
-			startButton.Y = 6f;
-			creditButton.X = 0f;
-			creditButton.Y = -6f;
-			instructionButton.X = 0f;
-			instructionButton.Y = 0f;
+			startButton.X = 2f;
+			startButton.Y = -1.5f;
+			creditButton.X = -7f;
+			creditButton.Y = -0.5f;
+			instructionButton.X = -2.5f;
+			instructionButton.Y = -0.3f;
 		}
 		public virtual void AddToManagersBottomUp()
 		{
@@ -166,22 +166,22 @@ namespace SurviveTheSerpent.Screens
 			SceneFile.AddToManagers(mLayer);
 
 			startButton.AddToManagers(mLayer);
-			startButton.X = 0f;
-			startButton.Y = 6f;
+			startButton.X = 2f;
+			startButton.Y = -1.5f;
 			if(startButton.Parent == null)
 			{
 				startButton.AttachTo(SpriteManager.Camera, true);
 			}
 			creditButton.AddToManagers(mLayer);
-			creditButton.X = 0f;
-			creditButton.Y = -6f;
+			creditButton.X = -7f;
+			creditButton.Y = -0.5f;
 			if(creditButton.Parent == null)
 			{
 				creditButton.AttachTo(SpriteManager.Camera, true);
 			}
 			instructionButton.AddToManagers(mLayer);
-			instructionButton.X = 0f;
-			instructionButton.Y = 0f;
+			instructionButton.X = -2.5f;
+			instructionButton.Y = -0.3f;
 			if(instructionButton.Parent == null)
 			{
 				instructionButton.AttachTo(SpriteManager.Camera, true);

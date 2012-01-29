@@ -89,11 +89,11 @@ namespace SurviveTheSerpent.Screens
             {
                 newFood.X = rand.Next(7);
                 newFood.Y = rand.Next(12);
-                if (rand.Next(1) < .5)
+                if (rand.NextDouble() < .5)
                 {
                     newFood.X *= -1;
                 }
-                if (rand.Next(1) < .5)
+                if (rand.NextDouble() < .5)
                 {
                     newFood.Y *= -1;
                 }

@@ -67,7 +67,29 @@ namespace SurviveTheSerpent.Screens
 
         void CreateSnake()
         {
+            switch (Game1.diff)
+            {
+                case Game1.Difficulty.easy:
+                    snakeUpdateDelay = 0.9; // in seconds
+                    snakeVelocity = 0.9;
+                    snakeAcceleration = 0.1;
+                    break;
+                    
+                case Game1.Difficulty.medium:
+                    snakeUpdateDelay = 1.0; // in seconds
+                    snakeVelocity = 0.85;
+                    snakeAcceleration = 0.2;
+                    break;
+
+                case Game1.Difficulty.hard:
+                    snakeUpdateDelay = 1.0; // in seconds
+                    snakeVelocity = 0.8;
+                    snakeAcceleration = 0.3;
+                    break;
+            }
+
             snakeVelocity = snakeUpdateDelay;
+
             snakeTimeSinceLastUpdate = TimeManager.CurrentTime;
 
             SnakeTail = new Entities.SnakeTail(ContentManagerName);

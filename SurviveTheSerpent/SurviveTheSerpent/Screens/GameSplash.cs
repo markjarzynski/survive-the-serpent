@@ -247,51 +247,91 @@ namespace SurviveTheSerpent.Screens
         {
             if (cursor.PrimaryClick && upButton.HasCursorOver(cursor))
             {
-                Player.SetDirection(Entities.Player.Direction.Up);
-                Player.EntireSceneCurrentChainName = "up";
-                Player.RotationY = 0;
-                Player.EntireSceneAnimate = true;
-                //Player.X += 1;
-                upButton.EntireSceneCurrentChainName = "Glow";
-                downButton.EntireSceneCurrentChainName = "NoGlow";
-                rightButton.EntireSceneCurrentChainName = "NoGlow";
-                leftButton.EntireSceneCurrentChainName = "NoGlow";
+                if (Player.direction == Entities.Player.Direction.Up)
+                {
+                    upButton.EntireSceneCurrentChainName = "NoGlow";
+                    downButton.EntireSceneCurrentChainName = "NoGlow";
+                    rightButton.EntireSceneCurrentChainName = "NoGlow";
+                    leftButton.EntireSceneCurrentChainName = "NoGlow";
+                    Player.SetDirection(Entities.Player.Direction.Still);
+                }
+                else
+                {
+                    Player.SetDirection(Entities.Player.Direction.Up);
+                    Player.EntireSceneCurrentChainName = "up";
+                    Player.RotationY = 0;
+                    Player.EntireSceneAnimate = true;
+                    upButton.EntireSceneCurrentChainName = "Glow";
+                    downButton.EntireSceneCurrentChainName = "NoGlow";
+                    rightButton.EntireSceneCurrentChainName = "NoGlow";
+                    leftButton.EntireSceneCurrentChainName = "NoGlow";
+                }
             }
             else if (cursor.PrimaryClick && downButton.HasCursorOver(cursor))
             {
-                Player.SetDirection(Entities.Player.Direction.Down);
-                Player.EntireSceneCurrentChainName = "down";
-                Player.RotationY = 0;
-                Player.EntireSceneAnimate = true;
-                //Player.X -= 1;
-                upButton.EntireSceneCurrentChainName = "NoGlow";
-                downButton.EntireSceneCurrentChainName = "Glow";
-                rightButton.EntireSceneCurrentChainName = "NoGlow";
-                leftButton.EntireSceneCurrentChainName = "NoGlow";
+                if (Player.direction == Entities.Player.Direction.Down)
+                {
+                    upButton.EntireSceneCurrentChainName = "NoGlow";
+                    downButton.EntireSceneCurrentChainName = "NoGlow";
+                    rightButton.EntireSceneCurrentChainName = "NoGlow";
+                    leftButton.EntireSceneCurrentChainName = "NoGlow";
+                    Player.SetDirection(Entities.Player.Direction.Still);
+                }
+                else
+                {
+                    Player.SetDirection(Entities.Player.Direction.Down);
+                    Player.EntireSceneCurrentChainName = "down";
+                    Player.RotationY = 0;
+                    Player.EntireSceneAnimate = true;
+                    upButton.EntireSceneCurrentChainName = "NoGlow";
+                    downButton.EntireSceneCurrentChainName = "Glow";
+                    rightButton.EntireSceneCurrentChainName = "NoGlow";
+                    leftButton.EntireSceneCurrentChainName = "NoGlow";
+                }
             }
             else if (cursor.PrimaryClick && leftButton.HasCursorOver(cursor))
             {
-                Player.SetDirection(Entities.Player.Direction.Left);
-                Player.EntireSceneCurrentChainName = "side";
-                Player.RotationY = (float)Math.PI;
-                Player.EntireSceneAnimate = true;
-                //Player.Y += 1;
-                upButton.EntireSceneCurrentChainName = "NoGlow";
-                downButton.EntireSceneCurrentChainName = "NoGlow";
-                rightButton.EntireSceneCurrentChainName = "NoGlow";
-                leftButton.EntireSceneCurrentChainName = "Glow";
+                if (Player.direction == Entities.Player.Direction.Left)
+                {
+                    upButton.EntireSceneCurrentChainName = "NoGlow";
+                    downButton.EntireSceneCurrentChainName = "NoGlow";
+                    rightButton.EntireSceneCurrentChainName = "NoGlow";
+                    leftButton.EntireSceneCurrentChainName = "NoGlow";
+                    Player.SetDirection(Entities.Player.Direction.Still);
+                }
+                else
+                {
+                    Player.SetDirection(Entities.Player.Direction.Left);
+                    Player.EntireSceneCurrentChainName = "side";
+                    Player.RotationY = (float)Math.PI;
+                    Player.EntireSceneAnimate = true;
+                    upButton.EntireSceneCurrentChainName = "NoGlow";
+                    downButton.EntireSceneCurrentChainName = "NoGlow";
+                    rightButton.EntireSceneCurrentChainName = "NoGlow";
+                    leftButton.EntireSceneCurrentChainName = "Glow";
+                }
             }
             else if (cursor.PrimaryClick && rightButton.HasCursorOver(cursor))
             {
-                Player.SetDirection(Entities.Player.Direction.Right);
-                Player.EntireSceneCurrentChainName = "side";
-                Player.RotationY = 0;
-                Player.EntireSceneAnimate = true;
-                //Player.Y -= 1;
-                upButton.EntireSceneCurrentChainName = "NoGlow";
-                downButton.EntireSceneCurrentChainName = "NoGlow";
-                rightButton.EntireSceneCurrentChainName = "Glow";
-                leftButton.EntireSceneCurrentChainName = "NoGlow";
+                if (Player.direction == Entities.Player.Direction.Right)
+                {
+                    upButton.EntireSceneCurrentChainName = "NoGlow";
+                    downButton.EntireSceneCurrentChainName = "NoGlow";
+                    rightButton.EntireSceneCurrentChainName = "NoGlow";
+                    leftButton.EntireSceneCurrentChainName = "NoGlow";
+                    Player.SetDirection(Entities.Player.Direction.Still);
+                }
+                else
+                {
+                    Player.SetDirection(Entities.Player.Direction.Right);
+                    Player.EntireSceneCurrentChainName = "side";
+                    Player.RotationY = 0;
+                    Player.EntireSceneAnimate = true;
+                    upButton.EntireSceneCurrentChainName = "NoGlow";
+                    downButton.EntireSceneCurrentChainName = "NoGlow";
+                    rightButton.EntireSceneCurrentChainName = "Glow";
+                    leftButton.EntireSceneCurrentChainName = "NoGlow";
+                }
             }
 
             if (Player.Body.CollideAgainst(SnakeHead.Body))

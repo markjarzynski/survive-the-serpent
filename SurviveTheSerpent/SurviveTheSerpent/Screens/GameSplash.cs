@@ -186,14 +186,14 @@ namespace SurviveTheSerpent.Screens
 
             if (Player.Body.CollideAgainstMove(CollisionFile, 0, 1))
             {
-                Player.SetDirection(Entities.Player.Direction.Still);
+                //Player.SetDirection(Entities.Player.Direction.Still);
             }
 
             foreach (Entities.Obstacle obstacle in ObstacleList)
             {
                 if (Player.Body.CollideAgainstMove(obstacle.Body, 0, 1))
                 {
-                    Player.SetDirection(Entities.Player.Direction.Still);
+                    //Player.SetDirection(Entities.Player.Direction.Still);
                 }
             }
 
@@ -201,13 +201,13 @@ namespace SurviveTheSerpent.Screens
             {
                 if (Player.Body.CollideAgainstMove(snakeBody.Body, 0, 1))
                 {
-                    Player.SetDirection(Entities.Player.Direction.Still);
+                    //Player.SetDirection(Entities.Player.Direction.Still);
                 }
             }
 
             if (Player.Body.CollideAgainstMove(SnakeTail.Body, 0, 1))
             {
-                Player.SetDirection(Entities.Player.Direction.Still);
+                //Player.SetDirection(Entities.Player.Direction.Still);
             }
             if (isGameOver == true)
             {

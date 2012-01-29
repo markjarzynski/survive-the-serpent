@@ -52,7 +52,7 @@ namespace SurviveTheSerpent.Entities
 		{
             canMove = false;
             didEatFood = false;
-            direction = Direction.None;
+            direction = Direction.Right;
 
             previousX = X;
             previousY = Y;

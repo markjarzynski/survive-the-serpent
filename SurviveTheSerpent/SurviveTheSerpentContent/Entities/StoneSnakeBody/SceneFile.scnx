@@ -35,9 +35,9 @@
     <ColorOperation>SelectArg1</ColorOperation>
     <BlendOperation>REGULAR</BlendOperation>
     <Name>wallstraight21</Name>
-    <Texture>wallstraight2.png</Texture>
-    <Animate>false</Animate>
-    <CurrentChain>-1</CurrentChain>
+    <Animate>true</Animate>
+    <CurrentChain>0</CurrentChain>
+    <AnimationChainsFile>animationchainlistfile.achx</AnimationChainsFile>
     <Ordered>true</Ordered>
     <Active>true</Active>
     <ConstantPixelSize>0</ConstantPixelSize>

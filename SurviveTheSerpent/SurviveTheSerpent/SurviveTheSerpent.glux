@@ -2583,7 +2583,7 @@
           </Properties>
           <Name>EntireSceneCurrentChainName</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">Elbow</DefaultValue>
+          <DefaultValue xsi:type="xsd:string"></DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>
@@ -2601,36 +2601,10 @@
       <NamedObjects>
         <NamedObjectSave>
           <Properties />
-          <ContainerType>Entity</ContainerType>
-          <SourceType>File</SourceType>
-          <SourceFile>Entities/StoneSnakeBody/SceneFile.scnx</SourceFile>
-          <SourceName>wallstraight1 (Sprite)</SourceName>
-          <InstanceName>EntireScene</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
-          <SetByDerived>false</SetByDerived>
-          <ExposedInDerived>true</ExposedInDerived>
-          <SetByContainer>false</SetByContainer>
-          <AttachToContainer>true</AttachToContainer>
-          <AttachToCamera>false</AttachToCamera>
-          <AddToManagers>true</AddToManagers>
-          <IncludeInIVisible>true</IncludeInIVisible>
-          <IncludeInIClickable>true</IncludeInIClickable>
-          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
-          <DefinedByBase>false</DefinedByBase>
-          <InstantiatedByBase>false</InstantiatedByBase>
-          <IsDisabled>false</IsDisabled>
-          <VariablesToReset />
-          <IgnoresPausing>false</IgnoresPausing>
-          <CallActivity>true</CallActivity>
-          <ContainedObjects />
-          <Events />
-          <Is2D>false</Is2D>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <Properties />
           <CustomProperty>
             <Type>Boolean</Type>
             <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Entity</ContainerType>
@@ -2657,18 +2631,45 @@
           <Events />
           <Is2D>false</Is2D>
         </NamedObjectSave>
+        <NamedObjectSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <SourceType>File</SourceType>
+          <SourceFile>Entities/StoneSnakeBody/SceneFile.scnx</SourceFile>
+          <SourceName>wallstraight21 (Sprite)</SourceName>
+          <InstanceName>EntireScene</InstanceName>
+          <HasPublicProperty>false</HasPublicProperty>
+          <SetByDerived>false</SetByDerived>
+          <ExposedInDerived>false</ExposedInDerived>
+          <SetByContainer>false</SetByContainer>
+          <AttachToContainer>true</AttachToContainer>
+          <AttachToCamera>false</AttachToCamera>
+          <AddToManagers>true</AddToManagers>
+          <IncludeInIVisible>true</IncludeInIVisible>
+          <IncludeInIClickable>true</IncludeInIClickable>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <DefinedByBase>false</DefinedByBase>
+          <InstantiatedByBase>false</InstantiatedByBase>
+          <IsDisabled>false</IsDisabled>
+          <VariablesToReset />
+          <IgnoresPausing>false</IgnoresPausing>
+          <CallActivity>true</CallActivity>
+          <ContainedObjects />
+          <Events />
+          <Is2D>false</Is2D>
+        </NamedObjectSave>
       </NamedObjects>
       <ReferencedFiles>
         <ReferencedFileSave>
           <Properties />
           <ContainerType>Entity</ContainerType>
-          <Name>Entities/StoneSnakeBody/AnimationChainListFile.achx</Name>
+          <Name>Entities/StoneSnakeBody/SceneFile.scnx</Name>
           <IsManuallyUpdated>false</IsManuallyUpdated>
           <IsSharedStatic>true</IsSharedStatic>
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
           <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
           <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
-          <HasPublicProperty>true</HasPublicProperty>
+          <HasPublicProperty>false</HasPublicProperty>
           <OpensWith>&lt;DEFAULT&gt;</OpensWith>
           <LoadedAtRuntime>true</LoadedAtRuntime>
           <CreatesDictionary>false</CreatesDictionary>
@@ -2678,7 +2679,7 @@
         <ReferencedFileSave>
           <Properties />
           <ContainerType>Entity</ContainerType>
-          <Name>Entities/StoneSnakeBody/SceneFile.scnx</Name>
+          <Name>Entities/StoneSnakeBody/AnimationChainListFile.achx</Name>
           <IsManuallyUpdated>false</IsManuallyUpdated>
           <IsSharedStatic>true</IsSharedStatic>
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>

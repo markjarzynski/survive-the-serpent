@@ -29,9 +29,5 @@
       <TextureName>wallstraight2.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>
-    <TextureDisplayRegionsSave>
-      <TextureName>wallbend2.png</TextureName>
-      <DisplayRegions />
-    </TextureDisplayRegionsSave>
   </TextureDisplayRegionsList>
 </SpriteEditorSceneProperties>

@@ -57,19 +57,15 @@ namespace SurviveTheSerpent.Entities
 		static object mLockObject = new object();
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
-		public static AnimationChainList AnimationChainListFile;
 		private static Scene SceneFile;
+		private static AnimationChainList AnimationChainListFile;
 
-		protected Sprite mEntireScene;
-		public Sprite EntireScene
-		{
-			get{ return mEntireScene;}
-		}
 		private AxisAlignedRectangle mBody;
 		public AxisAlignedRectangle Body
 		{
 			get{ return mBody;}
 		}
+		private Sprite EntireScene;
 		public string EntireSceneCurrentChainName
 		{
 			get
@@ -102,8 +98,8 @@ namespace SurviveTheSerpent.Entities
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			mEntireScene = SceneFile.Sprites.FindByName("wallstraight1").Clone();
 			mBody = new AxisAlignedRectangle();
+			EntireScene = SceneFile.Sprites.FindByName("wallstraight21").Clone();
 
 
 			PostInitialize();
@@ -142,13 +138,13 @@ namespace SurviveTheSerpent.Entities
 		{
 			// Generated Destroy
 			SpriteManager.RemovePositionedObject(this);
-			if(EntireScene != null)
-			{
-				SpriteManager.RemoveSprite(EntireScene);
-			}
 			if(Body != null)
 			{
 				ShapeManager.Remove(Body);
+			}
+			if(EntireScene != null)
+			{
+				SpriteManager.RemoveSprite(EntireScene);
 			}
 
 
@@ -164,6 +160,7 @@ namespace SurviveTheSerpent.Entities
 			X = 0f;
 			Y = 0f;
 			EntireSceneCurrentChainName = "Elbow";
+			Body.Visible = false;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -186,15 +183,16 @@ namespace SurviveTheSerpent.Entities
             RotationZ = 0;
 
 
-			SpriteManager.AddToLayer(mEntireScene, layerToAddTo);
-			if(mEntireScene.Parent == null)
-			{
-				mEntireScene.AttachTo(this, true);
-			}
 			ShapeManager.AddToLayer(mBody, layerToAddTo);
+			mBody.Visible = false;
 			if(mBody.Parent == null)
 			{
 				mBody.AttachTo(this, true);
+			}
+			SpriteManager.AddToLayer(EntireScene, layerToAddTo);
+			if(EntireScene.Parent == null)
+			{
+				EntireScene.AttachTo(this, true);
 			}
 
             X = oldX;
@@ -235,16 +233,16 @@ namespace SurviveTheSerpent.Entities
 					}
 				}
 				bool registerUnload = false;
-				if(!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/stonesnakebody/animationchainlistfile.achx", ContentManagerName))
-				{
-					registerUnload = true;
-				}
-				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/stonesnakebody/animationchainlistfile.achx", ContentManagerName);
 				if(!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/stonesnakebody/scenefile.scnx", ContentManagerName))
 				{
 					registerUnload = true;
 				}
 				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/stonesnakebody/scenefile.scnx", ContentManagerName);
+				if(!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/stonesnakebody/animationchainlistfile.achx", ContentManagerName))
+				{
+					registerUnload = true;
+				}
+				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/stonesnakebody/animationchainlistfile.achx", ContentManagerName);
 			if(registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 			{
 				lock(mLockObject)
@@ -263,24 +261,24 @@ namespace SurviveTheSerpent.Entities
 		{
 			IsStaticContentLoaded = false;
 			mHasRegisteredUnload = false;
-			if(AnimationChainListFile != null)
-			{
-				AnimationChainListFile = null;
-			}
 			if(SceneFile != null)
 			{
 				SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 				SceneFile = null;
+			}
+			if(AnimationChainListFile != null)
+			{
+				AnimationChainListFile = null;
 			}
 		}
 		public static object GetStaticMember(string memberName)
 		{
 			switch(memberName)
 			{
-				case "AnimationChainListFile":
-					return AnimationChainListFile;
 				case "SceneFile":
 					return SceneFile;
+				case "AnimationChainListFile":
+					return AnimationChainListFile;
 			}
 			return null;
 		}
@@ -288,10 +286,10 @@ namespace SurviveTheSerpent.Entities
 		{
 			switch(memberName)
 			{
-				case "AnimationChainListFile":
-					return AnimationChainListFile;
 				case "SceneFile":
 					return SceneFile;
+				case "AnimationChainListFile":
+					return AnimationChainListFile;
 			}
 			return null;
 		}

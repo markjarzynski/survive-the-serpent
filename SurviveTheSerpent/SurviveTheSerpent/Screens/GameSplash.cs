@@ -621,7 +621,7 @@ namespace SurviveTheSerpent.Screens
                 {
                     if (SnakeHead.Body.CollideAgainstMove(food.Body, 1 , 0))
                     {
-                        //Game1.eat.Play();
+                        Game1.eat.Play();
                         Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
                         newSnakeBody.X = SnakeTail.X;
                         newSnakeBody.Y = SnakeTail.Y;

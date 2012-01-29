@@ -30,7 +30,7 @@ namespace SurviveTheSerpent.Entities
         // U,D,L,R = directions
         // S = standing still
         public Direction direction;
-        private const double PLAYER_SPEED = .4;
+        private const double PLAYER_SPEED = .5;
         private double velocity;
 
         public enum Direction

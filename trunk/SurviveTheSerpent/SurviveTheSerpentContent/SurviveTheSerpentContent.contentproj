@@ -116,6 +116,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
+    <None Include="Entities\Food\spider.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>spider</Name>
+    </None>
     <None Include="Entities\InstructionButton\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
@@ -149,6 +153,22 @@
       <Name>directionalarrowrightglow</Name>
     </None>
     <None Include="Entities\LeftRightButton\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\NextButton\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\NextButton\nextbutton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>nextbutton</Name>
+    </None>
+    <None Include="Entities\NextButton\nextbuttonglow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>nextbuttonglow</Name>
+    </None>
+    <None Include="Entities\NextButton\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
@@ -217,6 +237,22 @@
       <Name>player</Name>
     </None>
     <None Include="Entities\Player\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Entities\RetryButton\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\RetryButton\retrybutton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>retrybutton</Name>
+    </None>
+    <None Include="Entities\RetryButton\retrybuttonglow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>retrybuttonglow</Name>
+    </None>
+    <None Include="Entities\RetryButton\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
@@ -372,6 +408,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
+    <None Include="Screens\LoseScreen\losescreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>losescreen</Name>
+    </None>
+    <None Include="Screens\LoseScreen\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
     <None Include="Screens\SplashScreen\background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>background</Name>
@@ -383,6 +427,14 @@
     <None Include="Screens\SplashScreen\startscreen_new.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>startscreen_new</Name>
+    </None>
+    <None Include="Screens\WinScreen\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\WinScreen\winscreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>winscreen</Name>
     </None>
   </ItemGroup>
   <ItemGroup />

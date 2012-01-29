@@ -41,21 +41,9 @@ namespace SurviveTheSerpent.Screens
 		#endif
 		private Scene SceneFile;
 
-		private SurviveTheSerpent.Entities.StartButton mstartButton;
-		public SurviveTheSerpent.Entities.StartButton startButton
-		{
-			get{ return mstartButton;}
-		}
-		private SurviveTheSerpent.Entities.CreditButton mcreditButton;
-		public SurviveTheSerpent.Entities.CreditButton creditButton
-		{
-			get{ return mcreditButton;}
-		}
-		private SurviveTheSerpent.Entities.InstructionButton minstructionButton;
-		public SurviveTheSerpent.Entities.InstructionButton instructionButton
-		{
-			get{ return minstructionButton;}
-		}
+		private SurviveTheSerpent.Entities.StartButton startButton;
+		private SurviveTheSerpent.Entities.CreditButton creditButton;
+		private SurviveTheSerpent.Entities.InstructionButton instructionButton;
 
 		public SplashScreen()
 			: base("SplashScreen")
@@ -67,12 +55,12 @@ namespace SurviveTheSerpent.Screens
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
 			SceneFile = FlatRedBallServices.Load<Scene>("content/screens/splashscreen/scenefile.scnx", ContentManagerName);
-			mstartButton = new SurviveTheSerpent.Entities.StartButton(ContentManagerName, false);
-			mstartButton.Name = "mstartButton";
-			mcreditButton = new SurviveTheSerpent.Entities.CreditButton(ContentManagerName, false);
-			mcreditButton.Name = "mcreditButton";
-			minstructionButton = new SurviveTheSerpent.Entities.InstructionButton(ContentManagerName, false);
-			minstructionButton.Name = "minstructionButton";
+			startButton = new SurviveTheSerpent.Entities.StartButton(ContentManagerName, false);
+			startButton.Name = "startButton";
+			creditButton = new SurviveTheSerpent.Entities.CreditButton(ContentManagerName, false);
+			creditButton.Name = "creditButton";
+			instructionButton = new SurviveTheSerpent.Entities.InstructionButton(ContentManagerName, false);
+			instructionButton.Name = "instructionButton";
 
 
 
@@ -160,15 +148,15 @@ namespace SurviveTheSerpent.Screens
 		{
 			SceneFile.AddToManagers(mLayer);
 
-			mstartButton.AddToManagers(mLayer);
-			mstartButton.X = 0f;
-			mstartButton.Y = 0f;
-			mcreditButton.AddToManagers(mLayer);
-			mcreditButton.X = -6f;
-			mcreditButton.Y = 0f;
-			minstructionButton.AddToManagers(mLayer);
-			minstructionButton.X = -2f;
-			minstructionButton.Y = 0f;
+			startButton.AddToManagers(mLayer);
+			startButton.X = 0f;
+			startButton.Y = 0f;
+			creditButton.AddToManagers(mLayer);
+			creditButton.X = -6f;
+			creditButton.Y = 0f;
+			instructionButton.AddToManagers(mLayer);
+			instructionButton.X = -2f;
+			instructionButton.Y = 0f;
 		}
 		public virtual void ConvertToManuallyUpdated()
 		{

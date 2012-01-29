@@ -137,13 +137,11 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
-            <ValueAsFloat>2</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
-            <ValueAsFloat>8</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Screen</ContainerType>
@@ -551,11 +549,13 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
+            <ValueAsFloat>0</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Screen</ContainerType>
@@ -679,7 +679,7 @@
           </Properties>
           <Name>X</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">-6</DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>
@@ -805,7 +805,7 @@
           </Properties>
           <Name>X</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">-2</DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>
@@ -1516,7 +1516,7 @@
           </Properties>
           <Name>Y</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>
@@ -1676,7 +1676,7 @@
           </Properties>
           <Name>Y</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>
@@ -1808,7 +1808,7 @@
           </Properties>
           <Name>Y</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">8</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
           <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
           <SetByDerived>false</SetByDerived>
           <IsShared>false</IsShared>

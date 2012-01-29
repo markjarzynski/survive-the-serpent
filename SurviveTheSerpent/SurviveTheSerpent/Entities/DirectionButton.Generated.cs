@@ -177,7 +177,7 @@ namespace SurviveTheSerpent.Entities
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
-			X = 0f;
+			X = -2f;
 			Y = 0f;
 			RotationZ = 0f;
 		}

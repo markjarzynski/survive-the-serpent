@@ -137,6 +137,8 @@ namespace SurviveTheSerpent.Screens
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
+			startButton.X = 0f;
+			startButton.Y = 0f;
 			creditButton.X = -6f;
 			creditButton.Y = 0f;
 			instructionButton.X = -2f;
@@ -147,6 +149,8 @@ namespace SurviveTheSerpent.Screens
 			SceneFile.AddToManagers(mLayer);
 
 			startButton.AddToManagers(mLayer);
+			startButton.X = 0f;
+			startButton.Y = 0f;
 			creditButton.AddToManagers(mLayer);
 			creditButton.X = -6f;
 			creditButton.Y = 0f;

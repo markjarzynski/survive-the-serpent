@@ -1158,6 +1158,22 @@
           <CsvDelimiter>Comma</CsvDelimiter>
           <TreatAsCsv>false</TreatAsCsv>
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/Food/AnimationChainListFile.achx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
       </ReferencedFiles>
       <Behaviors />
       <CreatedByOtherEntities>false</CreatedByOtherEntities>
@@ -1241,6 +1257,22 @@
           <Properties />
           <ContainerType>Entity</ContainerType>
           <Name>Entities/InstructionButton/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/InstructionButton/AnimationChainListFile.achx</Name>
           <IsManuallyUpdated>false</IsManuallyUpdated>
           <IsSharedStatic>true</IsSharedStatic>
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
@@ -1507,6 +1539,22 @@
           <CsvDelimiter>Comma</CsvDelimiter>
           <TreatAsCsv>false</TreatAsCsv>
         </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/Obstacle/AnimationChainListFile.achx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
       </ReferencedFiles>
       <Behaviors />
       <CreatedByOtherEntities>false</CreatedByOtherEntities>
@@ -1588,6 +1636,22 @@
           <Properties />
           <ContainerType>Entity</ContainerType>
           <Name>Entities/Player/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/Player/AnimationChainListFile.achx</Name>
           <IsManuallyUpdated>false</IsManuallyUpdated>
           <IsSharedStatic>true</IsSharedStatic>
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
@@ -2101,6 +2165,22 @@
           <Properties />
           <ContainerType>Entity</ContainerType>
           <Name>Entities/StartButton/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/StartButton/AnimationChainListFile.achx</Name>
           <IsManuallyUpdated>false</IsManuallyUpdated>
           <IsSharedStatic>true</IsSharedStatic>
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>

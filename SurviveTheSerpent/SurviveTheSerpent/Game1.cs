@@ -27,6 +27,16 @@ namespace SurviveTheSerpent
         public static SoundEffect loss;
         public static SoundEffect win;
 
+        public static enum Difficulty
+        {
+            easy,
+            medium,
+            hard
+        }
+
+        public static Difficulty diff = Difficulty.medium;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);

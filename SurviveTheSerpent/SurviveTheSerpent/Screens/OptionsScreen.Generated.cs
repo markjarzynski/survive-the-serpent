@@ -62,6 +62,8 @@ namespace SurviveTheSerpent.Screens
 			hardButton = new SurviveTheSerpent.Entities.DifficultyButton(ContentManagerName, false);
 			hardButton.Name = "hardButton";
 
+
+
 			PostInitialize();
 			if(addToManagers)
 			{
@@ -139,7 +141,7 @@ namespace SurviveTheSerpent.Screens
 			easyButton.Y = 0f;
 			mediumButton.X = 1f;
 			mediumButton.Y = 0f;
-			hardButton.X = -4f;
+			hardButton.X = -3f;
 			hardButton.Y = 0f;
 		}
 		public virtual void AddToManagersBottomUp()
@@ -153,7 +155,7 @@ namespace SurviveTheSerpent.Screens
 			mediumButton.X = 1f;
 			mediumButton.Y = 0f;
 			hardButton.AddToManagers(mLayer);
-			hardButton.X = -4f;
+			hardButton.X = -3f;
 			hardButton.Y = 0f;
 		}
 		public virtual void ConvertToManuallyUpdated()

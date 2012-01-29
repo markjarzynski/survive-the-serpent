@@ -740,11 +740,13 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
+            <ValueAsFloat>5.5</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
@@ -786,11 +788,13 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
+            <ValueAsFloat>1</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
@@ -832,11 +836,13 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
+            <ValueAsFloat>-3</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>

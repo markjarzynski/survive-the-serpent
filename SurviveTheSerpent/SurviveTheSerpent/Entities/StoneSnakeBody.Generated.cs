@@ -159,7 +159,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			X = 0f;
 			Y = 0f;
-			EntireSceneCurrentChainName = "";
+			EntireSceneCurrentChainName = "Elbow";
 			Body.Visible = false;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)

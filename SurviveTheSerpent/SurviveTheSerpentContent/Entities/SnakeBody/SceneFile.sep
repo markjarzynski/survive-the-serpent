@@ -26,10 +26,6 @@
   <FilesToMakeDotDotSlashRelative />
   <TextureDisplayRegionsList>
     <TextureDisplayRegionsSave>
-      <TextureName>wallstraight2.png</TextureName>
-      <DisplayRegions />
-    </TextureDisplayRegionsSave>
-    <TextureDisplayRegionsSave>
       <TextureName>body.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>

@@ -26,10 +26,6 @@
   <FilesToMakeDotDotSlashRelative />
   <TextureDisplayRegionsList>
     <TextureDisplayRegionsSave>
-      <TextureName>food.png</TextureName>
-      <DisplayRegions />
-    </TextureDisplayRegionsSave>
-    <TextureDisplayRegionsSave>
       <TextureName>rabbit.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>

@@ -360,6 +360,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
+    <None Include="Screens\InstructionScreen\directions_screen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>directions_screen</Name>
+    </None>
     <None Include="Screens\InstructionScreen\instructionsscreen.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>instructionsscreen</Name>

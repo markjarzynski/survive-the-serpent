@@ -27,7 +27,7 @@ namespace SurviveTheSerpent
         public static SoundEffect loss;
         public static SoundEffect win;
 
-        public static enum Difficulty
+        public enum Difficulty
         {
             easy,
             medium,

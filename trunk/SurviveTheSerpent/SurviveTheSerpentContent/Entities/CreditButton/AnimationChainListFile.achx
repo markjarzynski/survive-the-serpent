@@ -3,7 +3,7 @@
   <FileRelativeTextures>true</FileRelativeTextures>
   <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
   <AnimationChain>
-    <Name>default</Name>
+    <Name>NoGlow</Name>
     <ColorKey>0</ColorKey>
     <Frame>
       <FlipHorizontal>false</FlipHorizontal>
@@ -19,7 +19,7 @@
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>glow</Name>
+    <Name>Glow</Name>
     <ColorKey>0</ColorKey>
     <Frame>
       <FlipHorizontal>false</FlipHorizontal>
@@ -34,5 +34,5 @@
       <RelativeY>0</RelativeY>
     </Frame>
   </AnimationChain>
-  <FileName>C:\Users\Drusuke\Desktop\survive-the-serpent\SurviveTheSerpent\SurviveTheSerpentContent\Entities\CreditButton\AnimationChainListFile.achx</FileName>
+  <FileName>C:\Users\rick\Desktop\survive-the-serpent\SurviveTheSerpent\SurviveTheSerpentContent\Entities\CreditButton\AnimationChainListFile.achx</FileName>
 </AnimationChainArraySave>

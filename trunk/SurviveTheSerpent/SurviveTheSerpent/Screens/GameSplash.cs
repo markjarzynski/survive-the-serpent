@@ -37,7 +37,26 @@ namespace SurviveTheSerpent.Screens
 
         private int gameOverDelay;
         private bool isGameOver;
-        
+
+        void CreateSnake()
+        {
+            SnakeTail = new Entities.SnakeTail(ContentManagerName);
+            SnakeTail.X = -2;
+            SnakeTail.Y = 8;
+            SnakeHead = new Entities.SnakeHead(ContentManagerName);
+            SnakeHead.X = 2;
+            SnakeHead.Y = 8;
+
+            snakeTimeSinceLastUpdate = TimeManager.CurrentTime;
+            Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
+            newSnakeBody.X = 0;
+            newSnakeBody.Y = 8;
+
+            SnakeBodyList.Add(newSnakeBody);
+            newSnakeBody.Visible = true;
+
+        }
+
 		void CustomInitialize()
 		{
             gameOverDelay = 0;
@@ -53,10 +72,9 @@ namespace SurviveTheSerpent.Screens
             ObstacleList.Add(newObstacle);
 
             // init snake stuff
-            snakeTimeSinceLastUpdate = TimeManager.CurrentTime;
-            Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
-            SnakeBodyList.Add(newSnakeBody);
-            newSnakeBody.Visible = true;
+            SnakeHead.Destroy();
+            SnakeTail.Destroy();
+            CreateSnake();
 
 
             SpawnFood();
@@ -381,7 +399,7 @@ namespace SurviveTheSerpent.Screens
                     newStoneSnakeHead.X = SnakeHead.X;
                     newStoneSnakeHead.Y = SnakeHead.Y;
                     StoneSnakeHeadList.Add(newStoneSnakeHead);
-                    //SnakeHead.Destroy();
+                    SnakeHead.Destroy();
 
                     foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
                     {
@@ -393,7 +411,7 @@ namespace SurviveTheSerpent.Screens
 
                         StoneSnakeBodyList.Add(newStoneSnakeBody);
 
-                        //snakeBody.Destroy();
+                        snakeBody.Destroy();
                     }
 
                     Entities.StoneSnakeTail newStoneSnakeTail = new Entities.StoneSnakeTail(ContentManagerName);
@@ -403,7 +421,9 @@ namespace SurviveTheSerpent.Screens
 
                     StoneSnakeTailList.Add(newStoneSnakeTail);
 
-                    //SnakeTail.Destroy();
+                    SnakeTail.Destroy();
+
+                    CreateSnake();
 
                 }
                 // Snake head consumes food it collides with

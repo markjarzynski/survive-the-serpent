@@ -26,10 +26,6 @@
   <FilesToMakeDotDotSlashRelative />
   <TextureDisplayRegionsList>
     <TextureDisplayRegionsSave>
-      <TextureName>button.png</TextureName>
-      <DisplayRegions />
-    </TextureDisplayRegionsSave>
-    <TextureDisplayRegionsSave>
       <TextureName>startbutton.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>

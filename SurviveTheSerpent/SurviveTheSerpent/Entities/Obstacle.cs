@@ -29,6 +29,7 @@ namespace SurviveTheSerpent.Entities
 		{
             this.X = -4;
             this.Y = -4;
+            Body.Visible = false;
 
 		}
 

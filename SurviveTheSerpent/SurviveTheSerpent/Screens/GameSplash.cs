@@ -38,6 +38,24 @@ namespace SurviveTheSerpent.Screens
         private int gameOverDelay;
         private bool isGameOver;
 
+        void NewGame()
+        {
+            CustomDestroy();
+            isGameOver = false;
+
+            Player.Destroy();
+            Player = new Entities.Player(ContentManagerName);
+
+            // init snake stuff
+            SnakeHead.Destroy();
+            SnakeTail.Destroy();
+
+            CreateSnake();
+
+            SpawnFood();
+            SpawnObstacle();
+        }
+
         void CreateSnake()
         {
             SnakeTail = new Entities.SnakeTail(ContentManagerName);
@@ -86,24 +104,22 @@ namespace SurviveTheSerpent.Screens
 
             //Entities.Food newFood = new Entities.Food(ContentManagerName);
             //FoodList.Add(newFood);
-
-            Entities.Obstacle newObstacle = new Entities.Obstacle(ContentManagerName);
-            ObstacleList.Add(newObstacle);
-
-            // init snake stuff
-            SnakeHead.Destroy();
-            SnakeTail.Destroy();
-            CreateSnake();
-
-
-            SpawnFood();
+            NewGame();
 		}
 
 		void CustomActivity(bool firstTimeCalled)
 		{
-            UpdatePlayer();
-            UpdateSnake();
-            UpdateFood();
+            if (mPopups.Count == 0 && IsPaused)
+            {
+                UnpauseThisScreen();
+                NewGame();
+            }
+            else if (!IsPaused)
+            {
+                UpdatePlayer();
+                UpdateSnake();
+                UpdateFood();
+            }
 		}
 
         void UpdateFood()
@@ -113,6 +129,62 @@ namespace SurviveTheSerpent.Screens
             {
                 SpawnFood();
             }
+        }
+
+        void SpawnObstacle()
+        {
+            Entities.Obstacle newObstacle = new Entities.Obstacle(ContentManagerName);
+            Boolean invalidLocation = true;
+
+            Random rand = new Random();
+
+            while (invalidLocation)
+            {
+                newObstacle.X = rand.Next(7);
+                newObstacle.Y = rand.Next(12);
+                if (rand.NextDouble() < .5)
+                {
+                    newObstacle.X *= -1;
+                }
+                if (rand.NextDouble() < .5)
+                {
+                    newObstacle.Y *= -1;
+                }
+                if ((!newObstacle.Body.CollideAgainstMove(Player.Body, 0, 1)) &&
+                    (!newObstacle.Body.CollideAgainstMove(SnakeHead.Body, 0, 1)) &&
+                    (!newObstacle.Body.CollideAgainstMove(SnakeTail.Body, 0, 1)) &&
+                    (!newObstacle.Body.CollideAgainstMove(CollisionFile, 0, 1)))
+                {
+                    invalidLocation = false;
+                    foreach (Entities.Obstacle obstacle in ObstacleList)
+                    {
+                        if (newObstacle.Body.CollideAgainstMove(obstacle.Body, 0, 1))
+                        {
+                            invalidLocation = true;
+                            break;
+                        }
+                    }
+
+                    foreach (Entities.Food food in FoodList)
+                    {
+                        if (newObstacle.Body.CollideAgainstMove(food.Body, 0, 1))
+                        {
+                            invalidLocation = true;
+                            break;
+                        }
+                    }
+
+                    foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+                    {
+                        if (newObstacle.Body.CollideAgainstMove(snakeBody.Body, 0, 1))
+                        {
+                            invalidLocation = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            ObstacleList.Add(newObstacle);
         }
 
         void SpawnFood()
@@ -281,6 +353,11 @@ namespace SurviveTheSerpent.Screens
             }
             if (isGameOver == true)
             {
+                Entities.Player newGhostPlayer = new Entities.Player(ContentManagerName);
+                newGhostPlayer.X = Player.X;
+                newGhostPlayer.Y = Player.Y;
+                newGhostPlayer.EntireSceneCurrentChainName = "dead";
+                GhostPlayerList.Add(newGhostPlayer);
                 Player.EntireSceneAnimate = false;
                 Player.SetDirection(Entities.Player.Direction.Still);
             }
@@ -321,7 +398,10 @@ namespace SurviveTheSerpent.Screens
 
             SnakeTail.Destroy();
 
-            CreateSnake();
+            CustomDestroy();
+            LoadPopup(typeof(GameOverScreen).FullName, true);
+            //Put game win screen here ^
+            PauseThisScreen();
             return;
         }
 
@@ -337,19 +417,19 @@ namespace SurviveTheSerpent.Screens
             {
                 // Figure out the direction of the snake head
                 double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
-                SnakeHead.ChangeDirectionByAngle(angle, SnakeBodyList);
+                SnakeHead.ChangeDirectionByAngle(angle, SnakeBodyList, GhostPlayerList);
 
                 if (SnakeHead.isDead)
                 {
                     //Kill the snake
                     KillSnake();
-
-
+                    return;
                 }
                 // If snake collides with tail, game over.
                 if (SnakeHead.Body.CollideAgainst(SnakeTail.Body))
                 {
                     KillSnake();
+                    return;
                 }
 
                 float previousX = SnakeHead.X;
@@ -493,7 +573,8 @@ namespace SurviveTheSerpent.Screens
                 if (isGameOver == true && gameOverDelay == 2)
                 {
                     CustomDestroy();
-                    this.MoveToScreen(typeof(GameOverScreen).FullName);
+                    LoadPopup(typeof(GameOverScreen).FullName, true);
+                    PauseThisScreen();
                 }
                 else if (gameOverDelay < 2)
                 {
@@ -514,13 +595,24 @@ namespace SurviveTheSerpent.Screens
                 snakeBody.Visible = false;
                 snakeBody.RemoveSelfFromListsBelongingTo();
             }
+
+            foreach (Entities.Food food in FoodList)
+            {
+                food.Visible = false;
+                food.RemoveSelfFromListsBelongingTo();
+            }
+
+            foreach (Entities.Obstacle obs in ObstacleList)
+            {
+                obs.Visible = false;
+                obs.RemoveSelfFromListsBelongingTo();
+            }
             Player.Body.Visible = false;
             Player.Body.RemoveSelfFromListsBelongingTo();
 		}
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
-
 
         }
 

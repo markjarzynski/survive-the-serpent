@@ -26,7 +26,8 @@ namespace SurviveTheSerpent.Entities
 	public partial class Food
 	{
 		private void CustomInitialize()
-		{
+        {
+            Body.Visible = false;
 
 		}
 

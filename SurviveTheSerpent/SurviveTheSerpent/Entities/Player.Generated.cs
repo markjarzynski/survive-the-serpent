@@ -220,6 +220,8 @@ namespace SurviveTheSerpent.Entities
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{
+			// Set to use global content
+			contentManagerName = FlatRedBallServices.GlobalContentManager;
 			ContentManagerName = contentManagerName;
 			#if DEBUG
 			if(contentManagerName == FlatRedBallServices.GlobalContentManager)
@@ -242,28 +244,8 @@ namespace SurviveTheSerpent.Entities
 						mHasRegisteredUnload = true;
 					}
 				}
-				bool registerUnload = false;
-				if(!FlatRedBallServices.IsLoaded<Scene>(@"content/entities/player/scenefile.scnx", ContentManagerName))
-				{
-					registerUnload = true;
-				}
 				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/player/scenefile.scnx", ContentManagerName);
-				if(!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/player/animationchainlistfile.achx", ContentManagerName))
-				{
-					registerUnload = true;
-				}
 				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/player/animationchainlistfile.achx", ContentManagerName);
-			if(registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
-			{
-				lock(mLockObject)
-				{
-					if(!mHasRegisteredUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
-					{
-						FlatRedBallServices.GetContentManagerByName(ContentManagerName).AddUnloadMethod("PlayerStaticUnload", UnloadStaticContent);
-						mHasRegisteredUnload = true;
-					}
-				}
-			}
 				CustomLoadStaticContent(contentManagerName);
 			}
 		}

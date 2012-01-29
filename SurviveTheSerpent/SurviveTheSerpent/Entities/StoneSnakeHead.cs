@@ -26,7 +26,8 @@ namespace SurviveTheSerpent.Entities
 	public partial class StoneSnakeHead
 	{
 		private void CustomInitialize()
-		{
+        {
+            Body.Visible = false;
 
 
 		}

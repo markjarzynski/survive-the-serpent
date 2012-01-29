@@ -76,28 +76,28 @@ namespace SurviveTheSerpent.Entities
 
         }
 
-        private void ChangeDirection(PositionedObjectList<SnakeBody> snakeBodyList)
+        private void ChangeDirection(PositionedObjectList<SnakeBody> snakeBodyList, PositionedObjectList<Player> ghostPlayerList)
         {
             isDead = true;
 
             if (bestDirection == Direction.Right)
             {
-                if (canMoveRight(snakeBodyList))
+                if (canMoveRight(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Right;
                 } 
-                else if (canMoveDown(snakeBodyList))
+                else if (canMoveDown(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Down;
                 }
-                else if (canMoveUp(snakeBodyList))
+                else if (canMoveUp(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Up;
                 }
-                else if (canMoveLeft(snakeBodyList))
+                else if (canMoveLeft(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Left;
@@ -106,22 +106,22 @@ namespace SurviveTheSerpent.Entities
             else if (bestDirection == Direction.Down)
             {
 
-                if (canMoveDown(snakeBodyList))
+                if (canMoveDown(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Down;
                 }
-                else if (canMoveLeft(snakeBodyList))
+                else if (canMoveLeft(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Left;
                 }
-                else if (canMoveRight(snakeBodyList))
+                else if (canMoveRight(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Right;
                 }
-                else if (canMoveUp(snakeBodyList))
+                else if (canMoveUp(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Up;
@@ -130,22 +130,22 @@ namespace SurviveTheSerpent.Entities
             else if (bestDirection == Direction.Left)
             {
 
-                if (canMoveLeft(snakeBodyList))
+                if (canMoveLeft(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Left;
                 }
-                else if (canMoveUp(snakeBodyList))
+                else if (canMoveUp(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Up;
                 }
-                else if (canMoveDown(snakeBodyList))
+                else if (canMoveDown(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Down;
                 }
-                else if (canMoveRight(snakeBodyList))
+                else if (canMoveRight(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Right;
@@ -154,22 +154,22 @@ namespace SurviveTheSerpent.Entities
             } else if (bestDirection == Direction.Up)
             {
 
-                if (canMoveUp(snakeBodyList))
+                if (canMoveUp(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Up;
                 }
-                else if (canMoveRight(snakeBodyList))
+                else if (canMoveRight(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Right;
                 }
-                else if (canMoveLeft(snakeBodyList))
+                else if (canMoveLeft(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Left;
                 }
-                else if (canMoveDown(snakeBodyList))
+                else if (canMoveDown(snakeBodyList, ghostPlayerList))
                 {
                     isDead = false;
                     direction = Direction.Down;
@@ -177,7 +177,8 @@ namespace SurviveTheSerpent.Entities
             }
         }
 
-        public void ChangeDirectionByAngle(double radians, PositionedObjectList<SnakeBody> snakeBodyList)
+        public void ChangeDirectionByAngle(double radians, PositionedObjectList<SnakeBody> snakeBodyList, 
+            PositionedObjectList<Player> ghostPlayerList)
         {
             if ( radians > -Math.PI / 4 && radians < Math.PI / 4)
             {
@@ -200,7 +201,7 @@ namespace SurviveTheSerpent.Entities
                 //this.RotationZ = (float)Math.PI * 3 / 2;
             }
 
-            this.ChangeDirection(snakeBodyList);
+            this.ChangeDirection(snakeBodyList, ghostPlayerList);
         }
 
         public void Move(PositionedObjectList<SnakeBody> SnakeBodyList)
@@ -230,13 +231,17 @@ namespace SurviveTheSerpent.Entities
             }
         }
 
-        private bool canMoveUp(PositionedObjectList<SnakeBody> SnakeBodyList)
+        private bool canMoveUp(PositionedObjectList<SnakeBody> SnakeBodyList, PositionedObjectList<Player> GhostPlayerList)
         {
             if (direction == Direction.Down)
             {
                 return false;
             }
             float newY = this.Y + gridSizeY;
+            if (newY > 12)
+            {
+                return false;
+            }
             foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
             {
                 if (snakeBody == SnakeBodyList.Last) continue;
@@ -245,16 +250,28 @@ namespace SurviveTheSerpent.Entities
                     return false;
                 }
             }
+            foreach (Entities.Player ghostPlayer in GhostPlayerList)
+            {
+                if (Math.Abs(ghostPlayer.Y-newY) < 1 && Math.Abs(ghostPlayer.X-this.X) < 1.5)
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
 
-        private bool canMoveDown(PositionedObjectList<SnakeBody> SnakeBodyList)
+        private bool canMoveDown(PositionedObjectList<SnakeBody> SnakeBodyList, PositionedObjectList<Player> GhostPlayerList)
         {
             if (direction == Direction.Up)
             {
                 return false;
             }
             float newY = this.Y - gridSizeY;
+            if (newY < -12)
+            {
+                return false;
+            }
             foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
             {
                 if (snakeBody == SnakeBodyList.Last) continue;
@@ -263,16 +280,27 @@ namespace SurviveTheSerpent.Entities
                     return false;
                 }
             }
+            foreach (Entities.Player ghostPlayer in GhostPlayerList)
+            {
+                if (Math.Abs(ghostPlayer.Y - newY) < 1 && Math.Abs(ghostPlayer.X - this.X) < 1.5)
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
-        private bool canMoveLeft(PositionedObjectList<SnakeBody> SnakeBodyList)
+        private bool canMoveLeft(PositionedObjectList<SnakeBody> SnakeBodyList, PositionedObjectList<Player> GhostPlayerList)
         {
             if (direction == Direction.Right)
             {
                 return false;
             }
             float newX = this.X - gridSizeX;
+            if (newX < -7)
+            {
+                return false;
+            }
             foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
             {
                 if (snakeBody == SnakeBodyList.Last) continue;
@@ -282,20 +310,38 @@ namespace SurviveTheSerpent.Entities
 
                 }
             }
+            foreach (Entities.Player ghostPlayer in GhostPlayerList)
+            {
+                if (Math.Abs(ghostPlayer.X - newX) < 1.5 && Math.Abs(ghostPlayer.Y - this.Y) < 1)
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
-        private bool canMoveRight(PositionedObjectList<SnakeBody> SnakeBodyList)
+        private bool canMoveRight(PositionedObjectList<SnakeBody> SnakeBodyList, PositionedObjectList<Player> GhostPlayerList)
         {
-            if (direction == Direction.Left)
+            if (direction == Direction.Left )
             {
                 return false;
             }
             float newX = this.X + gridSizeX;
+            if (newX > 7)
+            {
+                return false;
+            }
             foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
             {
                 if (snakeBody == SnakeBodyList.Last) continue;
                 if (snakeBody.X == newX && snakeBody.Y == this.Y)
+                {
+                    return false;
+                }
+            }
+            foreach (Entities.Player ghostPlayer in GhostPlayerList)
+            {
+                if (Math.Abs(ghostPlayer.X - newX) < 1.5 && Math.Abs(ghostPlayer.Y - this.Y) < 1)
                 {
                     return false;
                 }

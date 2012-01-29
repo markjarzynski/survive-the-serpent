@@ -177,7 +177,6 @@ namespace SurviveTheSerpent.Screens
                 downButton.EntireSceneCurrentChainName = "NoGlow";
                 rightButton.EntireSceneCurrentChainName = "NoGlow";
                 leftButton.EntireSceneCurrentChainName = "NoGlow";
-                System.Console.WriteLine("up button code here");
             }
             else if (cursor.PrimaryClick && downButton.HasCursorOver(cursor))
             {
@@ -187,7 +186,6 @@ namespace SurviveTheSerpent.Screens
                 downButton.EntireSceneCurrentChainName = "Glow";
                 rightButton.EntireSceneCurrentChainName = "NoGlow";
                 leftButton.EntireSceneCurrentChainName = "NoGlow";
-                System.Console.WriteLine("down button code here");
             }
             else if (cursor.PrimaryClick && leftButton.HasCursorOver(cursor))
             {
@@ -197,7 +195,6 @@ namespace SurviveTheSerpent.Screens
                 downButton.EntireSceneCurrentChainName = "NoGlow";
                 rightButton.EntireSceneCurrentChainName = "NoGlow";
                 leftButton.EntireSceneCurrentChainName = "Glow";
-                System.Console.WriteLine("left button code here");
             }
             else if (cursor.PrimaryClick && rightButton.HasCursorOver(cursor))
             {
@@ -207,7 +204,6 @@ namespace SurviveTheSerpent.Screens
                 downButton.EntireSceneCurrentChainName = "NoGlow";
                 rightButton.EntireSceneCurrentChainName = "Glow";
                 leftButton.EntireSceneCurrentChainName = "NoGlow";
-                System.Console.WriteLine("right button code here");
             }
 
             if (Player.Body.CollideAgainst(SnakeHead.Body))
@@ -453,6 +449,7 @@ namespace SurviveTheSerpent.Screens
                 {
                     if (SnakeHead.Body.CollideAgainstMove(food.Body, 1 , 0))
                     {
+                        //Game1.eat.Play();
                         Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
                         newSnakeBody.X = SnakeTail.X;
                         newSnakeBody.Y = SnakeTail.Y;

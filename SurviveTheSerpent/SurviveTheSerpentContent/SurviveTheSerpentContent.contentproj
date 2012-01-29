@@ -88,9 +88,25 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
+    <None Include="Entities\Food\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\Food\bat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>bat</Name>
+    </None>
+    <None Include="Entities\Food\bird.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>bird</Name>
+    </None>
     <None Include="Entities\Food\food.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>food</Name>
+    </None>
+    <None Include="Entities\Food\mouse.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>mouse</Name>
     </None>
     <None Include="Entities\Food\rabbit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -100,6 +116,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
+    <None Include="Entities\InstructionButton\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="Entities\InstructionButton\directions.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>directions</Name>
@@ -107,6 +127,10 @@
     <None Include="Entities\InstructionButton\directionsbutton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>directionsbutton</Name>
+    </None>
+    <None Include="Entities\InstructionButton\directionsbuttonglow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>directionsbuttonglow</Name>
     </None>
     <None Include="Entities\InstructionButton\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -128,6 +152,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
+    <None Include="Entities\Obstacle\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="Entities\Obstacle\obstacle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>obstacle</Name>
@@ -136,13 +164,53 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
+    <None Include="Entities\Obstacle\wallbend2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wallbend2</Name>
+    </None>
+    <None Include="Entities\Obstacle\wallhead2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wallhead2</Name>
+    </None>
     <None Include="Entities\Obstacle\wallstraight2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>wallstraight2</Name>
     </None>
+    <None Include="Entities\Obstacle\walltail2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>walltail2</Name>
+    </None>
+    <None Include="Entities\Player\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="Entities\Player\dudeguy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>dudeguy</Name>
+    </None>
+    <None Include="Entities\Player\dudeguy2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>dudeguy2</Name>
+    </None>
+    <None Include="Entities\Player\dudeguy3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>dudeguy3</Name>
+    </None>
+    <None Include="Entities\Player\dudeguy4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>dudeguy4</Name>
+    </None>
+    <None Include="Entities\Player\dudeguy5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>dudeguy5</Name>
+    </None>
+    <None Include="Entities\Player\dudeguy6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>dudeguy6</Name>
+    </None>
+    <None Include="Entities\Player\dudeguydead.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>dudeguydead</Name>
     </None>
     <None Include="Entities\Player\player.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -184,6 +252,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>tail</Name>
     </None>
+    <None Include="Entities\StartButton\AnimationChainListFile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="Entities\StartButton\button.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>button</Name>
@@ -195,6 +267,10 @@
     <None Include="Entities\StartButton\startbutton.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>startbutton</Name>
+    </None>
+    <None Include="Entities\StartButton\startbuttonglow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>startbuttonglow</Name>
     </None>
     <None Include="Entities\StoneSnakeBody\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

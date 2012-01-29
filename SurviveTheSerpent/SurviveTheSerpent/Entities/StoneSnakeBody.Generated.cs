@@ -57,7 +57,7 @@ namespace SurviveTheSerpent.Entities
 		static object mLockObject = new object();
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
-		private static AnimationChainList AnimationChainListFile;
+		public static AnimationChainList AnimationChainListFile;
 		private static Scene SceneFile;
 
 		protected Sprite mEntireScene;

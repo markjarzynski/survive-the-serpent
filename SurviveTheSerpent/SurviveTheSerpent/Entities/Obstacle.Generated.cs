@@ -21,6 +21,7 @@ using FlatRedBall;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
 using FlatRedBall.Math.Geometry;
+using FlatRedBall.Graphics.Animation;
 
 #if XNA4
 using Color = Microsoft.Xna.Framework.Color;
@@ -57,6 +58,7 @@ namespace SurviveTheSerpent.Entities
 		static bool mHasRegisteredUnload = false;
 		static bool IsStaticContentLoaded = false;
 		private static Scene SceneFile;
+		private static AnimationChainList AnimationChainListFile;
 
 		private Scene EntireScene;
 		private AxisAlignedRectangle mBody;
@@ -121,6 +123,7 @@ namespace SurviveTheSerpent.Entities
 			
 			// After Custom Activity
 
+
 		
 }
 
@@ -136,6 +139,7 @@ namespace SurviveTheSerpent.Entities
 			{
 				ShapeManager.Remove(Body);
 			}
+
 
 
 
@@ -166,6 +170,7 @@ namespace SurviveTheSerpent.Entities
             RotationX = 0;
             RotationY = 0;
             RotationZ = 0;
+
 
 			EntireScene.AddToManagers(layerToAddTo);
 			EntireScene.AttachAllDetachedTo(this, true);
@@ -218,6 +223,11 @@ namespace SurviveTheSerpent.Entities
 					registerUnload = true;
 				}
 				SceneFile = FlatRedBallServices.Load<Scene>(@"content/entities/obstacle/scenefile.scnx", ContentManagerName);
+				if(!FlatRedBallServices.IsLoaded<AnimationChainList>(@"content/entities/obstacle/animationchainlistfile.achx", ContentManagerName))
+				{
+					registerUnload = true;
+				}
+				AnimationChainListFile = FlatRedBallServices.Load<AnimationChainList>(@"content/entities/obstacle/animationchainlistfile.achx", ContentManagerName);
 			if(registerUnload && ContentManagerName != FlatRedBallServices.GlobalContentManager)
 			{
 				lock(mLockObject)
@@ -241,6 +251,10 @@ namespace SurviveTheSerpent.Entities
 				SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 				SceneFile = null;
 			}
+			if(AnimationChainListFile != null)
+			{
+				AnimationChainListFile = null;
+			}
 		}
 		public static object GetStaticMember(string memberName)
 		{
@@ -248,6 +262,8 @@ namespace SurviveTheSerpent.Entities
 			{
 				case "SceneFile":
 					return SceneFile;
+				case "AnimationChainListFile":
+					return AnimationChainListFile;
 			}
 			return null;
 		}
@@ -257,6 +273,8 @@ namespace SurviveTheSerpent.Entities
 			{
 				case "SceneFile":
 					return SceneFile;
+				case "AnimationChainListFile":
+					return AnimationChainListFile;
 			}
 			return null;
 		}

@@ -51,9 +51,24 @@ namespace SurviveTheSerpent.Screens
             Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
             newSnakeBody.X = 0;
             newSnakeBody.Y = 8;
-
-            SnakeBodyList.Add(newSnakeBody);
             newSnakeBody.Visible = true;
+            SnakeBodyList.Add(newSnakeBody);
+
+            //DEBUG
+
+            newSnakeBody = new Entities.SnakeBody(ContentManagerName);
+            newSnakeBody.X = 0;
+            newSnakeBody.Y = 6;
+            newSnakeBody.Visible = true;
+            SnakeBodyList.Add(newSnakeBody);
+
+            newSnakeBody = new Entities.SnakeBody(ContentManagerName);
+            newSnakeBody.X = -2;
+            newSnakeBody.Y = 6;
+            newSnakeBody.Visible = true;
+            SnakeBodyList.Add(newSnakeBody);
+
+            //DEBUG END
 
         }
 
@@ -258,6 +273,44 @@ namespace SurviveTheSerpent.Screens
 
         }
 
+        void KillSnake()
+        {
+
+            Entities.StoneSnakeHead newStoneSnakeHead = new Entities.StoneSnakeHead(ContentManagerName);
+            newStoneSnakeHead.RotationZ = SnakeHead.RotationZ;
+            newStoneSnakeHead.X = SnakeHead.X;
+            newStoneSnakeHead.Y = SnakeHead.Y;
+            StoneSnakeHeadList.Add(newStoneSnakeHead);
+            SnakeHead.Destroy();
+
+            while (SnakeBodyList.Count > 0)
+            {
+                Entities.SnakeBody snakeBody = SnakeBodyList.Last;
+                Entities.StoneSnakeBody newStoneSnakeBody = new Entities.StoneSnakeBody(ContentManagerName);
+                newStoneSnakeBody.RotationZ = snakeBody.RotationZ;
+                newStoneSnakeBody.X = snakeBody.X;
+                newStoneSnakeBody.Y = snakeBody.Y;
+                newStoneSnakeBody.EntireSceneCurrentChainName = snakeBody.EntireSceneCurrentChainName;
+
+                StoneSnakeBodyList.Add(newStoneSnakeBody);
+
+                SnakeBodyList.Remove(snakeBody);
+                snakeBody.Destroy();
+            }
+
+            Entities.StoneSnakeTail newStoneSnakeTail = new Entities.StoneSnakeTail(ContentManagerName);
+            newStoneSnakeTail.RotationZ = SnakeTail.RotationZ;
+            newStoneSnakeTail.X = SnakeTail.X;
+            newStoneSnakeTail.Y = SnakeTail.Y;
+
+            StoneSnakeTailList.Add(newStoneSnakeTail);
+
+            SnakeTail.Destroy();
+
+            CreateSnake();
+            return;
+        }
+
         void UpdateSnake()
         {
             // Don't start moving the snake until Player first starts moving
@@ -275,11 +328,14 @@ namespace SurviveTheSerpent.Screens
                 if (SnakeHead.isDead)
                 {
                     //Kill the snake
-                    
+                    KillSnake();
 
 
-                    SnakeHead.Destroy();
-                    
+                }
+                // If snake collides with tail, game over.
+                if (SnakeHead.Body.CollideAgainst(SnakeTail.Body))
+                {
+                    KillSnake();
                 }
 
                 float previousX = SnakeHead.X;
@@ -391,41 +447,7 @@ namespace SurviveTheSerpent.Screens
                     SnakeBodyList.Last.Visible = true;
                 }
 
-                // If snake collides with tail, game over.
-                if (SnakeHead.Body.CollideAgainst(SnakeTail.Body))
-                {
-                    Entities.StoneSnakeHead newStoneSnakeHead = new Entities.StoneSnakeHead(ContentManagerName);
-                    newStoneSnakeHead.RotationZ = SnakeHead.RotationZ;
-                    newStoneSnakeHead.X = SnakeHead.X;
-                    newStoneSnakeHead.Y = SnakeHead.Y;
-                    StoneSnakeHeadList.Add(newStoneSnakeHead);
-                    SnakeHead.Destroy();
-
-                    foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
-                    {
-                        Entities.StoneSnakeBody newStoneSnakeBody = new Entities.StoneSnakeBody(ContentManagerName);
-                        newStoneSnakeBody.RotationZ = snakeBody.RotationZ;
-                        newStoneSnakeBody.X = snakeBody.X;
-                        newStoneSnakeBody.Y = snakeBody.Y;
-                        newStoneSnakeBody.EntireSceneCurrentChainName = snakeBody.EntireSceneCurrentChainName;
-
-                        StoneSnakeBodyList.Add(newStoneSnakeBody);
-
-                        snakeBody.Destroy();
-                    }
-
-                    Entities.StoneSnakeTail newStoneSnakeTail = new Entities.StoneSnakeTail(ContentManagerName);
-                    newStoneSnakeTail.RotationZ = SnakeTail.RotationZ;
-                    newStoneSnakeTail.X = SnakeTail.X;
-                    newStoneSnakeTail.Y = SnakeTail.Y;
-
-                    StoneSnakeTailList.Add(newStoneSnakeTail);
-
-                    SnakeTail.Destroy();
-
-                    CreateSnake();
-
-                }
+                
                 // Snake head consumes food it collides with
                 foreach (Entities.Food food in FoodList)
                 {

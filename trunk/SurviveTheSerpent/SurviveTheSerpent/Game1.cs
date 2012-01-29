@@ -21,6 +21,9 @@ namespace SurviveTheSerpent
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
+        public static Song theme;
+        public static SoundEffect hiss;
+        public static SoundEffect eat;
 
         public Game1()
         {
@@ -50,6 +53,23 @@ namespace SurviveTheSerpent
             base.Initialize();
         }
 
+
+        protected override void LoadContent()
+        {
+            theme = Content.Load<Song>("Sounds/theme_music");
+            hiss = Content.Load<SoundEffect>("Sounds/hiss_loud");
+            //eat = Content.Load<SoundEffect>("Sounds/eat");
+            MediaPlayer.Play(theme);
+        }
+
+        /// <summary>
+        /// UnloadContent will be called once per game and is the place to unload
+        /// all content.
+        /// </summary>
+        protected override void UnloadContent()
+        {
+            // TODO: Unload any non ContentManager content here
+        }
 
         protected override void Update(GameTime gameTime)
         {

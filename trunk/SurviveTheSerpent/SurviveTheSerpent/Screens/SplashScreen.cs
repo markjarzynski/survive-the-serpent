@@ -46,6 +46,7 @@ namespace SurviveTheSerpent.Screens
             if (cursor.PrimaryClick && startButton.HasCursorOver(cursor))
             {
                 this.MoveToScreen(typeof(GameSplash).FullName);
+                Game1.hiss.Play();
             }
 
             if (cursor.PrimaryClick && creditButton.HasCursorOver(cursor))

@@ -12,10 +12,10 @@
     <ZAcceleration>0</ZAcceleration>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
-    <RotationZ>0</RotationZ>
+    <RotationZ>4.71238947</RotationZ>
     <RotationZVelocity>0</RotationZVelocity>
-    <ScaleX>4</ScaleX>
-    <ScaleY>4</ScaleY>
+    <ScaleX>5</ScaleX>
+    <ScaleY>5</ScaleY>
     <ScaleXVelocity>0</ScaleXVelocity>
     <ScaleYVelocity>0</ScaleYVelocity>
     <RelativeX>0</RelativeX>

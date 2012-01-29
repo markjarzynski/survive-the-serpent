@@ -34,8 +34,8 @@
     <TintGreenRate>0</TintGreenRate>
     <ColorOperation>SelectArg1</ColorOperation>
     <BlendOperation>REGULAR</BlendOperation>
-    <Name>background1</Name>
-    <Texture>background.png</Texture>
+    <Name>startscreen_new1</Name>
+    <Texture>startscreen_new.png</Texture>
     <Animate>false</Animate>
     <CurrentChain>-1</CurrentChain>
     <Ordered>true</Ordered>

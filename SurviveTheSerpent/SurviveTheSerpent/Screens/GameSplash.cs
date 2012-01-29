@@ -30,7 +30,7 @@ namespace SurviveTheSerpent.Screens
         private int GridSizeX = 2;
         private int GridSizeY = 2;
 
-        private double snakeUpdateDelay = 1.0; // in seconds
+        private double snakeUpdateDelay = 0.5; // in seconds
         private double snakeTimeSinceLastUpdate;
 
         private const double FOOD_SPAWN_CHANCE = .2;
@@ -180,7 +180,7 @@ namespace SurviveTheSerpent.Screens
 
             if (Player.Body.CollideAgainstMove(CollisionFile, 0, 1))
             {
-                Player.SetDirection(Entities.Player.Direction.Still);
+                //Player.SetDirection(Entities.Player.Direction.Still);
             }
 
             foreach (Entities.Obstacle obstacle in ObstacleList)
@@ -234,6 +234,11 @@ namespace SurviveTheSerpent.Screens
                 float previousY = SnakeHead.Y;
 
                 SnakeHead.Move(SnakeBodyList);
+
+                if( SnakeHead.Body.CollideAgainstMove(SnakeTail.Body, 0, 1) )
+                {
+                    SnakeHead.Destroy();
+                }
 
                 SnakeBodyList[0].setX(SnakeHead.previousX);
                 SnakeBodyList[0].setY(SnakeHead.previousY);

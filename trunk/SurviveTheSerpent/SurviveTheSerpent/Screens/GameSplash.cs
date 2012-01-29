@@ -42,11 +42,13 @@ namespace SurviveTheSerpent.Screens
 
         private int gameOverDelay;
         private bool isGameOver;
+        private bool ghostTrip;
 
         void NewGame()
         {
             CustomDestroy();
             isGameOver = false;
+            ghostTrip = false;
 
             Player = new Entities.Player(ContentManagerName);
 
@@ -417,11 +419,15 @@ namespace SurviveTheSerpent.Screens
             }
             if (isGameOver == true)
             {
-                Entities.Player newGhostPlayer = new Entities.Player(ContentManagerName);
-                newGhostPlayer.X = Player.X;
-                newGhostPlayer.Y = Player.Y;
-                newGhostPlayer.EntireSceneCurrentChainName = "dead";
-                GhostPlayerList.Add(newGhostPlayer);
+                if (ghostTrip == false)
+                {
+                    Entities.Player newGhostPlayer = new Entities.Player(ContentManagerName);
+                    newGhostPlayer.X = Player.X;
+                    newGhostPlayer.Y = Player.Y;
+                    newGhostPlayer.EntireSceneCurrentChainName = "dead";
+                    GhostPlayerList.Add(newGhostPlayer);
+                    ghostTrip = true;
+                }
                 Player.EntireSceneAnimate = false;
                 Player.SetDirection(Entities.Player.Direction.Still);
             }

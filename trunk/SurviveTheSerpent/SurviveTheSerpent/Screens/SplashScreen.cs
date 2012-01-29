@@ -55,7 +55,7 @@ namespace SurviveTheSerpent.Screens
 
             if (cursor.PrimaryClick && instructionButton.HasCursorOver(cursor))
             {
-                this.MoveToScreen(typeof(CreditScreen).FullName);
+                this.MoveToScreen(typeof(InstructionScreen).FullName);
             }
 
 		}

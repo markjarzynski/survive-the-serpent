@@ -345,7 +345,13 @@ namespace SurviveTheSerpent.Screens
                     SnakeBodyList.Last.Visible = true;
                 }
 
-                // TODO: Snake head consumes food it collides with
+                // If snake collides with tail, game over.
+                if (SnakeHead.Body.CollideAgainst(SnakeTail.Body))
+                {
+                    //WIN
+                    SnakeHead.Destroy();
+                }
+                // Snake head consumes food it collides with
                 foreach (Entities.Food food in FoodList)
                 {
                     if (SnakeHead.Body.CollideAgainstMove(food.Body, 1 , 0))

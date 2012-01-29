@@ -25,18 +25,23 @@ namespace SurviveTheSerpent.Screens
 {
 	public partial class InstructionScreen2
 	{
+        private Cursor cursor;
 
-		void CustomInitialize()
-		{
+        void CustomInitialize()
+        {
+            GuiManager.IsUIEnabled = true;
 
+            cursor = GuiManager.Cursor;
+        }
 
-		}
+        void CustomActivity(bool firstTimeCalled)
+        {
+            if (cursor.PrimaryClick)
+            {
+                this.MoveToScreen(typeof(GameSplash).FullName);
+            }
 
-		void CustomActivity(bool firstTimeCalled)
-		{
-
-
-		}
+        }
 
 		void CustomDestroy()
 		{

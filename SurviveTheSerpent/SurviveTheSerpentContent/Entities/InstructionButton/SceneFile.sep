@@ -13,7 +13,7 @@
   <Camera>
     <X>0</X>
     <Y>0</Y>
-    <Z>-39.204</Z>
+    <Z>-30.6421833</Z>
     <Orthogonal>false</Orthogonal>
     <OrthogonalHeight>600</OrthogonalHeight>
     <OrthogonalWidth>-1</OrthogonalWidth>
@@ -25,10 +25,6 @@
   <PixelSize>0</PixelSize>
   <FilesToMakeDotDotSlashRelative />
   <TextureDisplayRegionsList>
-    <TextureDisplayRegionsSave>
-      <TextureName>directions.png</TextureName>
-      <DisplayRegions />
-    </TextureDisplayRegionsSave>
     <TextureDisplayRegionsSave>
       <TextureName>directionsbutton.png</TextureName>
       <DisplayRegions />

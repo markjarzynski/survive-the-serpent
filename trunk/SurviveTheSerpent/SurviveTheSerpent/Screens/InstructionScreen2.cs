@@ -38,7 +38,7 @@ namespace SurviveTheSerpent.Screens
         {
             if (cursor.PrimaryClick)
             {
-                this.MoveToScreen(typeof(GameSplash).FullName);
+                this.MoveToScreen(typeof(SplashScreen).FullName);
             }
 
         }

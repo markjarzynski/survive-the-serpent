@@ -248,8 +248,7 @@ namespace SurviveTheSerpent.Entities
 				SceneFile = null;
 			}
 		}
-
-// Could not find the behavior Collide		
+	
         public static object GetStaticMember(string memberName)
 		{
 			switch(memberName)

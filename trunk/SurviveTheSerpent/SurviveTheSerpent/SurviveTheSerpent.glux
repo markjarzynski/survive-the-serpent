@@ -1853,6 +1853,7 @@
           <CustomProperty>
             <Type>Boolean</Type>
             <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Entity</ContainerType>
@@ -1995,6 +1996,7 @@
           <CustomProperty>
             <Type>Boolean</Type>
             <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Entity</ContainerType>
@@ -2127,6 +2129,7 @@
           <CustomProperty>
             <Type>Boolean</Type>
             <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Entity</ContainerType>

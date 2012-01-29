@@ -27,7 +27,7 @@ namespace SurviveTheSerpent.Entities
 	{
 		private void CustomInitialize()
 		{
-
+            Body.Visible = false;
 
 		}
 

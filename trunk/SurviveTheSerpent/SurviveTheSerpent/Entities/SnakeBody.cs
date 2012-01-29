@@ -35,6 +35,7 @@ namespace SurviveTheSerpent.Entities
             previousX = X;
             previousY = Y;
             previousRotationZ = RotationZ;
+            Body.Visible = false;
 		}
 
 		private void CustomActivity()
@@ -58,11 +59,13 @@ namespace SurviveTheSerpent.Entities
         public void Straight()
         {
             this.EntireSceneCurrentChainName = "Straight";
+            Body.Visible = false;
         }
 
         public void Elbow()
         {
             this.EntireSceneCurrentChainName = "Elbow";
+            Body.Visible = false;
         }
 
         public void setX( float newX )

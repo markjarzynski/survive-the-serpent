@@ -13,7 +13,7 @@
   <Camera>
     <X>0</X>
     <Y>0</Y>
-    <Z>-40</Z>
+    <Z>-10.1674614</Z>
     <Orthogonal>false</Orthogonal>
     <OrthogonalHeight>600</OrthogonalHeight>
     <OrthogonalWidth>-1</OrthogonalWidth>
@@ -27,6 +27,10 @@
   <TextureDisplayRegionsList>
     <TextureDisplayRegionsSave>
       <TextureName>rabbit.png</TextureName>
+      <DisplayRegions />
+    </TextureDisplayRegionsSave>
+    <TextureDisplayRegionsSave>
+      <TextureName>spider.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>
   </TextureDisplayRegionsList>

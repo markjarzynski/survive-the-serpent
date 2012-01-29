@@ -55,8 +55,9 @@ namespace SurviveTheSerpent.Screens
             // init snake stuff
             CreateSnake();
 
-            SpawnFood();
             SpawnObstacle();
+            SpawnObstacle();
+            SpawnFood();
 
             upButton.EntireSceneCurrentChainName = "NoGlow";
             downButton.EntireSceneCurrentChainName = "NoGlow";
@@ -148,8 +149,8 @@ namespace SurviveTheSerpent.Screens
             while (invalidLocation)
             {
                 attempts++;
-                newObstacle.X = (float)rand.NextDouble() * 7;
-                newObstacle.Y = (float)rand.NextDouble() * 12;
+                newObstacle.X = (float)rand.Next(4) * 2;
+                newObstacle.Y = (float)rand.Next(7) * 2;
                 if (rand.NextDouble() < .5)
                 {
                     newObstacle.X *= -1;

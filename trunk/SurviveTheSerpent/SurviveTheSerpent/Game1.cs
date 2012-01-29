@@ -25,6 +25,7 @@ namespace SurviveTheSerpent
         public static SoundEffect hiss;
         public static SoundEffect eat;
         public static SoundEffect loss;
+        public static SoundEffect win;
 
         public Game1()
         {
@@ -61,6 +62,7 @@ namespace SurviveTheSerpent
             hiss = Content.Load<SoundEffect>("Sound/hiss_loud");
             eat = Content.Load<SoundEffect>("Sound/eat");
             loss = Content.Load<SoundEffect>("Sound/loss");
+            win = Content.Load<SoundEffect>("Sound/win");
             MediaPlayer.Play(theme);
         }
 

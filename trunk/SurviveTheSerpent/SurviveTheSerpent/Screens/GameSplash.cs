@@ -422,6 +422,7 @@ namespace SurviveTheSerpent.Screens
             {
                 if (ghostTrip == false)
                 {
+                    Game1.hiss.Play();
                     Entities.Player newGhostPlayer = new Entities.Player(ContentManagerName);
                     newGhostPlayer.X = Player.X;
                     newGhostPlayer.Y = Player.Y;

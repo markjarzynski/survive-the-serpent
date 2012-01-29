@@ -88,6 +88,10 @@
     <Compile Include="Entities\CreditButton.Generated.cs">
       <DependentUpon>CreditButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\DifficultyButton.cs" />
+    <Compile Include="Entities\DifficultyButton.Generated.cs">
+      <DependentUpon>DifficultyButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\DirectionButton.cs" />
     <Compile Include="Entities\DirectionButton.Generated.cs">
       <DependentUpon>DirectionButton.cs</DependentUpon>
@@ -179,6 +183,10 @@
     <Compile Include="Screens\LoseScreen.cs" />
     <Compile Include="Screens\LoseScreen.Generated.cs">
       <DependentUpon>LoseScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\OptionsScreen.cs" />
+    <Compile Include="Screens\OptionsScreen.Generated.cs">
+      <DependentUpon>OptionsScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Screen.cs" />
     <Compile Include="Screens\ScreenManager.cs" />

@@ -33,8 +33,8 @@ namespace SurviveTheSerpent.Screens
         private Random rand = new Random();
         private const int MAX_ATTEMPTS = 10;
 
-        private double snakeUpdateDelay = 1.0; // in seconds
-        private double snakeVelocity = 1.0;
+        private double snakeUpdateDelay = 0.8; // in seconds
+        private double snakeVelocity = 0.8;
         private double snakeAcceleration = 0.2;
         private double snakeTimeSinceLastUpdate;
 

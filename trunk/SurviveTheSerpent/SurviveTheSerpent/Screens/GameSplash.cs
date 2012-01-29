@@ -172,6 +172,9 @@ namespace SurviveTheSerpent.Screens
             if (cursor.PrimaryClick && upButton.HasCursorOver(cursor))
             {
                 Player.SetDirection(Entities.Player.Direction.Up);
+                Player.EntireSceneCurrentChainName = "up";
+                Player.RotationY = 0;
+                Player.EntireSceneAnimate = true;
                 //Player.X += 1;
                 upButton.EntireSceneCurrentChainName = "Glow";
                 downButton.EntireSceneCurrentChainName = "NoGlow";
@@ -181,6 +184,9 @@ namespace SurviveTheSerpent.Screens
             else if (cursor.PrimaryClick && downButton.HasCursorOver(cursor))
             {
                 Player.SetDirection(Entities.Player.Direction.Down);
+                Player.EntireSceneCurrentChainName = "down";
+                Player.RotationY = 0;
+                Player.EntireSceneAnimate = true;
                 //Player.X -= 1;
                 upButton.EntireSceneCurrentChainName = "NoGlow";
                 downButton.EntireSceneCurrentChainName = "Glow";
@@ -190,6 +196,9 @@ namespace SurviveTheSerpent.Screens
             else if (cursor.PrimaryClick && leftButton.HasCursorOver(cursor))
             {
                 Player.SetDirection(Entities.Player.Direction.Left);
+                Player.EntireSceneCurrentChainName = "side";
+                Player.RotationY = (float)Math.PI;
+                Player.EntireSceneAnimate = true;
                 //Player.Y += 1;
                 upButton.EntireSceneCurrentChainName = "NoGlow";
                 downButton.EntireSceneCurrentChainName = "NoGlow";
@@ -199,6 +208,9 @@ namespace SurviveTheSerpent.Screens
             else if (cursor.PrimaryClick && rightButton.HasCursorOver(cursor))
             {
                 Player.SetDirection(Entities.Player.Direction.Right);
+                Player.EntireSceneCurrentChainName = "side";
+                Player.RotationY = 0;
+                Player.EntireSceneAnimate = true;
                 //Player.Y -= 1;
                 upButton.EntireSceneCurrentChainName = "NoGlow";
                 downButton.EntireSceneCurrentChainName = "NoGlow";
@@ -208,6 +220,7 @@ namespace SurviveTheSerpent.Screens
 
             if (Player.Body.CollideAgainst(SnakeHead.Body))
             {
+                Player.EntireSceneAnimate = false;
                 isGameOver = true;
                 Player.SetDirection(Entities.Player.Direction.Still);
                 //this.MoveToScreen(typeof(GameOverScreen).FullName);
@@ -264,6 +277,7 @@ namespace SurviveTheSerpent.Screens
             }
             if (isGameOver == true)
             {
+                Player.EntireSceneAnimate = false;
                 Player.SetDirection(Entities.Player.Direction.Still);
             }
 

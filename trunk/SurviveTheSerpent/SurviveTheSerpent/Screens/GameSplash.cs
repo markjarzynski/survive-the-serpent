@@ -35,7 +35,7 @@ namespace SurviveTheSerpent.Screens
 
         private double snakeUpdateDelay = 1.0; // in seconds
         private double snakeVelocity = 1.0;
-        private double snakeAcceleration = 0.05;
+        private double snakeAcceleration = 0.2;
         private double snakeTimeSinceLastUpdate;
 
         private const double FOOD_SPAWN_CHANCE = .2;
@@ -478,8 +478,6 @@ namespace SurviveTheSerpent.Screens
 
             if (SnakeHead.canMove && TimeManager.SecondsSince(snakeTimeSinceLastUpdate) > snakeVelocity)
             {
-                snakeVelocity = snakeVelocity - snakeVelocity * snakeAcceleration;
-
                 // Figure out the direction of the snake head
                 double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
                 SnakeHead.ChangeDirectionByAngle(angle, SnakeBodyList, GhostPlayerList);
@@ -613,6 +611,9 @@ namespace SurviveTheSerpent.Screens
                 {
                     if (SnakeHead.Body.CollideAgainstMove(food.Body, 1 , 0))
                     {
+                        // Eat food, get faster
+                        snakeVelocity = snakeVelocity - snakeVelocity * snakeAcceleration;
+
                         Game1.eat.Play();
                         Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
                         newSnakeBody.X = SnakeTail.X;

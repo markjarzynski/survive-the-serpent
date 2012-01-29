@@ -118,7 +118,7 @@ namespace SurviveTheSerpent.Entities
 			// Generated Activity
 
 
-			Collide();
+			// There is an invalid behavior reference to behavior Collide
 			CustomActivity();
 			
 			// After Custom Activity
@@ -150,6 +150,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			X = 2f;
 			Y = 8f;
+			Body.Visible = false;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -174,6 +175,7 @@ namespace SurviveTheSerpent.Entities
 			EntireScene.AddToManagers(layerToAddTo);
 			EntireScene.AttachAllDetachedTo(this, true);
 			ShapeManager.AddToLayer(mBody, layerToAddTo);
+			mBody.Visible = false;
 			if(mBody.Parent == null)
 			{
 				mBody.AttachTo(this, true);
@@ -247,14 +249,8 @@ namespace SurviveTheSerpent.Entities
 			}
 		}
 
-        public void Collide()
-        {
-            // Add your logic here
-
-
-
-        }
-    		public static object GetStaticMember(string memberName)
+// Could not find the behavior Collide		
+        public static object GetStaticMember(string memberName)
 		{
 			switch(memberName)
 			{

@@ -56,6 +56,7 @@ namespace SurviveTheSerpent.Entities
 
             previousX = X;
             previousY = Y;
+            Body.Visible = false;
 		}
 
 		private void CustomActivity()

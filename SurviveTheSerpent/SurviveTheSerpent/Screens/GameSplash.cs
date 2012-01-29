@@ -52,21 +52,25 @@ namespace SurviveTheSerpent.Screens
             newSnakeBody.X = 0;
             newSnakeBody.Y = 8;
             newSnakeBody.Visible = true;
+            newSnakeBody.Body.Visible = false;
             SnakeBodyList.Add(newSnakeBody);
+            CollisionFile.Visible = false;
 
             //DEBUG
 
-            newSnakeBody = new Entities.SnakeBody(ContentManagerName);
+            /*newSnakeBody = new Entities.SnakeBody(ContentManagerName);
             newSnakeBody.X = 0;
             newSnakeBody.Y = 6;
             newSnakeBody.Visible = true;
+            newSnakeBody.Body.Visible = false;
             SnakeBodyList.Add(newSnakeBody);
 
             newSnakeBody = new Entities.SnakeBody(ContentManagerName);
             newSnakeBody.X = -2;
             newSnakeBody.Y = 6;
             newSnakeBody.Visible = true;
-            SnakeBodyList.Add(newSnakeBody);
+            newSnakeBody.Body.Visible = false;
+            SnakeBodyList.Add(newSnakeBody);*/
 
             //DEBUG END
 
@@ -455,6 +459,7 @@ namespace SurviveTheSerpent.Screens
                 {
                     SnakeHead.didEatFood = false;
                     SnakeBodyList.Last.Visible = true;
+                    SnakeBodyList.Last.Body.Visible = false;
                 }
 
                 

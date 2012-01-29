@@ -46,13 +46,20 @@ namespace SurviveTheSerpent.Screens
             CustomDestroy();
             isGameOver = false;
 
-            Player.Destroy();
+            
+            //Player.Destroy();
             Player = new Entities.Player(ContentManagerName);
 
             // init snake stuff
+            
+            /*
             SnakeHead.Destroy();
+            foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
+            {
+                snakeBody.Destroy();
+            }
             SnakeTail.Destroy();
-
+            */
             CreateSnake();
 
             SpawnFood();
@@ -66,19 +73,21 @@ namespace SurviveTheSerpent.Screens
 
         void CreateSnake()
         {
+            snakeTimeSinceLastUpdate = TimeManager.CurrentTime;
+
             SnakeTail = new Entities.SnakeTail(ContentManagerName);
             SnakeTail.X = -2;
             SnakeTail.Y = 8;
+
             SnakeHead = new Entities.SnakeHead(ContentManagerName);
             SnakeHead.X = 2;
             SnakeHead.Y = 8;
 
-            snakeTimeSinceLastUpdate = TimeManager.CurrentTime;
             Entities.SnakeBody newSnakeBody = new Entities.SnakeBody(ContentManagerName);
             newSnakeBody.X = 0;
             newSnakeBody.Y = 8;
-            newSnakeBody.Visible = true;
-            newSnakeBody.Body.Visible = false;
+            //newSnakeBody.Visible = true;
+            //newSnakeBody.Body.Visible = false;
             SnakeBodyList.Add(newSnakeBody);
             CollisionFile.Visible = false;
 
@@ -648,30 +657,32 @@ namespace SurviveTheSerpent.Screens
 
 		void CustomDestroy()
 		{
-            SnakeHead.Body.Visible = false;
-            SnakeTail.Body.Visible = false;
-            SnakeHead.Body.RemoveSelfFromListsBelongingTo();
-            SnakeTail.Body.RemoveSelfFromListsBelongingTo();
 
+            // Destroy the Snake
+            SnakeHead.Destroy();
             foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
             {
-                snakeBody.Visible = false;
-                snakeBody.RemoveSelfFromListsBelongingTo();
+                SnakeBodyList.Remove(snakeBody);
+                snakeBody.Destroy();
             }
+            SnakeTail.Destroy();
 
+            // Destroy the food
             foreach (Entities.Food food in FoodList)
             {
-                food.Visible = false;
-                food.RemoveSelfFromListsBelongingTo();
+                FoodList.Remove(food);
+                food.Destroy();
             }
 
+            // Destroy the obstacles
             foreach (Entities.Obstacle obs in ObstacleList)
             {
-                obs.Visible = false;
-                obs.RemoveSelfFromListsBelongingTo();
+                ObstacleList.Remove(obs);
+                obs.Destroy();
             }
-            Player.Body.Visible = false;
-            Player.Body.RemoveSelfFromListsBelongingTo();
+
+            // Destroy the player
+            Player.Destroy();
 		}
 
         static void CustomLoadStaticContent(string contentManagerName)

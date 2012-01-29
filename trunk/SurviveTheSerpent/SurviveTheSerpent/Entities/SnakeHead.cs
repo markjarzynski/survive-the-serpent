@@ -226,6 +226,7 @@ namespace SurviveTheSerpent.Entities
             float newY = this.Y + gridSizeY;
             foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
             {
+                if (snakeBody == SnakeBodyList.Last) continue;
                 if (snakeBody.Y == newY && snakeBody.X == this.X)
                 {
                     return false;
@@ -239,6 +240,7 @@ namespace SurviveTheSerpent.Entities
             float newY = this.Y - gridSizeY;
             foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
             {
+                if (snakeBody == SnakeBodyList.Last) continue;
                 if (snakeBody.Y == newY && snakeBody.X == this.X)
                 {
                     return false;
@@ -252,6 +254,7 @@ namespace SurviveTheSerpent.Entities
             float newX = this.X - gridSizeX;
             foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
             {
+                if (snakeBody == SnakeBodyList.Last) continue;
                 if (snakeBody.X == newX && snakeBody.Y == this.Y)
                 {
                     return false;
@@ -266,6 +269,7 @@ namespace SurviveTheSerpent.Entities
             float newX = this.X + gridSizeX;
             foreach (Entities.SnakeBody snakeBody in SnakeBodyList)
             {
+                if (snakeBody == SnakeBodyList.Last) continue;
                 if (snakeBody.X == newX && snakeBody.Y == this.Y)
                 {
                     return false;

@@ -486,8 +486,7 @@ namespace SurviveTheSerpent.Screens
             if (SnakeHead.canMove && TimeManager.SecondsSince(snakeTimeSinceLastUpdate) > snakeVelocity)
             {
                 // Figure out the direction of the snake head
-                double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
-                SnakeHead.ChangeDirectionByAngle(angle, SnakeBodyList, GhostPlayerList);
+                SnakeHead.ChangeDirectionByAngle(Player, SnakeBodyList, GhostPlayerList);
 
                 if (SnakeHead.isDead)
                 {

@@ -76,110 +76,188 @@ namespace SurviveTheSerpent.Entities
 
         }
 
-        private void ChangeDirection(PositionedObjectList<SnakeBody> snakeBodyList, PositionedObjectList<Player> ghostPlayerList)
+        private void ChangeDirection(Entities.Player player, PositionedObjectList<SnakeBody> snakeBodyList, PositionedObjectList<Player> ghostPlayerList)
         {
-            isDead = true;
+            bool canRight = canMoveRight(snakeBodyList, ghostPlayerList);
+            bool canLeft = canMoveLeft(snakeBodyList, ghostPlayerList);
+            bool canUp = canMoveUp(snakeBodyList, ghostPlayerList);
+            bool canDown = canMoveDown(snakeBodyList, ghostPlayerList);
 
-            if (bestDirection == Direction.Right)
+            double rightDistance = Math.Sqrt((player.Y - Y) * (player.Y - Y) + (player.X - (X + gridSizeX)) * (player.X - (X + gridSizeX)));
+            double leftDistance = Math.Sqrt((player.Y - Y) * (player.Y - Y) + (player.X - (X - gridSizeX)) * (player.X - (X - gridSizeX)));
+            double upDistance = Math.Sqrt((player.Y - (Y + gridSizeY)) * (player.Y - (Y + gridSizeY)) + (player.X - X) * (player.X - X));
+            double downDistance = Math.Sqrt((player.Y - (Y - gridSizeY)) * (player.Y - (Y - gridSizeY)) + (player.X - X) * (player.X - X));
+
+            if (!canRight && !canLeft && !canUp && !canDown)
             {
-                if (canMoveRight(snakeBodyList, ghostPlayerList))
+                isDead = true;
+            }
+            else if (!canRight && !canLeft && !canUp && canDown)
+            {
+                direction = Direction.Down;
+            }
+            else if (!canRight && !canLeft && canUp && !canDown)
+            {
+                direction = Direction.Up;
+            }
+            else if (!canRight && canLeft && !canUp && !canDown)
+            {
+                direction = Direction.Left;
+            }
+            else if (canRight && !canLeft && !canUp && !canDown)
+            {
+                direction = Direction.Right;
+            }
+            else if (!canRight && !canLeft && canUp && canDown)
+            {
+                if (upDistance < downDistance)
                 {
-                    isDead = false;
-                    direction = Direction.Right;
-                } 
-                else if (canMoveDown(snakeBodyList, ghostPlayerList))
-                {
-                    isDead = false;
-                    direction = Direction.Down;
-                }
-                else if (canMoveUp(snakeBodyList, ghostPlayerList))
-                {
-                    isDead = false;
                     direction = Direction.Up;
                 }
-                else if (canMoveLeft(snakeBodyList, ghostPlayerList))
+                else
                 {
-                    isDead = false;
+                    direction = Direction.Down;
+                }
+            }
+            else if (!canRight && canLeft && !canUp && canDown)
+            {
+                if (leftDistance < downDistance)
+                {
+                    direction = Direction.Left;
+                }
+                else
+                {
+                    direction = Direction.Down;
+                }
+            }
+            else if (canRight && !canLeft && !canUp && canDown)
+            {
+                if (rightDistance < downDistance)
+                {
+                    direction = Direction.Right;
+                }
+                else
+                {
+                    direction = Direction.Down;
+                }
+            }
+            else if (!canRight && canLeft && canUp && !canDown)
+            {
+                if (leftDistance < upDistance)
+                {
+                    direction = Direction.Left;
+                }
+                else
+                {
+                    direction = Direction.Up;
+                }
+            }
+
+            else if (canRight && !canLeft && canUp && !canDown)
+            {
+                if (rightDistance < upDistance)
+                {
+                    direction = Direction.Right;
+                }
+                else
+                {
+                    direction = Direction.Up;
+                }
+            }
+            else if (canRight && canLeft && !canUp && !canDown)
+            {
+                if (rightDistance < leftDistance)
+                {
+                    direction = Direction.Right;
+                }
+                else
+                {
                     direction = Direction.Left;
                 }
             }
-            else if (bestDirection == Direction.Down)
+            else if (!canRight && canLeft && canUp && canDown)
             {
-
-                if (canMoveDown(snakeBodyList, ghostPlayerList))
+                if (leftDistance < upDistance && leftDistance < downDistance)
                 {
-                    isDead = false;
-                    direction = Direction.Down;
-                }
-                else if (canMoveLeft(snakeBodyList, ghostPlayerList))
-                {
-                    isDead = false;
                     direction = Direction.Left;
                 }
-                else if (canMoveRight(snakeBodyList, ghostPlayerList))
+                else
                 {
-                    isDead = false;
-                    direction = Direction.Right;
-                }
-                else if (canMoveUp(snakeBodyList, ghostPlayerList))
-                {
-                    isDead = false;
-                    direction = Direction.Up;
+                    if (upDistance < downDistance)
+                    {
+                        direction = Direction.Up;
+                    }
+                    else
+                    {
+                        direction = Direction.Down;
+                    }
                 }
             }
-            else if (bestDirection == Direction.Left)
+            else if (canRight && !canLeft && canUp && canDown)
             {
-
-                if (canMoveLeft(snakeBodyList, ghostPlayerList))
+                if (rightDistance < upDistance && rightDistance < downDistance)
                 {
-                    isDead = false;
-                    direction = Direction.Left;
-                }
-                else if (canMoveUp(snakeBodyList, ghostPlayerList))
-                {
-                    isDead = false;
-                    direction = Direction.Up;
-                }
-                else if (canMoveDown(snakeBodyList, ghostPlayerList))
-                {
-                    isDead = false;
-                    direction = Direction.Down;
-                }
-                else if (canMoveRight(snakeBodyList, ghostPlayerList))
-                {
-                    isDead = false;
                     direction = Direction.Right;
                 }
-
-            } else if (bestDirection == Direction.Up)
-            {
-
-                if (canMoveUp(snakeBodyList, ghostPlayerList))
+                else
                 {
-                    isDead = false;
-                    direction = Direction.Up;
+                    if (upDistance < downDistance)
+                    {
+                        direction = Direction.Up;
+                    }
+                    else
+                    {
+                        direction = Direction.Down;
+                    }
                 }
-                else if (canMoveRight(snakeBodyList, ghostPlayerList))
+            }
+            else if (canRight && canLeft && !canUp && canDown)
+            {
+                if (rightDistance < leftDistance && rightDistance < downDistance)
                 {
-                    isDead = false;
                     direction = Direction.Right;
                 }
-                else if (canMoveLeft(snakeBodyList, ghostPlayerList))
+                else
                 {
-                    isDead = false;
-                    direction = Direction.Left;
+                    if (leftDistance < downDistance)
+                    {
+                        direction = Direction.Left;
+                    }
+                    else
+                    {
+                        direction = Direction.Down;
+                    }
                 }
-                else if (canMoveDown(snakeBodyList, ghostPlayerList))
+            }
+            else if (canRight && canLeft && canUp && !canDown)
+            {
+                if (rightDistance < leftDistance && rightDistance < upDistance)
                 {
-                    isDead = false;
-                    direction = Direction.Down;
+                    direction = Direction.Right;
                 }
+                else
+                {
+                    if (leftDistance < upDistance)
+                    {
+                        direction = Direction.Left;
+                    }
+                    else
+                    {
+                        direction = Direction.Up;
+                    }
+                }
+            }
+            else
+            {
+                //we should never ever reach this point
             }
         }
 
-        public void ChangeDirectionByAngle(double radians, PositionedObjectList<SnakeBody> snakeBodyList, 
+        public void ChangeDirectionByAngle(Entities.Player player, PositionedObjectList<SnakeBody> snakeBodyList, 
             PositionedObjectList<Player> ghostPlayerList)
         {
+            double radians = Math.Atan2(player.Y - Y, player.X - X);
+
             if ( radians > -Math.PI / 4 && radians < Math.PI / 4)
             {
                 bestDirection = Direction.Right;
@@ -201,7 +279,7 @@ namespace SurviveTheSerpent.Entities
                 //this.RotationZ = (float)Math.PI * 3 / 2;
             }
 
-            this.ChangeDirection(snakeBodyList, ghostPlayerList);
+            this.ChangeDirection(player, snakeBodyList, ghostPlayerList);
         }
 
         public void Move(PositionedObjectList<SnakeBody> SnakeBodyList)

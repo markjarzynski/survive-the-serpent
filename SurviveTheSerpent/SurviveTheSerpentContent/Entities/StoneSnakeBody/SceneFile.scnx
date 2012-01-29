@@ -34,10 +34,10 @@
     <TintGreenRate>0</TintGreenRate>
     <ColorOperation>SelectArg1</ColorOperation>
     <BlendOperation>REGULAR</BlendOperation>
-    <Name>wallstraight1</Name>
-    <Animate>true</Animate>
-    <CurrentChain>0</CurrentChain>
-    <AnimationChainsFile>animationchainlistfile.achx</AnimationChainsFile>
+    <Name>wallstraight21</Name>
+    <Texture>wallstraight2.png</Texture>
+    <Animate>false</Animate>
+    <CurrentChain>-1</CurrentChain>
     <Ordered>true</Ordered>
     <Active>true</Active>
     <ConstantPixelSize>0</ConstantPixelSize>

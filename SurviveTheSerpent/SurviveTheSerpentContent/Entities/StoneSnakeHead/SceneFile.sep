@@ -29,5 +29,9 @@
       <TextureName>wallhead.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>
+    <TextureDisplayRegionsSave>
+      <TextureName>wallhead2.png</TextureName>
+      <DisplayRegions />
+    </TextureDisplayRegionsSave>
   </TextureDisplayRegionsList>
 </SpriteEditorSceneProperties>

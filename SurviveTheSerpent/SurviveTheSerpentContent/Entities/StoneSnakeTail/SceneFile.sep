@@ -29,5 +29,9 @@
       <TextureName>walltail.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>
+    <TextureDisplayRegionsSave>
+      <TextureName>walltail2.png</TextureName>
+      <DisplayRegions />
+    </TextureDisplayRegionsSave>
   </TextureDisplayRegionsList>
 </SpriteEditorSceneProperties>

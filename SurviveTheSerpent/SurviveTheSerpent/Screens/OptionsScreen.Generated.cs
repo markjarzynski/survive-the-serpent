@@ -41,9 +41,9 @@ namespace SurviveTheSerpent.Screens
 		#endif
 		private Scene SceneFile;
 
-		private SurviveTheSerpent.Entities.DifficultyButton Easy;
-		private SurviveTheSerpent.Entities.DifficultyButton Medium;
-		private SurviveTheSerpent.Entities.DifficultyButton Hard;
+		private SurviveTheSerpent.Entities.DifficultyButton easyButton;
+		private SurviveTheSerpent.Entities.DifficultyButton mediumButton;
+		private SurviveTheSerpent.Entities.DifficultyButton hardButton;
 
 		public OptionsScreen()
 			: base("OptionsScreen")
@@ -55,12 +55,12 @@ namespace SurviveTheSerpent.Screens
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
 			SceneFile = FlatRedBallServices.Load<Scene>("content/screens/optionsscreen/scenefile.scnx", ContentManagerName);
-			Easy = new SurviveTheSerpent.Entities.DifficultyButton(ContentManagerName, false);
-			Easy.Name = "Easy";
-			Medium = new SurviveTheSerpent.Entities.DifficultyButton(ContentManagerName, false);
-			Medium.Name = "Medium";
-			Hard = new SurviveTheSerpent.Entities.DifficultyButton(ContentManagerName, false);
-			Hard.Name = "Hard";
+			easyButton = new SurviveTheSerpent.Entities.DifficultyButton(ContentManagerName, false);
+			easyButton.Name = "easyButton";
+			mediumButton = new SurviveTheSerpent.Entities.DifficultyButton(ContentManagerName, false);
+			mediumButton.Name = "mediumButton";
+			hardButton = new SurviveTheSerpent.Entities.DifficultyButton(ContentManagerName, false);
+			hardButton.Name = "hardButton";
 
 
 
@@ -88,9 +88,9 @@ namespace SurviveTheSerpent.Screens
 			if(!IsPaused)
 			{
 
-				Easy.Activity();
-				Medium.Activity();
-				Hard.Activity();
+				easyButton.Activity();
+				mediumButton.Activity();
+				hardButton.Activity();
 			}
 			else
 			{
@@ -112,17 +112,17 @@ namespace SurviveTheSerpent.Screens
 		public override void Destroy()
 		{
 			// Generated Destroy
-			if(Easy != null)
+			if(easyButton != null)
 			{
-				Easy.Destroy();
+				easyButton.Destroy();
 			}
-			if(Medium != null)
+			if(mediumButton != null)
 			{
-				Medium.Destroy();
+				mediumButton.Destroy();
 			}
-			if(Hard != null)
+			if(hardButton != null)
 			{
-				Hard.Destroy();
+				hardButton.Destroy();
 			}
 			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 
@@ -142,16 +142,16 @@ namespace SurviveTheSerpent.Screens
 		{
 			SceneFile.AddToManagers(mLayer);
 
-			Easy.AddToManagers(mLayer);
-			Medium.AddToManagers(mLayer);
-			Hard.AddToManagers(mLayer);
+			easyButton.AddToManagers(mLayer);
+			mediumButton.AddToManagers(mLayer);
+			hardButton.AddToManagers(mLayer);
 		}
 		public virtual void ConvertToManuallyUpdated()
 		{
 			SceneFile.ConvertToManuallyUpdated();
-			Easy.ConvertToManuallyUpdated();
-			Medium.ConvertToManuallyUpdated();
-			Hard.ConvertToManuallyUpdated();
+			easyButton.ConvertToManuallyUpdated();
+			mediumButton.ConvertToManuallyUpdated();
+			hardButton.ConvertToManuallyUpdated();
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{

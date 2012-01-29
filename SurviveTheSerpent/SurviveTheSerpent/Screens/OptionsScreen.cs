@@ -26,15 +26,34 @@ namespace SurviveTheSerpent.Screens
 	public partial class OptionsScreen
 	{
 
-		void CustomInitialize()
-		{
+        private Cursor cursor;
 
+        void CustomInitialize()
+        {
+            GuiManager.IsUIEnabled = true;
 
-		}
+            cursor = GuiManager.Cursor;
+        }
 
 		void CustomActivity(bool firstTimeCalled)
 		{
+            if (cursor.PrimaryClick && easyButton.HasCursorOver(cursor))
+            {
+                Game1.diff = Game1.Difficulty.easy;
+                this.MoveToScreen(typeof(SplashScreen).FullName);
+            }
 
+            if (cursor.PrimaryClick && mediumButton.HasCursorOver(cursor))
+            {
+                Game1.diff = Game1.Difficulty.medium;
+                this.MoveToScreen(typeof(SplashScreen).FullName);
+            }
+
+            if (cursor.PrimaryClick && hardButton.HasCursorOver(cursor))
+            {
+                Game1.diff = Game1.Difficulty.hard;
+                this.MoveToScreen(typeof(SplashScreen).FullName);
+            }
 
 		}
 

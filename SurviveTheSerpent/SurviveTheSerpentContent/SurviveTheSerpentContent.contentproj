@@ -48,9 +48,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Entities\CreditButton\credits.png">
+    <None Include="Entities\CreditButton\AnimationChainListFile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>credits</Name>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="Entities\CreditButton\creditsbutton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>creditsbutton</Name>
+    </None>
+    <None Include="Entities\CreditButton\creditsbuttonglow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>creditsbuttonglow</Name>
     </None>
     <None Include="Entities\CreditButton\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

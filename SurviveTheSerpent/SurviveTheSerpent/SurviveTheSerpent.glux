@@ -636,7 +636,7 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>6</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Screen</ContainerType>
@@ -668,13 +668,18 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
-            <ValueAsFloat>-6</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
             <Type>Single</Type>
             <Member>Y</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>-6</ValueAsFloat>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>String</Type>
+            <Member>EntireSceneCurrentChainName</Member>
             <Time>0</Time>
           </CustomProperty>
           <ContainerType>Screen</ContainerType>
@@ -706,7 +711,7 @@
           <CustomProperty>
             <Type>Single</Type>
             <Member>X</Member>
-            <ValueAsFloat>-2</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
             <Time>0</Time>
           </CustomProperty>
           <CustomProperty>
@@ -783,6 +788,24 @@
           <DefinedByBase>false</DefinedByBase>
           <CreatesEvent>false</CreatesEvent>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>EntireSceneCurrentChainName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">NoGlow</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>EntireScene</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
       </CustomVariables>
       <IsUnique>false</IsUnique>
       <ImplementsIClickable>true</ImplementsIClickable>
@@ -795,7 +818,7 @@
           <ContainerType>Entity</ContainerType>
           <SourceType>File</SourceType>
           <SourceFile>Entities/CreditButton/SceneFile.scnx</SourceFile>
-          <SourceName>Entire File (Scene)</SourceName>
+          <SourceName>creditsbutton1 (Sprite)</SourceName>
           <InstanceName>EntireScene</InstanceName>
           <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
@@ -823,6 +846,22 @@
           <Properties />
           <ContainerType>Entity</ContainerType>
           <Name>Entities/CreditButton/SceneFile.scnx</Name>
+          <IsManuallyUpdated>false</IsManuallyUpdated>
+          <IsSharedStatic>true</IsSharedStatic>
+          <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
+          <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
+          <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
+          <HasPublicProperty>false</HasPublicProperty>
+          <OpensWith>&lt;DEFAULT&gt;</OpensWith>
+          <LoadedAtRuntime>true</LoadedAtRuntime>
+          <CreatesDictionary>false</CreatesDictionary>
+          <CsvDelimiter>Comma</CsvDelimiter>
+          <TreatAsCsv>false</TreatAsCsv>
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Properties />
+          <ContainerType>Entity</ContainerType>
+          <Name>Entities/CreditButton/AnimationChainListFile.achx</Name>
           <IsManuallyUpdated>false</IsManuallyUpdated>
           <IsSharedStatic>true</IsSharedStatic>
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
@@ -2171,6 +2210,11 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <Properties />
+          <CustomProperty>
+            <Type>Boolean</Type>
+            <Member>Visible</Member>
+            <Time>0</Time>
+          </CustomProperty>
           <ContainerType>Entity</ContainerType>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -2308,6 +2352,11 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <Properties />
+          <CustomProperty>
+            <Type>Boolean</Type>
+            <Member>Visible</Member>
+            <Time>0</Time>
+          </CustomProperty>
           <ContainerType>Entity</ContainerType>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -2451,6 +2500,11 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <Properties />
+          <CustomProperty>
+            <Type>Boolean</Type>
+            <Member>Visible</Member>
+            <Time>0</Time>
+          </CustomProperty>
           <ContainerType>Entity</ContainerType>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>

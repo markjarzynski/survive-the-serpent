@@ -12,10 +12,12 @@
     <ZAcceleration>0</ZAcceleration>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
+    <RotationZ>4.71238947</RotationZ>
+    <RotationY>-0</RotationY>
     <RotationZ>0</RotationZ>
     <RotationZVelocity>0</RotationZVelocity>
-    <ScaleX>1</ScaleX>
-    <ScaleY>1</ScaleY>
+    <ScaleX>3.5</ScaleX>
+    <ScaleY>3.5</ScaleY>
     <ScaleXVelocity>0</ScaleXVelocity>
     <ScaleYVelocity>0</ScaleYVelocity>
     <RelativeX>0</RelativeX>
@@ -35,9 +37,9 @@
     <ColorOperation>SelectArg1</ColorOperation>
     <BlendOperation>REGULAR</BlendOperation>
     <Name>creditsbutton1</Name>
-    <Texture>creditsbutton.png</Texture>
-    <Animate>false</Animate>
-    <CurrentChain>-1</CurrentChain>
+    <Animate>true</Animate>
+    <CurrentChain>0</CurrentChain>
+    <AnimationChainsFile>animationchainlistfile.achx</AnimationChainsFile>
     <Ordered>true</Ordered>
     <Active>true</Active>
     <ConstantPixelSize>0</ConstantPixelSize>

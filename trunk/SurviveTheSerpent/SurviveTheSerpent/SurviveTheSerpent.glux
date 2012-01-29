@@ -740,7 +740,7 @@
           <ContainerType>Screen</ContainerType>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\DifficultyButton</SourceClassType>
-          <InstanceName>Easy</InstanceName>
+          <InstanceName>easyButton</InstanceName>
           <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
@@ -766,7 +766,7 @@
           <ContainerType>Screen</ContainerType>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\DifficultyButton</SourceClassType>
-          <InstanceName>Medium</InstanceName>
+          <InstanceName>mediumButton</InstanceName>
           <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
@@ -792,7 +792,7 @@
           <ContainerType>Screen</ContainerType>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\DifficultyButton</SourceClassType>
-          <InstanceName>Hard</InstanceName>
+          <InstanceName>hardButton</InstanceName>
           <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>
           <ExposedInDerived>false</ExposedInDerived>
@@ -1137,7 +1137,7 @@
       <StateCategoryList />
       <CustomVariables />
       <IsUnique>false</IsUnique>
-      <ImplementsIClickable>false</ImplementsIClickable>
+      <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>false</ImplementsIVisible>
       <ImplementsIWindow>false</ImplementsIWindow>
       <Name>Entities\DifficultyButton</Name>

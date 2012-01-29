@@ -34,6 +34,8 @@ namespace SurviveTheSerpent.Screens
         private const int MAX_ATTEMPTS = 10;
 
         private double snakeUpdateDelay = 1.0; // in seconds
+        private double snakeVelocity = 1.0;
+        private double snakeAcceleration = 0.05;
         private double snakeTimeSinceLastUpdate;
 
         private const double FOOD_SPAWN_CHANCE = .2;
@@ -62,6 +64,7 @@ namespace SurviveTheSerpent.Screens
 
         void CreateSnake()
         {
+            snakeVelocity = snakeUpdateDelay;
             snakeTimeSinceLastUpdate = TimeManager.CurrentTime;
 
             SnakeTail = new Entities.SnakeTail(ContentManagerName);
@@ -473,8 +476,10 @@ namespace SurviveTheSerpent.Screens
                 SnakeHead.canMove = true;
             }
 
-            if (SnakeHead.canMove && TimeManager.SecondsSince(snakeTimeSinceLastUpdate) > snakeUpdateDelay)
+            if (SnakeHead.canMove && TimeManager.SecondsSince(snakeTimeSinceLastUpdate) > snakeVelocity)
             {
+                snakeVelocity = snakeVelocity - snakeVelocity * snakeAcceleration;
+
                 // Figure out the direction of the snake head
                 double angle = Math.Atan2(Player.Y - SnakeHead.Y, Player.X - SnakeHead.X);
                 SnakeHead.ChangeDirectionByAngle(angle, SnakeBodyList, GhostPlayerList);

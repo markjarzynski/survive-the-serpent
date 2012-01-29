@@ -29,5 +29,9 @@
       <TextureName>food.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>
+    <TextureDisplayRegionsSave>
+      <TextureName>rabbit.png</TextureName>
+      <DisplayRegions />
+    </TextureDisplayRegionsSave>
   </TextureDisplayRegionsList>
 </SpriteEditorSceneProperties>

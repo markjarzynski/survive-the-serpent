@@ -29,5 +29,9 @@
       <TextureName>player.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>
+    <TextureDisplayRegionsSave>
+      <TextureName>dudeguy.png</TextureName>
+      <DisplayRegions />
+    </TextureDisplayRegionsSave>
   </TextureDisplayRegionsList>
 </SpriteEditorSceneProperties>

@@ -58,6 +58,9 @@ namespace SurviveTheSerpent.Screens
 			get{ return mFoodList;}
 		}
 		private PositionedObjectList<Obstacle> ObstacleList;
+		private PositionedObjectList<StoneSnakeHead> StoneSnakeHeadList;
+		private PositionedObjectList<StoneSnakeBody> StoneSnakeBodyList;
+		private PositionedObjectList<StoneSnakeTail> StoneSnakeTailList;
 
 		public GameSplash()
 			: base("GameSplash")
@@ -87,6 +90,9 @@ namespace SurviveTheSerpent.Screens
 			rightButton.Name = "rightButton";
 			mFoodList = new PositionedObjectList<Food>();
 			ObstacleList = new PositionedObjectList<Obstacle>();
+			StoneSnakeHeadList = new PositionedObjectList<StoneSnakeHead>();
+			StoneSnakeBodyList = new PositionedObjectList<StoneSnakeBody>();
+			StoneSnakeTailList = new PositionedObjectList<StoneSnakeTail>();
 
 
 
@@ -132,6 +138,18 @@ namespace SurviveTheSerpent.Screens
 				for(int i = ObstacleList.Count - 1; i > -1; i--)
 				{
 					ObstacleList[i].Activity();
+				}
+				for(int i = StoneSnakeHeadList.Count - 1; i > -1; i--)
+				{
+					StoneSnakeHeadList[i].Activity();
+				}
+				for(int i = StoneSnakeBodyList.Count - 1; i > -1; i--)
+				{
+					StoneSnakeBodyList[i].Activity();
+				}
+				for(int i = StoneSnakeTailList.Count - 1; i > -1; i--)
+				{
+					StoneSnakeTailList[i].Activity();
 				}
 			}
 			else
@@ -194,6 +212,18 @@ namespace SurviveTheSerpent.Screens
 			for(int i = ObstacleList.Count - 1; i > -1; i--)
 			{
 				ObstacleList[i].Destroy();
+			}
+			for(int i = StoneSnakeHeadList.Count - 1; i > -1; i--)
+			{
+				StoneSnakeHeadList[i].Destroy();
+			}
+			for(int i = StoneSnakeBodyList.Count - 1; i > -1; i--)
+			{
+				StoneSnakeBodyList[i].Destroy();
+			}
+			for(int i = StoneSnakeTailList.Count - 1; i > -1; i--)
+			{
+				StoneSnakeTailList[i].Destroy();
 			}
 			SceneFile.RemoveFromManagers(ContentManagerName != "Global");
 
@@ -268,6 +298,18 @@ namespace SurviveTheSerpent.Screens
 			for(int i = 0; i < ObstacleList.Count; i++)
 			{
 				ObstacleList[i].ConvertToManuallyUpdated();
+			}
+			for(int i = 0; i < StoneSnakeHeadList.Count; i++)
+			{
+				StoneSnakeHeadList[i].ConvertToManuallyUpdated();
+			}
+			for(int i = 0; i < StoneSnakeBodyList.Count; i++)
+			{
+				StoneSnakeBodyList[i].ConvertToManuallyUpdated();
+			}
+			for(int i = 0; i < StoneSnakeTailList.Count; i++)
+			{
+				StoneSnakeTailList[i].ConvertToManuallyUpdated();
 			}
 		}
 		public static void LoadStaticContent(string contentManagerName)

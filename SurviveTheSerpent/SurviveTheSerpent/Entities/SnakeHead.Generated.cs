@@ -118,7 +118,7 @@ namespace SurviveTheSerpent.Entities
 			// Generated Activity
 
 
-			// There is an invalid behavior reference to behavior Collide
+			Collide();
 			CustomActivity();
 			
 			// After Custom Activity
@@ -247,8 +247,14 @@ namespace SurviveTheSerpent.Entities
 			}
 		}
 
-// Could not find the behavior Collide		
-        public static object GetStaticMember(string memberName)
+        public void Collide()
+        {
+            // Add your logic here
+
+
+
+        }
+    		public static object GetStaticMember(string memberName)
 		{
 			switch(memberName)
 			{

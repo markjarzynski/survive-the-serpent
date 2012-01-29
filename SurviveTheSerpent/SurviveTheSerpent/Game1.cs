@@ -56,10 +56,10 @@ namespace SurviveTheSerpent
 
         protected override void LoadContent()
         {
-            //theme = Content.Load<Song>("Sounds/theme_music");
-            //hiss = Content.Load<SoundEffect>("Sounds/hiss_loud.");
+            theme = Content.Load<Song>("Sound/theme_music");
+            hiss = Content.Load<SoundEffect>("Sound/hiss_loud");
             //eat = Content.Load<SoundEffect>("Sounds/eat");
-            //MediaPlayer.Play(theme);
+            MediaPlayer.Play(theme);
         }
 
         /// <summary>

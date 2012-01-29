@@ -13,7 +13,7 @@
   <Camera>
     <X>0</X>
     <Y>0</Y>
-    <Z>-40</Z>
+    <Z>-46.2520332</Z>
     <Orthogonal>false</Orthogonal>
     <OrthogonalHeight>600</OrthogonalHeight>
     <OrthogonalWidth>-1</OrthogonalWidth>
@@ -26,7 +26,7 @@
   <FilesToMakeDotDotSlashRelative />
   <TextureDisplayRegionsList>
     <TextureDisplayRegionsSave>
-      <TextureName>instructionsscreen.png</TextureName>
+      <TextureName>directions_screen.png</TextureName>
       <DisplayRegions />
     </TextureDisplayRegionsSave>
   </TextureDisplayRegionsList>

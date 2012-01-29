@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SpriteEditorScene xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Sprite>
-    <X>0</X>
-    <Y>0</Y>
+    <X>0.04289629</X>
+    <Y>0.0980173</Y>
     <Z>0</Z>
     <XVelocity>0</XVelocity>
     <YVelocity>0</YVelocity>
@@ -12,10 +12,10 @@
     <ZAcceleration>0</ZAcceleration>
     <RotationX>0</RotationX>
     <RotationY>0</RotationY>
-    <RotationZ>0</RotationZ>
+    <RotationZ>4.712</RotationZ>
     <RotationZVelocity>0</RotationZVelocity>
-    <ScaleX>16.5</ScaleX>
-    <ScaleY>10</ScaleY>
+    <ScaleX>16.5462322</ScaleX>
+    <ScaleY>9.944984</ScaleY>
     <ScaleXVelocity>0</ScaleXVelocity>
     <ScaleYVelocity>0</ScaleYVelocity>
     <RelativeX>0</RelativeX>
@@ -34,8 +34,8 @@
     <TintGreenRate>0</TintGreenRate>
     <ColorOperation>SelectArg1</ColorOperation>
     <BlendOperation>REGULAR</BlendOperation>
-    <Name>instructionsscreen1</Name>
-    <Texture>instructionsscreen.png</Texture>
+    <Name>directions_screen1</Name>
+    <Texture>directions_screen.png</Texture>
     <Animate>false</Animate>
     <CurrentChain>-1</CurrentChain>
     <Ordered>true</Ordered>

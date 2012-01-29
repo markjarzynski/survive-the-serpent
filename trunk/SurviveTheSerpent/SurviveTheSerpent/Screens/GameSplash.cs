@@ -76,14 +76,14 @@ namespace SurviveTheSerpent.Screens
                     break;
                     
                 case Game1.Difficulty.medium:
-                    snakeUpdateDelay = 1.0; // in seconds
-                    snakeVelocity = 0.85;
+                    snakeUpdateDelay = 0.75; // in seconds
+                    snakeVelocity = 0.75;
                     snakeAcceleration = 0.2;
                     break;
 
                 case Game1.Difficulty.hard:
-                    snakeUpdateDelay = 1.0; // in seconds
-                    snakeVelocity = 0.8;
+                    snakeUpdateDelay = 0.5; // in seconds
+                    snakeVelocity = 0.5;
                     snakeAcceleration = 0.3;
                     break;
             }

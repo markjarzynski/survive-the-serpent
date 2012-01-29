@@ -2330,7 +2330,7 @@
           <IncludeDirectoryRelativeToContainer>false</IncludeDirectoryRelativeToContainer>
           <LoadedOnlyWhenReferenced>false</LoadedOnlyWhenReferenced>
           <ContentProjectParent>SurviveTheSerpentContent</ContentProjectParent>
-          <HasPublicProperty>false</HasPublicProperty>
+          <HasPublicProperty>true</HasPublicProperty>
           <OpensWith>&lt;DEFAULT&gt;</OpensWith>
           <LoadedAtRuntime>true</LoadedAtRuntime>
           <CreatesDictionary>false</CreatesDictionary>

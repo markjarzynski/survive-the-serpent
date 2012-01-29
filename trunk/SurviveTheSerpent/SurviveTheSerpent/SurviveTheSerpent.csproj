@@ -112,6 +112,10 @@
     <Compile Include="Entities\Obstacle.Generated.cs">
       <DependentUpon>Obstacle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\OptionsButton.cs" />
+    <Compile Include="Entities\OptionsButton.Generated.cs">
+      <DependentUpon>OptionsButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Player.Generated.cs">
       <DependentUpon>Player.cs</DependentUpon>

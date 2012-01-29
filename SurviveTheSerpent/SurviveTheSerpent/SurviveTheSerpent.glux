@@ -737,6 +737,28 @@
       <NamedObjects>
         <NamedObjectSave>
           <Properties />
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>X</Member>
+            <ValueAsFloat>5.5</ValueAsFloat>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>BodyScaleY</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>BodyScaleX</Member>
+            <Time>0</Time>
+          </CustomProperty>
           <ContainerType>Screen</ContainerType>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\DifficultyButton</SourceClassType>
@@ -763,6 +785,28 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <Properties />
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>X</Member>
+            <ValueAsFloat>1</ValueAsFloat>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>BodyScaleY</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>BodyScaleX</Member>
+            <Time>0</Time>
+          </CustomProperty>
           <ContainerType>Screen</ContainerType>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\DifficultyButton</SourceClassType>
@@ -789,6 +833,28 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <Properties />
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>X</Member>
+            <ValueAsFloat>-4</ValueAsFloat>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>BodyScaleY</Member>
+            <Time>0</Time>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>Single</Type>
+            <Member>BodyScaleX</Member>
+            <Time>0</Time>
+          </CustomProperty>
           <ContainerType>Screen</ContainerType>
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\DifficultyButton</SourceClassType>
@@ -950,50 +1016,6 @@
           <SetByContainer>false</SetByContainer>
           <AttachToContainer>false</AttachToContainer>
           <AttachToCamera>true</AttachToCamera>
-          <AddToManagers>true</AddToManagers>
-          <IncludeInIVisible>true</IncludeInIVisible>
-          <IncludeInIClickable>true</IncludeInIClickable>
-          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
-          <DefinedByBase>false</DefinedByBase>
-          <InstantiatedByBase>false</InstantiatedByBase>
-          <IsDisabled>false</IsDisabled>
-          <VariablesToReset />
-          <IgnoresPausing>false</IgnoresPausing>
-          <CallActivity>true</CallActivity>
-          <ContainedObjects />
-          <Events />
-          <Is2D>false</Is2D>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <Properties />
-          <CustomProperty>
-            <Type>Single</Type>
-            <Member>X</Member>
-            <ValueAsFloat>6.5</ValueAsFloat>
-            <Time>0</Time>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>Single</Type>
-            <Member>Y</Member>
-            <ValueAsFloat>0</ValueAsFloat>
-            <Time>0</Time>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>String</Type>
-            <Member>EntireSceneCurrentChainName</Member>
-            <ValueAsString>default</ValueAsString>
-            <Time>0</Time>
-          </CustomProperty>
-          <ContainerType>Screen</ContainerType>
-          <SourceType>Entity</SourceType>
-          <SourceClassType>Entities\OptionsButton</SourceClassType>
-          <InstanceName>optionsButton</InstanceName>
-          <HasPublicProperty>false</HasPublicProperty>
-          <SetByDerived>false</SetByDerived>
-          <ExposedInDerived>false</ExposedInDerived>
-          <SetByContainer>false</SetByContainer>
-          <AttachToContainer>false</AttachToContainer>
-          <AttachToCamera>false</AttachToCamera>
           <AddToManagers>true</AddToManagers>
           <IncludeInIVisible>true</IncludeInIVisible>
           <IncludeInIClickable>true</IncludeInIClickable>
@@ -1179,7 +1201,76 @@
       <Properties />
       <States />
       <StateCategoryList />
-      <CustomVariables />
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BodyScaleY</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">4</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>Body</SourceObject>
+          <SourceObjectProperty>ScaleY</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BodyScaleX</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0</DefaultValue>
+          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
+          <SetByDerived>false</SetByDerived>
+          <IsShared>false</IsShared>
+          <DefinedByBase>false</DefinedByBase>
+          <SourceObject>Body</SourceObject>
+          <SourceObjectProperty>ScaleX</SourceObjectProperty>
+          <CreatesEvent>false</CreatesEvent>
+        </CustomVariable>
+      </CustomVariables>
       <IsUnique>false</IsUnique>
       <ImplementsIClickable>true</ImplementsIClickable>
       <ImplementsIVisible>false</ImplementsIVisible>
@@ -1215,11 +1306,6 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <Properties />
-          <CustomProperty>
-            <Type>Boolean</Type>
-            <Member>Visible</Member>
-            <Time>0</Time>
-          </CustomProperty>
           <ContainerType>Entity</ContainerType>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile>Entities/DifficultyButton/SceneFile.scnx</SourceFile>
@@ -2066,27 +2152,9 @@
           <DefinedByBase>false</DefinedByBase>
           <CreatesEvent>false</CreatesEvent>
         </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>string</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>EntireSceneCurrentChainName</Name>
-          <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">default</DefaultValue>
-          <FulfillsRequirement>&lt;NONE&gt;</FulfillsRequirement>
-          <SetByDerived>false</SetByDerived>
-          <IsShared>false</IsShared>
-          <DefinedByBase>false</DefinedByBase>
-          <SourceObject>EntireScene</SourceObject>
-          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
-          <CreatesEvent>false</CreatesEvent>
-        </CustomVariable>
       </CustomVariables>
       <IsUnique>false</IsUnique>
-      <ImplementsIClickable>true</ImplementsIClickable>
+      <ImplementsIClickable>false</ImplementsIClickable>
       <ImplementsIVisible>false</ImplementsIVisible>
       <ImplementsIWindow>false</ImplementsIWindow>
       <Name>Entities\OptionsButton</Name>
@@ -2096,7 +2164,7 @@
           <ContainerType>Entity</ContainerType>
           <SourceType>File</SourceType>
           <SourceFile>Entities/OptionsButton/SceneFile.scnx</SourceFile>
-          <SourceName>optionsbutton1 (Sprite)</SourceName>
+          <SourceName>Entire File (Scene)</SourceName>
           <InstanceName>EntireScene</InstanceName>
           <HasPublicProperty>false</HasPublicProperty>
           <SetByDerived>false</SetByDerived>

@@ -61,6 +61,28 @@ namespace SurviveTheSerpent.Entities
 
 		private Scene EntireScene;
 		private AxisAlignedRectangle Body;
+		public float BodyScaleY
+		{
+			get
+			{
+				return Body.ScaleY;
+			}
+			set
+			{
+				Body.ScaleY = value;
+			}
+		}
+		public float BodyScaleX
+		{
+			get
+			{
+				return Body.ScaleX;
+			}
+			set
+			{
+				Body.ScaleX = value;
+			}
+		}
 		protected bool mIsPaused;
 		public override void Pause(InstructionList instructions)
 		{
@@ -174,6 +196,10 @@ namespace SurviveTheSerpent.Entities
 		// Generated Methods
 		public virtual void PostInitialize()
 		{
+			X = 0f;
+			Y = 0f;
+			BodyScaleY = 4f;
+			BodyScaleX = 0f;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{

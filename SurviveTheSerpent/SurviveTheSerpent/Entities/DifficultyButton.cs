@@ -27,7 +27,8 @@ namespace SurviveTheSerpent.Entities
 	{
 		private void CustomInitialize()
 		{
-
+            this.BodyScaleY = 5.0f;
+            this.BodyScaleX = 1.5f;
 
 		}
 

@@ -289,7 +289,7 @@ namespace SurviveTheSerpent.Screens
 
                     foreach (Entities.Player ghostPlayer in GhostPlayerList)
                     {
-                        if (newFood.Body.CollideAgainst(ghostPlayer.Body))
+                        if (newFood.Body.CollideAgainstMove(ghostPlayer.Body, 0, 1))
                         {
                             invalidLocation = true;
                             break;

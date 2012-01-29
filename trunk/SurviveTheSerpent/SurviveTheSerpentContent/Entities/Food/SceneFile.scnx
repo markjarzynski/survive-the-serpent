@@ -11,8 +11,8 @@
     <YAcceleration>0</YAcceleration>
     <ZAcceleration>0</ZAcceleration>
     <RotationX>0</RotationX>
-    <RotationY>0</RotationY>
-    <RotationZ>4.71238947</RotationZ>
+    <RotationY>-0</RotationY>
+    <RotationZ>4.709174</RotationZ>
     <RotationZVelocity>0</RotationZVelocity>
     <ScaleX>1</ScaleX>
     <ScaleY>1</ScaleY>
@@ -34,8 +34,8 @@
     <TintGreenRate>0</TintGreenRate>
     <ColorOperation>SelectArg1</ColorOperation>
     <BlendOperation>REGULAR</BlendOperation>
-    <Name>rabbit1</Name>
-    <Texture>rabbit.png</Texture>
+    <Name>spider1</Name>
+    <Texture>spider.png</Texture>
     <Animate>false</Animate>
     <CurrentChain>-1</CurrentChain>
     <Ordered>true</Ordered>

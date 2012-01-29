@@ -21,6 +21,7 @@ using FlatRedBall;
 using FlatRedBall.Graphics;
 using FlatRedBall.Math;
 using FlatRedBall.Graphics.Animation;
+using FlatRedBall.Gui;
 
 #if XNA4
 using Color = Microsoft.Xna.Framework.Color;
@@ -40,7 +41,7 @@ using Model = Microsoft.Xna.Framework.Graphics.Model;
 
 namespace SurviveTheSerpent.Entities
 {
-	public partial class OptionsButton : PositionedObject, IDestroyable
+	public partial class OptionsButton : PositionedObject, IDestroyable, IClickable
 	{
         // This is made global so that static lazy-loaded content can access it.
         public static string ContentManagerName
@@ -59,7 +60,44 @@ namespace SurviveTheSerpent.Entities
 		private static Scene SceneFile;
 		private static AnimationChainList AnimationChainListFile;
 
-		private Scene EntireScene;
+		private Sprite EntireScene;
+		public string EntireSceneCurrentChainName
+		{
+			get
+			{
+				return EntireScene.CurrentChainName;
+			}
+			set
+			{
+				EntireScene.CurrentChainName = value;
+			}
+		}
+		protected bool mIsPaused;
+		public override void Pause(InstructionList instructions)
+		{
+			base.Pause(instructions);
+			mIsPaused = true;
+		}
+		public virtual bool HasCursorOver(Cursor cursor)
+		{
+			if(mIsPaused)
+			{
+				return false;
+			}
+			if(LayerProvidedByContainer != null && LayerProvidedByContainer.Visible == false)
+			{
+				return false;
+			}
+			if(cursor.IsOn3D(EntireScene, LayerProvidedByContainer))
+			{
+				return true;
+			}
+			return false;
+		}
+		public virtual bool WasClickedThisFrame(Cursor cursor)
+		{
+			return cursor.PrimaryClick && HasCursorOver(cursor);
+		}
 		protected Layer LayerProvidedByContainer = null;
 
         public OptionsButton(string contentManagerName) :
@@ -81,11 +119,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			// Generated Initialize
 			LoadStaticContent(ContentManagerName);
-			EntireScene = SceneFile.Clone();
-			for (int i = 0; i < EntireScene.Texts.Count; i++)
-			{
-				EntireScene.Texts[i].AdjustPositionForPixelPerfectDrawing = true;
-			}
+			EntireScene = SceneFile.Sprites.FindByName("optionsbutton1").Clone();
 
 
 			PostInitialize();
@@ -111,6 +145,7 @@ namespace SurviveTheSerpent.Entities
 		public virtual void Activity()
 		{
 			// Generated Activity
+			mIsPaused = false;
 
 			CustomActivity();
 			
@@ -126,7 +161,7 @@ namespace SurviveTheSerpent.Entities
 			SpriteManager.RemovePositionedObject(this);
 			if(EntireScene != null)
 			{
-				EntireScene.RemoveFromManagers(ContentManagerName != "Global");
+				SpriteManager.RemoveSprite(EntireScene);
 			}
 
 
@@ -141,6 +176,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			X = 0f;
 			Y = 0f;
+			EntireSceneCurrentChainName = "default";
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -163,8 +199,11 @@ namespace SurviveTheSerpent.Entities
             RotationZ = 0;
 
 
-			EntireScene.AddToManagers(layerToAddTo);
-			EntireScene.AttachAllDetachedTo(this, true);
+			SpriteManager.AddToLayer(EntireScene, layerToAddTo);
+			if(EntireScene.Parent == null)
+			{
+				EntireScene.AttachTo(this, true);
+			}
 
             X = oldX;
             Y = oldY;
@@ -177,7 +216,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			this.ForceUpdateDependenciesDeep();
 			SpriteManager.ConvertToManuallyUpdated(this);
-			EntireScene.ConvertToManuallyUpdated();
+			SpriteManager.ConvertToManuallyUpdated(EntireScene);
 		}
 		public static void LoadStaticContent(string contentManagerName)
 		{

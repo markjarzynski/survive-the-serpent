@@ -25,16 +25,21 @@ namespace SurviveTheSerpent.Screens
 {
 	public partial class CreditScreen
 	{
+        private Cursor cursor;
 
 		void CustomInitialize()
 		{
 
-
+            cursor = GuiManager.Cursor;
 		}
 
 		void CustomActivity(bool firstTimeCalled)
 		{
-
+            if (cursor.PrimaryClick)//&& HasCursorOver(cursor))
+            {
+                this.MoveToScreen(typeof(SplashScreen).FullName);
+                //Game1.hiss.Play();
+            }
 
 		}
 

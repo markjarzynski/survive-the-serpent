@@ -172,6 +172,10 @@
     <Compile Include="Screens\InstructionScreen.Generated.cs">
       <DependentUpon>InstructionScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\InstructionScreen2.cs" />
+    <Compile Include="Screens\InstructionScreen2.Generated.cs">
+      <DependentUpon>InstructionScreen2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\LoseScreen.cs" />
     <Compile Include="Screens\LoseScreen.Generated.cs">
       <DependentUpon>LoseScreen.cs</DependentUpon>

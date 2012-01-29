@@ -272,6 +272,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>
+    <None Include="Entities\SnakeBody\wallstraight2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>wallstraight2</Name>
+    </None>
     <None Include="Entities\SnakeHead\head.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>head</Name>
@@ -409,6 +413,14 @@
       <Name>CollisionFile</Name>
     </None>
     <None Include="Screens\GameSplash\SceneFile.scnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SceneFile</Name>
+    </None>
+    <None Include="Screens\InstructionScreen2\directions_screen2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>directions_screen2</Name>
+    </None>
+    <None Include="Screens\InstructionScreen2\SceneFile.scnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>SceneFile</Name>
     </None>

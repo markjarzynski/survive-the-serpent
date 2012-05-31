@@ -23,6 +23,7 @@ using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
 namespace SurviveTheSerpent.Screens
 {
+    //TODO: Bug with player dying
 	public partial class GameSplash
 	{
         private Cursor cursor;
@@ -462,6 +463,8 @@ namespace SurviveTheSerpent.Screens
         {
 
             Entities.StoneSnakeHead newStoneSnakeHead = new Entities.StoneSnakeHead(ContentManagerName);
+            //newStoneSnakeHead.Body.ScaleY = (float).7;
+            newStoneSnakeHead.Body.RotationZ = SnakeHead.RotationZ;
             newStoneSnakeHead.RotationZ = SnakeHead.RotationZ;
             newStoneSnakeHead.X = SnakeHead.X;
             newStoneSnakeHead.Y = SnakeHead.Y;
@@ -476,6 +479,20 @@ namespace SurviveTheSerpent.Screens
                 newStoneSnakeBody.X = snakeBody.X;
                 newStoneSnakeBody.Y = snakeBody.Y;
                 newStoneSnakeBody.EntireSceneCurrentChainName = snakeBody.EntireSceneCurrentChainName;
+                newStoneSnakeBody.Body.RotationZ = newStoneSnakeBody.RotationZ;
+                if (newStoneSnakeBody.EntireSceneCurrentChainName == "Elbow")
+                {
+                    newStoneSnakeBody.Body.ScaleY = (float).6;
+                    newStoneSnakeBody.Body.ScaleX = (float).6;
+                }
+                else if ( newStoneSnakeBody.RotationZ % Math.PI/2 == 0 )
+                {
+                    newStoneSnakeBody.Body.ScaleY = (float).5;
+                } 
+                else
+                {
+                    newStoneSnakeBody.Body.ScaleX = (float).5;
+                }
 
                 StoneSnakeBodyList.Add(newStoneSnakeBody);
 

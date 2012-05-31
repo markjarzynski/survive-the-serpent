@@ -160,7 +160,7 @@ namespace SurviveTheSerpent.Entities
 			X = 0f;
 			Y = 0f;
 			EntireSceneCurrentChainName = "Elbow";
-			Body.Visible = false;
+			Body.Visible = true;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -184,7 +184,7 @@ namespace SurviveTheSerpent.Entities
 
 
 			ShapeManager.AddToLayer(mBody, layerToAddTo);
-			mBody.Visible = false;
+			mBody.Visible = true;
 			if(mBody.Parent == null)
 			{
 				mBody.AttachTo(this, true);

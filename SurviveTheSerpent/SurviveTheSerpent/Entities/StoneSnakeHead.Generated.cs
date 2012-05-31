@@ -154,6 +154,7 @@ namespace SurviveTheSerpent.Entities
 		{
 			X = 0f;
 			Y = 0f;
+			Body.Visible = true;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -179,6 +180,7 @@ namespace SurviveTheSerpent.Entities
 			EntireScene.AddToManagers(layerToAddTo);
 			EntireScene.AttachAllDetachedTo(this, true);
 			ShapeManager.AddToLayer(mBody, layerToAddTo);
+			mBody.Visible = true;
 			if(mBody.Parent == null)
 			{
 				mBody.AttachTo(this, true);

@@ -51,6 +51,8 @@ namespace SurviveTheSerpent.Entities
             this.velocity = PLAYER_SPEED;
             previousX = X;
             previousY = Y;
+            this.Body.ScaleX = (float).7;
+            this.Body.ScaleY = (float).7;
             this.Body.Visible = false;
 
 		}

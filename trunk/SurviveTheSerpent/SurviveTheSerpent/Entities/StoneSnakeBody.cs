@@ -28,7 +28,8 @@ namespace SurviveTheSerpent.Entities
 		private void CustomInitialize()
 		{
             EntireSceneCurrentChainName = "Elbow";
-            Body.Visible = false;
+            //this.Body.ScaleY = (float).7;
+            //Body.Visible = false;
 
 		}
 

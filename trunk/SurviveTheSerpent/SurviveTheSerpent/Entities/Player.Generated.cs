@@ -172,6 +172,7 @@ namespace SurviveTheSerpent.Entities
 			RotationY = 0f;
 			EntireSceneCurrentChainName = "side";
 			RotationZ = -1.5707f;
+			Body.Visible = true;
 		}
 		public virtual void AddToManagersBottomUp(Layer layerToAddTo)
 		{
@@ -200,6 +201,7 @@ namespace SurviveTheSerpent.Entities
 				EntireScene.AttachTo(this, true);
 			}
 			ShapeManager.AddToLayer(mBody, layerToAddTo);
+			mBody.Visible = true;
 			if(mBody.Parent == null)
 			{
 				mBody.AttachTo(this, true);
